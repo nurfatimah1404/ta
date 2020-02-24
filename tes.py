@@ -8,7 +8,7 @@ from influxdb import InfluxDBClient
 dbhost = "10.0.12.127"
 dbport = 8086
 dbuser = ""
-dbpassword = "12345"
+dbpassword = ""
 dbname = "mydb"
 #---------------------------------------------------
 # set mqtt configuration ===========================
