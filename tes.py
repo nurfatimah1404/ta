@@ -62,8 +62,7 @@ def on_message(client, userdata, msg):
     if isfloatValue:
         print(str(receiveTime) + ": " + msg.topic + " " +str(val))
 
-        json_body = 
-        [
+        json_body = [
             {
                 "measurement": msg.topic,
                 "time": str(receiveTime),
