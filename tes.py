@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import paho.mqtt.client as mqtt
 import requests
-import StringIO
 import time
 from datetime import datetime
 from influxDB import InfluxDBClient
