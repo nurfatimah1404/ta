@@ -84,13 +84,13 @@ client.on_message = on_message
 connOK=False
 
 while(connOK == False):
-try:
-    client.username_pw_set(mqtt_user, mqtt_password)
-    client.connect(mqtt_server, mqtt_port, 60)
-    connOK = True
+    try:
+        client.username_pw_set(mqtt_user, mqtt_password)
+        client.connect(mqtt_server, mqtt_port, 60)
+        connOK = True
 
-except:
-    connOK = False
-time.sleep(2)
+    except:
+        connOK = False
+    time.sleep(2)
 # Blocking loop to the Mosquitto broker
 client.loop_forever()
