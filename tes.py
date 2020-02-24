@@ -6,17 +6,17 @@ import time
 from datetime import datetime
 from influxDB import InfluxDBClient
 # set influxDB configuration -----------------------------
-    dbhost = "10.0.12.127"
-    dbport = 8086
-    dbuser = ""
-    dbpassword = ""
-    dbname = "mydb"
+dbhost = "10.0.12.127"
+dbport = 8086
+dbuser = ""
+dbpassword = ""
+dbname = "mydb"
 #---------------------------------------------------
 # set mqtt configuration ===========================
-    mqtt_server = "10.0.12.127"
-    mqtt_port = 1883
-    mqtt_user = ""
-    mqtt_password = ""
+mqtt_server = "10.0.12.127"
+mqtt_port = 1883
+mqtt_user = ""
+mqtt_password = ""
 # =================================================
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
@@ -44,7 +44,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("INA219/power_mW_B")
     client.subscribe("INA219/loadvoltage_B")
 #----------------------------------------------
-    def on_message(client, userdata, msg):
+def on_message(client, userdata, msg):
     print("Received a message on topic: " + msg.topic)
 # Use utc as timestamp
     now = datetime.now()
@@ -92,6 +92,6 @@ try:
 
 except:
     connOK = False
-time.sl eep(2)
+time.sleep(2)
 # Blocking loop to the Mosquitto broker
 client.loop_forever()
