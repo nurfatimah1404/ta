@@ -3,7 +3,7 @@ import paho.mqtt.client as mqtt
 import requests
 import time
 from datetime import datetime
-from influxDB import InfluxDBClient
+from influxdb import InfluxDBClient
 # set influxDB configuration -----------------------------
 dbhost = "10.0.12.127"
 dbport = 8086
