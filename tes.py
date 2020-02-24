@@ -73,7 +73,7 @@ def on_message(client, userdata, msg):
         ]
         dbclient.write_points(json_body)
         print("Finished writing to InfluxDB")
-        print (“==================================”)
+        print ("==================================")
         client.publish("demo")
 # Set up a client for InfluxDB
 dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
