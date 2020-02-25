@@ -55,7 +55,8 @@ def on_message(client, userdata, msg):
     print(type(m_in))
     print("value = ",m_in["val"])
     tes = m_in["val"]
-    print (tes)
+    tess = float(tes)
+    print tess
 # Use utc as timestamp
     now = datetime.now()
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -65,7 +66,7 @@ def on_message(client, userdata, msg):
                 "measurement": msg.topic,
                 "time": str(receiveTime),
                 "fields": {
-                    "value": tes
+                    "value": tess
                 } 
             }
         ]
