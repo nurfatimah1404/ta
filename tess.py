@@ -67,10 +67,10 @@ def on_message(client, userdata, msg):
                 } 
             }
         ]
-        dbclient.write_points(json_body)
-        print("Finished writing to InfluxDB")
-        print ("==================================")
-        client.publish("demo")
+    dbclient.write_points(json_body)
+    print("Finished writing to InfluxDB")
+    print ("==================================")
+    client.publish("demo")
 # Set up a client for InfluxDB
 dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 # Initialize the MQTT client that should connect to the Mosquitto broker
