@@ -58,7 +58,7 @@ def on_message(client, userdata, msg):
     now = datetime.now()
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
 #receiveTime=datetime.datetime.utcnow()
-        json_body = [
+    json_body = [
             {
                 "measurement": msg.topic,
                 "time": str(receiveTime),
