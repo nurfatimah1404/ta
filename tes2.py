@@ -48,4 +48,4 @@ def on_message(client, userdata, msg):
     message = str(msg.payload)
     if is_json(message): 
         jsonResponse=json.loads(message)
-        print jsonResponse
+        print (jsonResponse)
