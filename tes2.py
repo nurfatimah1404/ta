@@ -49,15 +49,16 @@ def on_connect(client, userdata, flags, rc):
     #if is_json(message): 
         #jsonResponse=json.loads(message)
         #print (jsonResponse)
-def on_message(client, userdata, message):
-    print("MESSAGE")
-    print("message received " ,str(message.payload.decode("utf-8")))
-    print("message topic=",message.topic)
-    print("message qos=",message.qos)
-    print("message retain flag=",message.retain)
-    received=message.payload.decode("utf-8","ignore")
-    received=json.loads(received) #JSON data to python object
-    
+def on_message(client, userdata, msg):
+    topic=msg.topic
+    m_decode=str(msg.payload.decode("utf-8","ignore"))
+    print("data Received type",type(m_decode))
+    print("data Received",m_decode)
+    print("Converting from Json to Object")
+    m_in=json.loads(m_decode) #decode json data
+    print(type(m_in))
+    print("broker 2 address = ",m_in["broker2"])
+
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
