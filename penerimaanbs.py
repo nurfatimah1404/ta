@@ -24,9 +24,8 @@ import sys
 import requests.exceptions
 
 class MessageStore(object):
-
-    def store_msg(self, node_name, measurement_name, value):
-        raise NotImplementedError()
+def store_msg(self, node_name, measurement_name, value):
+raise NotImplementedError()
 
 class InfluxStore(MessageStore):
 
