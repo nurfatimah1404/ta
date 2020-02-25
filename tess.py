@@ -53,7 +53,8 @@ def on_message(client, userdata, msg):
     print("Converting from Json to Object")
     m_in=json.loads(m_decode) #decode json data
     print(type(m_in))
-    print("broker 2 address = ",m_in["val"])
+    print("value = ",m_in["val"])
+    tes = m_in["val"]
 # Use utc as timestamp
     now = datetime.now()
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -63,7 +64,7 @@ def on_message(client, userdata, msg):
                 "measurement": msg.topic,
                 "time": str(receiveTime),
                 "fields": {
-                    "value": m_in["val"]
+                    "value": tes
                 } 
             }
         ]
