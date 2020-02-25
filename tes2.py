@@ -44,11 +44,20 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("INA219/power_mW_B")
     client.subscribe("INA219/loadvoltage_B")
 #----------------------------------------------
-def on_message(client, userdata, msg):
-    message = str(msg.payload)
-    if is_json(message): 
-        jsonResponse=json.loads(message)
-        print (jsonResponse)
+#def on_message(client, userdata, msg):
+    #message = str(msg.payload)
+    #if is_json(message): 
+        #jsonResponse=json.loads(message)
+        #print (jsonResponse)
+def on_message(client, userdata, message):
+    print("MESSAGE")
+    print("message received " ,str(message.payload.decode("utf-8")))
+    print("message topic=",message.topic)
+    print("message qos=",message.qos)
+    print("message retain flag=",message.retain)
+    received=message.payload.decode("utf-8","ignore")
+    received=json.loads(received) #JSON data to python object
+    
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
