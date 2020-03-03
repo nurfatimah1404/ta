@@ -85,6 +85,7 @@ def on_message(client, userdata, msg):
                     }
                 }
             ]
+
         if (msg.topic == "PM_2.5"):                   
             json_data = [
                 {
@@ -98,6 +99,7 @@ def on_message(client, userdata, msg):
                     }
                 }
             ]
+
         if (msg.topic == "NH"):                   
             json_data = [
                 {
@@ -111,6 +113,7 @@ def on_message(client, userdata, msg):
                     }
                 }
             ]
+
         if (msg.topic == "N02"):                   
             json_data = [
                 {
@@ -124,6 +127,7 @@ def on_message(client, userdata, msg):
                     }
                 }
             ]
+
         if (msg.topic == "CO2"):                   
             json_data = [
                 {
@@ -137,6 +141,7 @@ def on_message(client, userdata, msg):
                     }
                 }
             ]
+
         if (msg.topic == "CO"):                   
             json_data = [
                 {
@@ -150,6 +155,7 @@ def on_message(client, userdata, msg):
                     }                   
                 }
             ]
+            
         if (msg.topic == "Asap"):                   
             json_data = [
                 {
