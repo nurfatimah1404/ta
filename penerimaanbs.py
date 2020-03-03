@@ -27,7 +27,7 @@ mqtt_password = "123456"
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
 # set client subscriber ----------------------
-    client.subscribe("temperature)
+    client.subscribe("temperature")
     client.subscribe("humidity")
     client.subscribe("PM_2.5")
     client.subscribe("NH")  
