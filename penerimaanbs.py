@@ -78,7 +78,7 @@ def on_message(client, userdata, msg):
                     "measurement": msg.topic,
                     "time": str(receiveTime),
                     "tags": {
-                        "id": "123456"
+                        "id": "abc13456"
                     },
                     "fields": {
                         "humidity": val
