@@ -2,7 +2,7 @@
 #!/usr/bin/env python3
 import paho.mqtt.client as mqtt
 import requests
-import StringIO
+from io import StringIO
 import time
 import os
 from datetime import datetime
