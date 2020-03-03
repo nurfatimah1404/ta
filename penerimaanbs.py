@@ -62,8 +62,8 @@ def on_message(client, userdata, msg):
             json_data = [
                 {
                     "measurement": msg.topic,
+                    "time": str(receiveTime),
                     "tags": {
-                        "time": str(receiveTime),
                         "id": "123456"
                     },                    
                     "fields": {
