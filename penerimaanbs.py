@@ -63,11 +63,11 @@ def on_message(client, userdata, msg):
                 {
                     "measurement": msg.topic,
                     "time": str(receiveTime),
+                     "fields": {
+                        "temperature": val
+                    },
                     "tags": {
                         "id": "123456"
-                    },                    
-                    "fields": {
-                        "temperature": val
                     }
                 }
             ]
@@ -77,11 +77,11 @@ def on_message(client, userdata, msg):
                 {
                     "measurement": msg.topic,
                     "time": str(receiveTime),
-                    "tags": {
-                        "id": "123456"
-                    },                    
                     "fields": {
                         "humidity": val
+                    },
+                    "tags": {
+                        "id": "123456"
                     }
                 }
             ]
@@ -90,11 +90,11 @@ def on_message(client, userdata, msg):
                 {
                     "measurement": msg.topic,
                     "time": str(receiveTime),
-                    "tags": {
-                        "id": "123456"
-                    },                    
                     "fields": {
                         "PM_2.5": val
+                    },
+                    "tags": {
+                        "id": "123456"
                     }
                 }
             ]
@@ -103,11 +103,11 @@ def on_message(client, userdata, msg):
                 {
                     "measurement": msg.topic,
                     "time": str(receiveTime),
-                    "tags": {
-                        "id": "123456"
-                    },                    
                     "fields": {
                         "NH": val
+                    },
+                    "tags": {
+                        "id": "123456"
                     }
                 }
             ]
@@ -116,11 +116,11 @@ def on_message(client, userdata, msg):
                 {
                     "measurement": msg.topic,
                     "time": str(receiveTime),
-                    "tags": {
-                        "id": "123456"
-                    },                    
                     "fields": {
                         "NO2": val
+                    },
+                    "tags": {
+                        "id": "123456"
                     }
                 }
             ]
@@ -129,11 +129,11 @@ def on_message(client, userdata, msg):
                 {
                     "measurement": msg.topic,
                     "time": str(receiveTime),
-                    "tags": {
-                        "id": "123456"
-                    },                    
                     "fields": {
                         "CO2": val
+                    },
+                    "tags": {
+                        "id": "123456"
                     }
                 }
             ]
@@ -142,11 +142,11 @@ def on_message(client, userdata, msg):
                 {
                     "measurement": msg.topic,
                     "time": str(receiveTime),
-                    "tags": {
-                        "id": "123456"
-                    },                    
                     "fields": {
                         "CO": val
+                    },
+                    "tags": {
+                        "id": "123456"
                     }
                 }
             ]
@@ -155,11 +155,11 @@ def on_message(client, userdata, msg):
                 {
                     "measurement": msg.topic,
                     "time": str(receiveTime),
-                    "tags": {
-                        "id": "123456"
-                    },                    
                     "fields": {
                         "Asap": val
+                    },
+                    "tags": {
+                        "id": "123456"
                     }
                 }
             ]
