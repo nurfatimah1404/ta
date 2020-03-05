@@ -12,8 +12,10 @@ from time import sleep
 from random import randint
 
 # MQTT Setting
-MQTT_Broker = "192.168.1.10"
+MQTT_Broker = "10.0.12.127"
 MQTT_Port = 1883
+mqtt_user = "admin"
+mqtt_password = "123456"
 Keep_Alive_Interval = 45
 
 # Client object
