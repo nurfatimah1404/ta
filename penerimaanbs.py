@@ -48,6 +48,7 @@ def on_message(client, userdata, msg):
     #message=msg.payload.decode("utf-8")
     
     data = json.loads(msg.payload.decode("utf-8"))
+    print (data)
     x = data['id']
     y = data['sampleTopic'] 
     z = data['sampleData']
