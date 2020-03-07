@@ -44,18 +44,25 @@ def on_message(client, userdata, msg):
     # Use utc as timestamp
     now = datetime.now()
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
+    m_decode=str(msg.payload.decode("utf-8","ignore"))
+    print("data Received type",type(m_decode))
+    print("data Received",m_decode)
+    print("Converting from Json to Object")
+    m_in=json.loads(m_decode) #decode json data
+    print(type(m_in))
+    #print("broker 2 address = ",m_in["broker2"])
     #receiveTime=datetime.datetime.utcnow()
     #message=msg.payload.decode("utf-8")
     
-    data = json.loads(msg.payload.decode("utf-8"))
-    print (data)
-    x = data['id']
-    y = data['sampleTopic'] 
-    z = data['sampleData']
-    a = data['timestamp'] 
-    isfloatValue=False   
-    print (x)
-    print (y)
+    #data = json.loads(msg.payload.decode("utf-8"))
+    #print (data)
+    #x = data['id']
+    #y = data['sampleTopic'] 
+    #z = data['sampleData']
+    #a = data['timestamp'] 
+    #isfloatValue=False   
+    #print (x)
+    #print (y)
 
     try:
         # Convert the string to a float so that it is stored as a number and not a string in the database
