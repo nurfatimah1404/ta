@@ -47,7 +47,7 @@ def on_message(client, userdata, msg):
     #receiveTime=datetime.datetime.utcnow()
     #message=msg.payload.decode("utf-8")
     
-    data = json.loads(message.payload.decode("utf-8"))
+    data = json.loads(msg.payload.decode("utf-8"))
     x = data['id']
     y = data['sampleTopic'] 
     z = data['sampleData']
