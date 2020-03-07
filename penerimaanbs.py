@@ -50,6 +50,7 @@ def on_message(client, userdata, msg):
     print("Converting from Json to Object")
     m_in=json.loads(m_decode) #decode json data
     print(type(m_in))
+    print("id = ",m_in["id"])
     #print("broker 2 address = ",m_in["broker2"])
     #receiveTime=datetime.datetime.utcnow()
     #message=msg.payload.decode("utf-8")
