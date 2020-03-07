@@ -5,6 +5,7 @@ import requests
 from io import StringIO
 import time
 import os
+import json
 from datetime import datetime
 from influxdb import InfluxDBClient
 #====================================================
@@ -44,28 +45,23 @@ def on_message(client, userdata, msg):
     now = datetime.now()
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
     #receiveTime=datetime.datetime.utcnow()
-    message=msg.payload.decode("utf-8")
-    isfloatValue=False
-    id = (message)
-    print (id)
-
-def on_message_two(client, userdata, msg):
-    print("Received a message on topic: " + msg.topic)
-    # Use utc as timestamp
-    now = datetime.now()
-    receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
-    #receiveTime=datetime.datetime.utcnow()
-    message=msg.payload.decode("utf-8")
-    isfloatValue=False 
-    data = (message)   
+    #message=msg.payload.decode("utf-8")
+    
+    data = json.loads(message.payload.decode("utf-8"))
+    x = data['id']
+    y = data['sampleTopic'] 
+    z = data['sampleData']
+    a = data['timestamp'] 
+    isfloatValue=False   
+    print (x)
+    print (y)
 
     try:
         # Convert the string to a float so that it is stored as a number and not a string in the database
-        val = float(id)
-        val_two = float(data)
+        val = float(data)
         isfloatValue=True
     except:
-        print("Could not convert " + message + " to a float value")
+        print("Could not convert " + data + " to a float value")
         isfloatValue=False
 
     if isfloatValue:
@@ -77,10 +73,10 @@ def on_message_two(client, userdata, msg):
                     "measurement": msg.topic,
                     "time": str(receiveTime),
                     "tags": {
-                        "id": val
+                        "id": "abc123"
                     },
                     "fields": {
-                        "temperature": val_two
+                        "temperature": val
                     }
                 }
             ]
