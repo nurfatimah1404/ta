@@ -45,11 +45,23 @@ def on_message(client, userdata, msg):
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
     #receiveTime=datetime.datetime.utcnow()
     message=msg.payload.decode("utf-8")
-    isfloatValue=False    
+    isfloatValue=False
+    id = (message)
+
+def on_message_two(client, userdata, msg):
+    print("Received a message on topic: " + msg.topic)
+    # Use utc as timestamp
+    now = datetime.now()
+    receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
+    #receiveTime=datetime.datetime.utcnow()
+    message=msg.payload.decode("utf-8")
+    isfloatValue=False 
+    data = (message)   
 
     try:
         # Convert the string to a float so that it is stored as a number and not a string in the database
-        val = float(message)
+        val = float(id)
+        val_two = float(data)
         isfloatValue=True
     except:
         print("Could not convert " + message + " to a float value")
@@ -64,10 +76,10 @@ def on_message(client, userdata, msg):
                     "measurement": msg.topic,
                     "time": str(receiveTime),
                     "tags": {
-                        "id": "abc123"
+                        "id": val
                     },
                     "fields": {
-                        "temperature": val
+                        "temperature": val_two
                     }
                 }
             ]
