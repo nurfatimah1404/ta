@@ -47,6 +47,7 @@ def on_message(client, userdata, msg):
     message=msg.payload.decode("utf-8")
     isfloatValue=False
     id = (message)
+    print (id)
 
 def on_message_two(client, userdata, msg):
     print("Received a message on topic: " + msg.topic)
