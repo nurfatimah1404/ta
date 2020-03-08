@@ -48,6 +48,9 @@ def on_message(client, userdata, msg):
     print("data Received type",type(m_decode))
     print("data Received",m_decode)
     print("Converting from Json to Object")
+    print(id)
+    print(sampleTopic)
+    print(timestamp)
     m_in=json.loads(m_decode) #decode json data
     print(type(m_in))
     print("id = ",m_in["id"])
