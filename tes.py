@@ -57,9 +57,9 @@ def on_message(client, userdata, msg):
     print(sample)
     print(time)
     print("------------------")
-    print(str(receiveTime) + ": " + msg.topic + " " +str(val))
 
-    
+    val = "tes"
+    print(str(receiveTime) + ": " + msg.topic + " " +str(val))
     print(str(receiveTime) + ": " + msg.topic + " " +str(val))
 
     json_body = [
