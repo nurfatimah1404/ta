@@ -58,4 +58,4 @@ while 1:
     sleep(0.5)
     sampleTopic = topicList[randint(0, 2)]
     sampleData = str(randint(50, 100))
-    mqttc.publish(sampleTopic,"id=123456;"+ sampleTopic +"="+ sampleData +";timestamp=2019-11-15-06:04:22.123123")
+    mqttc.publish(sampleTopic,"123456;"+ sampleTopic +"="+ sampleData +";timestamp=2019-11-15-06:04:22.123123")
