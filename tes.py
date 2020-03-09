@@ -58,14 +58,10 @@ def on_message(client, userdata, msg):
     print(time)
     print("------------------")
 
-    val = "tes"
-    print(str(receiveTime) + ": " + msg.topic + " " +str(val))
-    print(str(receiveTime) + ": " + msg.topic + " " +str(val))
-
     json_body = [
         {
             "measurement": msg.topic,
-            "time": str(time),
+            "time": time,
             "fields": {
                 "id": id,
                 "temperature" : sample
@@ -75,9 +71,12 @@ def on_message(client, userdata, msg):
     dbclient.write_points(json_body)
     print("Finished writing to InfluxDB")
     print ("==================================")
-    client.publish("demo")
+    #client.publish("demo")
+#====================================================        
 # Set up a client for InfluxDB
 dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
+
+#====================================================
 # Initialize the MQTT client that should connect to the Mosquitto broker
 client = mqtt.Client()
 client.on_connect = on_connect
@@ -89,9 +88,9 @@ while(connOK == False):
         client.username_pw_set(mqtt_user, mqtt_password)
         client.connect(mqtt_server, mqtt_port, 60)
         connOK = True
-
     except:
         connOK = False
     time.sleep(2)
+#====================================================
 # Blocking loop to the Mosquitto broker
 client.loop_forever()
