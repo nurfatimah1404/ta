@@ -58,24 +58,22 @@ def on_message(client, userdata, msg):
     print(time)
     print("------------------")
 
-    isfloatValue = True
-    if isfloatValue:
-        print(str(receiveTime) + ": " + msg.topic + " " +str(val))
+    print(str(receiveTime) + ": " + msg.topic + " " +str(val))
 
-        json_body = [
-            {
-                "measurement": msg.topic,
-                "time": str(time),
-                "fields": {
-                    "id": id,
-                    "temperature" : sample
-                } 
-            }
-        ]
-        dbclient.write_points(json_body)
-        print("Finished writing to InfluxDB")
-        print ("==================================")
-        client.publish("demo")
+    json_body = [
+        {
+            "measurement": msg.topic,
+            "time": str(time),
+            "fields": {
+                "id": id,
+                "temperature" : sample
+            } 
+        }
+    ]
+    dbclient.write_points(json_body)
+    print("Finished writing to InfluxDB")
+    print ("==================================")
+    client.publish("demo")
 # Set up a client for InfluxDB
 dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 # Initialize the MQTT client that should connect to the Mosquitto broker
