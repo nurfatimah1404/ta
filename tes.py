@@ -51,6 +51,8 @@ def on_message(client, userdata, msg):
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
 #receiveTime=datetime.datetime.utcnow()
     message=msg.payload.decode("utf-8")
+    print (message)
+
     isfloatValue=False
     try:
         # Convert the string to a float so that it is stored as a number and not a string in the database
