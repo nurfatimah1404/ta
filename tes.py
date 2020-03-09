@@ -52,9 +52,11 @@ def on_message(client, userdata, msg):
 #receiveTime=datetime.datetime.utcnow()
     message=msg.payload.decode("utf-8")
     id, sample, time = message.split(";")
+    print("------------------")
     print(id)
     print(sample)
     print(time)
+    print("------------------")
 
     isfloatValue=False
     try:
