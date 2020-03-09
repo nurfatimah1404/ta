@@ -53,7 +53,7 @@ def on_message(client, userdata, msg):
     message=msg.payload.decode("utf-8")
     id, sample, time = message.split(";")
     print("------------------")
-    print("Receive Time : ".receiveTime)
+    print("Receive Time : "+receiveTime)
     print(id)
     print(sample)
     print(time)
