@@ -51,8 +51,10 @@ def on_message(client, userdata, msg):
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
 #receiveTime=datetime.datetime.utcnow()
     message=msg.payload.decode("utf-8")
-    print (message)
-    print (message("id= ", (id)))
+    id, sample, time = message.split(";")
+    print(id)
+    print(sample)
+    print(time)
 
     isfloatValue=False
     try:
