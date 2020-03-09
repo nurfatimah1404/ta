@@ -7,26 +7,27 @@ from influxdb import InfluxDBClient
 # set influxDB configuration -----------------------------
 dbhost = "10.0.12.127"
 dbport = 8086
-dbuser = ""
-dbpassword = ""
+dbuser = "admin"
+dbpassword = "123456"
 dbname = "mydb"
 #---------------------------------------------------
 # set mqtt configuration ===========================
 mqtt_server = "10.0.12.127"
 mqtt_port = 1883
-mqtt_user = ""
-mqtt_password = ""
+mqtt_user = "admin"
+mqtt_password = "123456"
 # =================================================
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
 # set client subscriber ----------------------
-    client.subscribe("bme/humidity")
-    client.subscribe("bme/temperature_F")
-    client.subscribe("bme/temperature_C")
-    client.subscribe("bme/pressure")
-    client.subscribe("rainsensor/rainfall")
-    client.subscribe("Wind/wind_direction")
-    client.subscribe("Wind/wind_speed")
+    client.subscribe("temperature")
+    client.subscribe("humidity")
+    client.subscribe("PM_2.5")
+    client.subscribe("NH")  
+    client.subscribe("NO2")  
+    client.subscribe("CO2")
+    client.subscribe("CO")
+    client.subscribe("Asap")
 # panel surya---------------------------------
     client.subscribe("Cap/Bateray")
     client.subscribe("RELAY/Relay")
