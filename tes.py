@@ -53,25 +53,29 @@ def on_message(client, userdata, msg):
     message=msg.payload.decode("utf-8")
     id, sample, time = message.split(";")
     print("------------------")
+    print("Receive Time : ".receiveTime)
     print(id)
     print(sample)
     print(time)
     print("------------------")
 
-    json_body = [
-        {
-            "measurement": msg.topic,
-            "time": time,
-            "fields": {
-                "id": id,
-                "temperature" : sample
-            } 
-        }
-    ]
-    dbclient.write_points(json_body)
-    print("Finished writing to InfluxDB")
-    print ("==================================")
-    #client.publish("demo")
+    if(id is None or sample is None or time=="2019-12-15-06:04:22.123123"):
+        print("Failed writing to InfluxDB")
+    else:
+        json_body = [
+            {
+                "measurement": msg.topic,
+                "time": time,
+                "fields": {
+                    "id": id,
+                    "temperature" : sample
+                } 
+            }
+        ]
+        dbclient.write_points(json_body)
+        print("Finished writing to InfluxDB")
+        print ("==================================")
+        #client.publish("demo")
 #====================================================        
 # Set up a client for InfluxDB
 dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
