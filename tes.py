@@ -72,9 +72,10 @@ def on_message(client, userdata, msg):
         json_body = [
             {
                 "measurement": msg.topic,
-                "time": str(receiveTime),
+                "time": str(time),
                 "fields": {
-                    "value": val
+                    "id": id,
+                    "temperature" : sample
                 } 
             }
         ]
