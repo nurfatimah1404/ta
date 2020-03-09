@@ -52,6 +52,7 @@ def on_message(client, userdata, msg):
 #receiveTime=datetime.datetime.utcnow()
     message=msg.payload.decode("utf-8")
     print (message)
+    print (message['id'])
 
     isfloatValue=False
     try:
