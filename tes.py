@@ -59,7 +59,7 @@ def on_message(client, userdata, msg):
     print(time)
     print("------------------")
 
-    if(id is None or sample is None or time=="2019-12-15-06:04:22.123123"):
+    if(id is None or sample is None or time is None):
         print("Failed writing to InfluxDB")
     else:
         json_body = [
