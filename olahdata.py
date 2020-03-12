@@ -1,6 +1,4 @@
-from influxdb import DataFrameClient
-
-client = DataFrameClient(host='10.0.12.127', port=8086, username='admin', password='123456', database='NOAA_water_database')
-data = select * from h2o_feet where time > now() - 1h
-print (data)
-#select * from h2o_feet where time > now() - 1h
+import influxdb
+dfclient = influxdb.DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_dataabase')
+q = "select * from h2o_feet"
+df = dfclient.query(q, chunked=True)  # Returns only 10k points
