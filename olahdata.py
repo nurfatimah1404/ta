@@ -1,4 +1,4 @@
-import influxdb
+from influxdb import InfluxDBClient
 import pandas as pd   
 dfclient = influxdb.DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_dataabase')
 q = "select * from h2o_feet"
