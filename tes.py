@@ -21,6 +21,7 @@ def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
 # set client subscriber ----------------------
     client.subscribe("temperature")
+    client.subscribe("pressure")
     client.subscribe("humidity")
     client.subscribe("PM_2.5")
     client.subscribe("NH")  
