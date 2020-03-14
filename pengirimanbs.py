@@ -47,7 +47,7 @@ mqttc.on_connect = on_connect
 mqttc.connect(MQTT_Broker, int(MQTT_Port), int(Keep_Alive_Interval))
 
 # Publish (Topic, Data)
-topicList = ["temperature", "pressure", "hummidity"]
+topicList = ["temperature", "pressure", "humidity"]
 
 # Published data should be from data log
 # data sample id=123456;temp=10;timestamp=2019-11-15-06:04:22.123123
