@@ -69,7 +69,7 @@ def on_message(client, userdata, msg):
                 "time": str(time),
                 "fields": {
                     "id": id,
-                    "temperature" : float(sample)
+                    "value" : float(sample)
                 } 
             }
         ]
