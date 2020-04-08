@@ -8,6 +8,7 @@ q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 8"
 #SELECT MEAN("water_level") FROM "h2o_feet" GROUP BY "location"
 df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 print (df)
+print (df(time))
 json_body = [
             {
                 "measurement": "olah_h2o",
