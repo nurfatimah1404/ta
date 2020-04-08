@@ -10,6 +10,7 @@ df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 print (df)
 time = df.iloc[:,1]
 mean = df.iloc[:,0]
+print (q)
 #print(df.loc[[159220]])
 json_body = [
             {
