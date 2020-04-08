@@ -1,5 +1,7 @@
 import pandas as pd
 #import influxdb
+import time
+from datetime import datetime
 from influxdb import InfluxDBClient
 #client = InfluxDBClient('localhost', 8086, 'root', 'root', 'example')
 dbhost = "10.0.12.127"
