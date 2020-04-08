@@ -16,11 +16,13 @@ df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 print (df)
 time = df.iloc[:,1]
 mean = df.iloc[:,0]
+receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
+print (receiveTime)
 #print(df.loc[[159220]])
 json_body = [
             {
                 "measurement": "olah_h2o",
-                "time": time,
+                "time": receiveTime,
                 "fields": {
                     "value" : mean
                 } 
