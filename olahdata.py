@@ -16,7 +16,7 @@ json_body = [
                 "measurement": "olah_h2o",
                 "time": str(time),
                 "fields": {
-                    "value" : float(mean)
+                    "value" : mean
                 } 
             }
         ]
