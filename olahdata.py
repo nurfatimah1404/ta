@@ -17,6 +17,6 @@ json_body = [
                 } 
             }
         ]
-        dbclient.write_points(json_body)
-        print("Finished writing to InfluxDB")
-        print ("==================================")
+dbclient.write_points(json_body)
+print("Finished writing to InfluxDB")
+print (json_body)
