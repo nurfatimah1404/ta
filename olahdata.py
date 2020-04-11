@@ -19,8 +19,9 @@ df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 print (df)
 #time = df.iloc[:,1]
 #mean = df.iloc[:,0]
-timeValues  = df[ ['mean'] ]
-timeValues.index  = df[ ['time'] ]
+timeValues = df[ ['mean'] ]
+timeValues.index = df[ ['time'] ]
+tags = { 'time': df[['time']], 'mean': df[['mean']] }
 #dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 dbclient.write_points(dbname, tbname, timeValues, tags = tags)
 #client.write_points(result, tags={'mean': pd[['mean']]}, database='NOAA_water_database', measurement='olahh2o')
