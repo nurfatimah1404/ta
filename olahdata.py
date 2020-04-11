@@ -30,4 +30,4 @@ timeValues.index = df[ ['mean'] ]
 #print (timeValues)
 tags = { 'mean': df[['mean']] }
 dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
-dbclient.write_points(dbname, measurement, timeValues, fields = tags)
+dbclient.write_points(dbname, measurement, timeValues, tags = tags)
