@@ -21,7 +21,7 @@ print (df)
 #mean = df.iloc[:,0]
 timeValues  = df[ ['mean'] ]
 timeValues.index  = df[ ['time'] ]
-dbConnDF = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
-dbConnDF.write_points(dbname, tbname, timeValues, tags = tags)
+#dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
+dbclient.write_points(dbname, tbname, timeValues, tags = tags)
 #client.write_points(result, tags={'mean': pd[['mean']]}, database='NOAA_water_database', measurement='olahh2o')
 #print(df.loc[[159220]])
