@@ -4,7 +4,6 @@ import time
 from datetime import datetime
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
-from influxdb import DataFrameClient
 #def main(host='localhost', port=8086):
 #"""Instantiate the connection to the InfluxDB client."""
 user = 'root'
@@ -30,4 +29,5 @@ timeValues.index = df[ ['mean'] ]
 #print (timeValues)
 tags = { 'mean': df[['mean']] }
 dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
-dbclient.write_points(dbname, measurement, timeValues, tags = tags)
+dbclient.write_points(dbname, measurement, timeValues)
+print("Finished writing to InfluxDB")
