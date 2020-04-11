@@ -4,6 +4,8 @@ import time
 from datetime import datetime
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
+import os
+import sys
 #def main(host='localhost', port=8086):
 #"""Instantiate the connection to the InfluxDB client."""
 user = 'root'
