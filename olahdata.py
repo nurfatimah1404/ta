@@ -15,7 +15,7 @@ dbuser = "admin"
 dbpassword = "123456"
 dbname = "mydb"
 protocol = 'line'
-tbname = "tes"
+measurement = "tes"
     
 client = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
 #client = InfluxDBClient(host='mydomain.com', port=8086, username='myuser', password='mypass' ssl=True, verify_ssl=True)
@@ -30,4 +30,4 @@ timeValues.index = df[ ['mean'] ]
 #print (timeValues)
 tags = { 'mean': df[['mean']] }
 dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
-dbclient.write_points(dbname, tbname, timeValues, tags = tags)
+dbclient.write_points(dbname, measurement, timeValues, fields = tags)
