@@ -18,19 +18,6 @@ df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 print (df)
 time = df.iloc[:,1]
 mean = df.iloc[:,0]
-now = datetime.now()
-receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
-print (receiveTime)
+client.write_points(result, tags={'mean': pd[['mean']]}
+                    database='mydb', measurement='raw')
 #print(df.loc[[159220]])
-json_body = [
-            {
-                "measurement": "olah_h2o",
-                "time": receiveTime,
-                "fields": {
-                    "value" : mean
-                } 
-            }
-        ]
-dbclient.write_points(json_body)
-print("Finished writing to InfluxDB")
-print (json_body)
