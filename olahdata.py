@@ -34,5 +34,5 @@ print (df)
 #tags = { 'mean': df[['mean']] }
 dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 #dbclient.write_points(dbname, measurement, timeValues)
-dbclient.write_points(result, tags={"value": pd[['mean']]}, measurement='raw')
+dbclient.write_points(result, tags={"value": df[['mean']]}, measurement='raw')
 print("Finished writing to InfluxDB")
