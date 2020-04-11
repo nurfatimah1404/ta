@@ -21,13 +21,16 @@ client = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_data
 q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 8"
 #SELECT MEAN("water_level") FROM "h2o_feet" GROUP BY "location"
 df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
+result = pd.DataFrame(client.query(q, chunked=False).raw)
+print (result)
 print (df)
 #time = df.iloc[:,1]
 #mean = df.iloc[:,0]
-timeValues = df[ ['time'] ]
-timeValues.index = df[ ['mean'] ]
+#timeValues = df[ ['time'] ]
+#timeValues.index = df[ ['mean'] ]
 #print (timeValues)
-tags = { 'mean': df[['mean']] }
-dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
-dbclient.write_points(dbname, measurement, str(timeValues))
+#tags = { 'mean': df[['mean']] }
+#dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
+#dbclient.write_points(dbname, measurement, timeValues)
+client.write_points(result, tags={'value': pd[['mean']]} database='mydb', measurement='raw')
 print("Finished writing to InfluxDB")
