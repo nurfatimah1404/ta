@@ -6,7 +6,7 @@ from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
 from influxdb import DataFrameClient
 def main(host='localhost', port=8086):
-"""Instantiate the connection to the InfluxDB client."""
+#"""Instantiate the connection to the InfluxDB client."""
     user = 'root'
     password = 'root'
     dbhost = "10.0.12.127"
