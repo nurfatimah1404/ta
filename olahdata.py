@@ -19,8 +19,8 @@ df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 print (df)
 #time = df.iloc[:,1]
 #mean = df.iloc[:,0]
-timeValues  = df[ ['col1'] ]
-timeValues.index  = df[ ['col0'] ]
+timeValues  = df[ ['mean'] ]
+timeValues.index  = df[ ['time'] ]
 dbConnDF = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
 dbConnDF.write_points(dbname, tbname, timeValues, tags = tags)
 #client.write_points(result, tags={'mean': pd[['mean']]}, database='NOAA_water_database', measurement='olahh2o')
