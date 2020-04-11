@@ -2,8 +2,10 @@ import pandas as pd
 #import influxdb
 import time
 from datetime import datetime
+from datetime import datetime
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
+import requests
 #def main(host='localhost', port=8086):
 #"""Instantiate the connection to the InfluxDB client."""
 user = 'root'
@@ -33,5 +35,5 @@ print (df)
 #dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
 #dbclient.write_points(dbname, measurement, timeValues)
 #client.write_points(result, tags={'price': pd[['price']]} database='example', measurement='raw')
-client.write_points(df,'test', time_precision='s')
+client.write_points(df,'test')
 print("Finished writing to InfluxDB")
