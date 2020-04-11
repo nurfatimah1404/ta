@@ -18,6 +18,5 @@ df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 print (df)
 time = df.iloc[:,1]
 mean = df.iloc[:,0]
-client.write_points(result, tags={'mean': pd[['mean']]}
-                    database='NOAA_water_database', measurement='olahh2o')
+client.write_points(result, tags={'mean': pd[['mean']]}, database='NOAA_water_database', measurement='olahh2o')
 #print(df.loc[[159220]])
