@@ -19,5 +19,5 @@ print (df)
 time = df.iloc[:,1]
 mean = df.iloc[:,0]
 client.write_points(result, tags={'mean': pd[['mean']]}
-                    database='mydb', measurement='raw')
+                    database='NOAA_water_database', measurement='olahh2o')
 #print(df.loc[[159220]])
