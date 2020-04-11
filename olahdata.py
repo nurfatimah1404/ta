@@ -21,7 +21,7 @@ print (df)
 #mean = df.iloc[:,0]
 timeValues = df[ ['mean'] ]
 timeValues.index = df[ ['mean'] ]
-print (timeValues)
+#print (timeValues)
 tags = { 'time': df[['time']], 'mean': df[['mean']] }
 #dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 dbclient.write_points(dbname, tbname, str(timeValues), tags = tags)
