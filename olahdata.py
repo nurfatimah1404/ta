@@ -20,10 +20,11 @@ print (df)
 #time = df.iloc[:,1]
 #mean = df.iloc[:,0]
 timeValues = df[ ['mean'] ]
-timeValues.index = df[ ['time'] ]
+timeValues.index = df[ ['mean'] ]
+print (timeValues)
 tags = { 'time': df[['time']], 'mean': df[['mean']] }
 #dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 dbclient.write_points(dbname, tbname, str(timeValues), tags = tags)
-print (timeValues)
+
 #client.write_points(result, tags={'mean': pd[['mean']]}, database='NOAA_water_database', measurement='olahh2o')
 #print(df.loc[[159220]])
