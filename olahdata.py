@@ -6,6 +6,7 @@ from datetime import datetime
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
 import requests
+import json
 #def main(host='localhost', port=8086):
 #"""Instantiate the connection to the InfluxDB client."""
 user = 'root'
@@ -26,6 +27,8 @@ df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 result = pd.DataFrame(client.query(q, chunked=False).raw)
 print (result)
 print (df)
+d = df.to_json(orient='records')
+print (d)
 #time = df.iloc[:,1]
 #mean = df.iloc[:,0]
 #timeValues = df[ ['time'] ]
@@ -35,5 +38,5 @@ print (df)
 #dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
 #dbclient.write_points(dbname, measurement, timeValues)
 #client.write_points(result, tags={'price': pd[['price']]} database='example', measurement='raw')
-client.write_points(df,'test', time_precision=None, protocol='json')
+#client.write_points(df,'test', time_precision=None, protocol='json')
 print("Finished writing to InfluxDB")
