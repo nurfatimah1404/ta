@@ -28,8 +28,9 @@ result = pd.DataFrame(client.query(q, chunked=False).raw)
 print (result)
 print (df)
 d = df.to_json(orient='records')
-hasil = d.replace(TZ, '')
 print (d)
+hasil = d.replace(TZ, '')
+
 #time = df.iloc[:,1]
 #mean = df.iloc[:,0]
 #timeValues = df[ ['time'] ]
