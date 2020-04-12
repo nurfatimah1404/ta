@@ -23,7 +23,7 @@ client = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_data
 #client = InfluxDBClient(host='mydomain.com', port=8086, username='myuser', password='mypass' ssl=True, verify_ssl=True)
 q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1"
 #SELECT MEAN("water_level") FROM "h2o_feet" GROUP BY "location"
-result = client.q(q)
+result = client.query(q)
 for point in result.get_points():
     print (point)
 client.write_points(point,'tes')
