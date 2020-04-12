@@ -19,7 +19,7 @@ dbname = "mydb"
 protocol = 'line'
 measurement = "tes"
     
-client = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database', time_precision=None)
+client = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
 #client = InfluxDBClient(host='mydomain.com', port=8086, username='myuser', password='mypass' ssl=True, verify_ssl=True)
 q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 8"
 #SELECT MEAN("water_level") FROM "h2o_feet" GROUP BY "location"
@@ -38,5 +38,5 @@ print (d)
 #dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
 #dbclient.write_points(dbname, measurement, timeValues)
 #client.write_points(result, tags={'price': pd[['price']]} database='example', measurement='raw')
-client.write_points(d,'test')
+client.write_points(d,'test', time_precision=None)
 print("Finished writing to InfluxDB")
