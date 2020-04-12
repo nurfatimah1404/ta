@@ -26,9 +26,9 @@ q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1"
 result = client.query(q)
 for point in result.get_points():
     print (point)
-client.write_points(point,'tes')
+#client.write_points(point,'tes')
 
-df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
+df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000, time_precision=None).get_points())
 result = pd.DataFrame(client.query(q, chunked=False).raw)
 print (result)
 print (df)
