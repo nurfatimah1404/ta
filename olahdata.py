@@ -29,14 +29,14 @@ for point in result.get_points():
 #client.write_points(point,'tes')
 
 df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
-df["time"] = pd.to_datetime(df["time"], format=strftime("%Y-%m-%dT%H:%M:%S")
+df["time"] = pd.to_datetime(df["time"], format=strftime("%Y-%m-%dT%H:%M:%S"))
 #result = pd.DataFrame(client.query(q, chunked=False).raw)
 #print (result)
-#print(df)
+print (df)
 #tes = df['time'].dt.tz_localize(None)
-#has = df['time'].str.strip(' T Z')
+has = df['time'].str.strip(' T Z')
 #print (tes)
-tes = df.to_json(orient='records')
+tes = has.to_json(orient='records')
 print (tes)
 #hasil = d.replace(TZ, '')
 
