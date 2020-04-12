@@ -29,7 +29,7 @@ for point in result.get_points():
 #client.write_points(point,'tes')
 
 df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
-df["time"] = pd.to_datetime(df["time"], format="%Y-%m-%dT%H:%M:%S.%z")
+df["time"] = pd.to_datetime(df["time"], format="%Y-%m-%dT%H:%M:%S")
 #result = pd.DataFrame(client.query(q, chunked=False).raw)
 #print (result)
 print (df)
