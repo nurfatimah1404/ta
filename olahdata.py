@@ -29,7 +29,7 @@ print (result)
 print (df)
 d = df.to_json(orient='records')
 print (d)
-hasil = d.replace(TZ, '')
+#hasil = d.replace(TZ, '')
 
 #time = df.iloc[:,1]
 #mean = df.iloc[:,0]
@@ -40,5 +40,5 @@ hasil = d.replace(TZ, '')
 #dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
 #dbclient.write_points(dbname, measurement, timeValues)
 #client.write_points(result, tags={'price': pd[['price']]} database='example', measurement='raw')
-client.write_points(hasil,'test')
+client.write_points(d,'test', time_precision='ms')
 print("Finished writing to InfluxDB")
