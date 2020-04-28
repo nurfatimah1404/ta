@@ -25,8 +25,8 @@ q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1"
 #SELECT MEAN("water_level") FROM "h2o_feet" GROUP BY "location"
 result = client.query(q)
 for point in result.get_points():
-    point.to_json(orient='records')
-    print (point)
+#point.to_json(orient='records')
+    print json.load(point)
 #client.write_points(point,'tes')
 
 df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
