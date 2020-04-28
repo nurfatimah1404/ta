@@ -38,18 +38,3 @@ print (df)
 #tes = df['time'].dt.tz_localize(None)
 #has = df['time'].str.strip(' T Z')
 #print (tes)
-tes = df.to_json(orient='records')
-print (tes)
-#hasil = d.replace(TZ, '')
-
-#time = df.iloc[:,1]
-#mean = df.iloc[:,0]
-#timeValues = df[ ['time'] ]
-#timeValues.index = df[ ['mean'] ]
-#print (timeValues)
-#tags = { 'mean': df[['mean']] }
-#dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
-#dbclient.write_points(dbname, measurement, timeValues)
-#client.write_points(result, tags={'price': pd[['price']]} database='example', measurement='raw')
-client.write_points(tes,'olah',time_precision=None, protocol='json')
-print("Finished writing to InfluxDB")
