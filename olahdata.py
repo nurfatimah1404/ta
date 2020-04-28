@@ -29,7 +29,8 @@ for point in result.get_points():
 #client.write_points(point,'tes')
 
 df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
-df["time"] = pd.to_datetime(df["time"], format="%Y-%m-%dT%H:%M:%SZ")
+#df["time"] = pd.to_datetime(df["time"], format="%Y-%m-%dT%H:%M:%SZ")
+
 #df["time"].replace("T", " ").replace("Z", "")
 #result = pd.DataFrame(client.query(q, chunked=False).raw)
 #print (result)
@@ -40,3 +41,15 @@ print (df)
 tes = df.to_json(orient='records')
 print (tes)
 #hasil = d.replace(TZ, '')
+
+#time = df.iloc[:,1]
+#mean = df.iloc[:,0]
+#timeValues = df[ ['time'] ]
+#timeValues.index = df[ ['mean'] ]
+#print (timeValues)
+#tags = { 'mean': df[['mean']] }
+#dbclient = DataFrameClient(dbhost, dbport, dbuser, dbpassword, dbname)
+#dbclient.write_points(dbname, measurement, timeValues)
+#client.write_points(result, tags={'price': pd[['price']]} database='example', measurement='raw')
+client.write_points(tes,'olah',time_precision='s')
+print("Finished writing to InfluxDB")
