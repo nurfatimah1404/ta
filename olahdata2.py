@@ -11,7 +11,7 @@ list_current_data = list(current_data.get_points())
 for data_point in current_data.get_points():
     data_to_write = [
                         {
-                        "measurement" : "olah",
+                        "measurement" : "olahdata",
                         "time" : data_point['time'],
                         "fields":  {
                             "value": data_point['mean']
