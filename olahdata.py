@@ -29,7 +29,7 @@ data_to_write = [
                         {
                         "measurement" : "olahdat",
                         "fields":  {
-                            "value": tes['mean']
+                            "value": int(tes['mean'])
                         }
                     }]
 client.write_points(data_to_write)
