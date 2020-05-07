@@ -27,7 +27,7 @@ print (df)
 data_to_write = [
                         {
                         "measurement" : "olahdat",
-                        "time" : df[['time']],
+                        "time" : df.iloc[:,1],
                         "fields":  {
                             "value": df['mean']
                         }
