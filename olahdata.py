@@ -28,9 +28,8 @@ print (tes)
 data_to_write = [
                         {
                         "measurement" : "olahdat",
-                        "time" : tes['time'],
                         "fields":  {
-                            "value": df['mean']
+                            "value": tes['mean']
                         }
                     }]
 client.write_points(data_to_write)
