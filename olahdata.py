@@ -18,7 +18,7 @@ print (df)
 tes = df.to_json(orient='records')
 #tes = df['time'].dt.tz_localize(None)
 #tes = df.to_json(orient='records')
-#print (tes)
+print (tes)
 #time = df.iloc[:,1]
 #mean = df.iloc[:,0]
 #timeValues = df[ ['time'] ]
