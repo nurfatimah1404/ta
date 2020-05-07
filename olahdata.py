@@ -20,5 +20,5 @@ print (df)
 timeValues  = df[ ['mean'] ]
 timeValues.index  = df[ ['time'] ]
 dbConnDF = DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
-dbConnDF.write_points('NOAA_water_database', 'olahdat', timeValues, tags = tags)
+dbConnDF.write_points('NOAA_water_database', 'olahdat', timeValues)
 print("Finished writing to InfluxDB")
