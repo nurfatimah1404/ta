@@ -15,22 +15,10 @@ q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1"
 df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 #df["time"] = pd.to_datetime(df["time"], format="%Y-%m-%dT%H:%M:%SZ")
 print (df)
-tes = df.to_json(orient='records')
-#tes = df['time'].dt.tz_localize(None)
 #tes = df.to_json(orient='records')
-print (tes)
-#time = df.iloc[:,1]
-#mean = df.iloc[:,0]
-#timeValues = df[ ['time'] ]
-#timeValues.index = df[ ['mean'] ]
-#print (timeValues)
-#tags = { 'mean': df[['mean']] }
-data_to_write = [
-                        {
-                        "measurement" : "olahdat",
-                        "fields":  {
-                            "value": int(tes['mean'])
-                        }
-                    }]
-client.write_points(data_to_write)
+#print (tes)
+timeValues  = df[ ['mean'] ]
+timeValues.index  = df[ ['time'] ]
+dbConnDF = DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
+dbConnDF.write_points('NOAA_water_database', 'olahdat', timeValues, tags = tags)
 print("Finished writing to InfluxDB")
