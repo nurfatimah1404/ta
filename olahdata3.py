@@ -9,7 +9,7 @@ import requests
 import json
 def read_db(db_name, measurement, period):
     # read  from database and fill data into pandas dataframe
-    client = DataFrameClient('localhost',8086,'NOAA_water_database')
+    client = DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
     result = client.query('SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1', chunked=True)
     print (result)
     column = next(iter(result))
