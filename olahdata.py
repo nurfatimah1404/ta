@@ -15,6 +15,7 @@ q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1"
 df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 #df["time"] = pd.to_datetime(df["time"], format="%Y-%m-%dT%H:%M:%SZ")
 print (df)
+tes = df.to_json(orient='records')
 #tes = df['time'].dt.tz_localize(None)
 #tes = df.to_json(orient='records')
 #print (tes)
@@ -27,7 +28,7 @@ print (df)
 data_to_write = [
                         {
                         "measurement" : "olahdat",
-                        "time" : df.iloc[:,1],
+                        "time" : tes['time'],
                         "fields":  {
                             "value": df['mean']
                         }
