@@ -7,10 +7,10 @@ from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
 import requests
 import json
-def read_db(db_name, measurement, period):
+def read_db(NOAA_water_database,h2o_feet):
     # read  from database and fill data into pandas dataframe
-    client = DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
-    result = client.query('SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1', chunked=True)
+    client = DataFrameClient(host = '10.0.12.127', port= 8086, user= 'admin', password = '123456', database= 'NOAA_water_database')
+    result = client.query('SELECT MEAN(water_level) FROM + h2o_feet + GROUP BY time(1h) LIMIT 1', chunked=True)
     print (result)
     column = next(iter(result))
     data   = result[column]
