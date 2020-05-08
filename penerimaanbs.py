@@ -51,23 +51,6 @@ def on_message(client, userdata, msg):
     m_in=json.loads(m_decode) #decode json data
     print(type(m_in))
     print("id = ",m_in['id'])
-    print(m_decode["id"])
-    print(m_decode['id'])
-    #o = json.loads(n)
-    print(m_in['id'], m_in['timestamp'])
-    #print("broker 2 address = ",m_in["broker2"])
-    #receiveTime=datetime.datetime.utcnow()
-    #message=msg.payload.decode("utf-8")
-    
-    #data = json.loads(msg.payload.decode("utf-8"))
-    #print (data)
-    #x = data['id']
-    #y = data['sampleTopic'] 
-    #z = data['sampleData']
-    #a = data['timestamp'] 
-    #isfloatValue=False   
-    #print (x)
-    #print (y)
 
     try:
         # Convert the string to a float so that it is stored as a number and not a string in the database
