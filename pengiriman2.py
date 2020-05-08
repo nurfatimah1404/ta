@@ -58,7 +58,7 @@ longitudeList = ["119.423790","231.912345"]
 # TODO : Data log reader algorithm
 
 while 1:
-    sleep(0.50)
+    sleep(0.5)
     sampleTopic = topicList[randint(0, 10)]
     sampleid = idList[randint(0, 2)]
     sampleData = str(randint(30, 100))
