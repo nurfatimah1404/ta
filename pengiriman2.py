@@ -60,8 +60,8 @@ longitudeList = ["119.423790","231.912345"]
 while 1:
     sleep(0.50)
     sampleTopic = topicList[randint(0, 2)]
-    sampleid = idList[randint(0, 10)]
+    sampleid = idList[randint(0, 2)]
     sampleData = str(randint(30, 100))
-    sampleLat = latitudeList[randint(0.10)]
-    sampleLong = longitudeList[randint(0.10)]
+    sampleLat = latitudeList[randint(0, 2)]
+    sampleLong = longitudeList[randint(0, 2)]
     mqttc.publish(sampleTopic, sampleid+";"+ sampleData +";"+ sampleLat +";"+sampleLong)
