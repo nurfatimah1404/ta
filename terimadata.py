@@ -48,6 +48,7 @@ def on_message(client, userdata, msg):
     print(lat)
     print(longit)
     print("------------------")
+    
     if(id is None or sample is None or lat is None or longit is None):
         print("Failed writing to InfluxDB")
     else:
@@ -55,9 +56,13 @@ def on_message(client, userdata, msg):
             {
                 "measurement": msg.topic,
                 "time": str(receiveTime),
-                "tags": id,
+                "tags": {
+                    "id" : id
+                },
                 "fields": {
-                    "value" : float(sample)
+                    "value" : float(sample),
+                    "longitude" : str(longit),
+                    "latitude" : str(lat)
                 } 
             }
         ]
