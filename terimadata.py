@@ -49,7 +49,7 @@ def on_message(client, userdata, msg):
     print(longit)
     print("------------------")
 
-    if(id is None or sample is None or lat is None or longit is None):
+    if(id is None or sample is None or lat is None):
         print("Failed writing to InfluxDB")
     else:
         json_body = [
@@ -58,7 +58,9 @@ def on_message(client, userdata, msg):
                 "time": str(receiveTime),
                 "tags": id,
                 "fields": {
-                    "value" : float(sample)
+                    "value" : float(sample),
+                    "longitude" : str(longit),
+                    "latitude" : str(lat)
                 } 
             }
         ]
