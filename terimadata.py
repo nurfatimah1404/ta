@@ -59,8 +59,8 @@ def on_message(client, userdata, msg):
                 "tags": id,
                 "fields": {
                     "value" : float(sample),
-                    "latitude" : str(lat),
-                    "longitude" : str(long)
+                    "longitude" : str(longit),
+                    "latitude" : str(lat)
                 } 
             }
         ]
