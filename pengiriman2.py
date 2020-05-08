@@ -64,4 +64,4 @@ while 1:
     sampleData = str(randint(30, 100))
     sampleLat = latitudeList[randint(0.10)]
     sampleLong = longitudeList[randint(0.10)]
-    mqttc.publish(sampleTopic, sampleid";"+ sampleData +";"+ sampleLat +";"+sampleLong)
+    mqttc.publish(sampleTopic, sampleid+";"+ sampleData +";"+ sampleLat +";"+sampleLong)
