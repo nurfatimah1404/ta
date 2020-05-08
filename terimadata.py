@@ -49,7 +49,7 @@ def on_message(client, userdata, msg):
     print(longit)
     print("------------------")
 
-    if(id is None or sample is None or lat is None):
+    if(id is None or sample is None or lat is None or longit is None):
         print("Failed writing to InfluxDB")
     else:
         json_body = [
