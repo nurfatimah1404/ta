@@ -61,8 +61,8 @@ def on_message(client, userdata, msg):
                 },
                 "fields": {
                     "value" : float(sample),
-                    "longitude" : str(longit),
-                    "latitude" : str(lat)
+                    "longitude" : float(longit),
+                    "latitude" : float(lat)
                 } 
             }
         ]
