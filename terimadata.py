@@ -45,8 +45,8 @@ def on_message(client, userdata, msg):
     print("Receive Time : "+receiveTime)
     print(id)
     print(sample)
-    print float(lat)
-    print float(longit)
+    print(lat)
+    print(longit)
     print("------------------")
     
     if(id is None or sample is None or lat is None or longit is None):
@@ -61,8 +61,8 @@ def on_message(client, userdata, msg):
                 },
                 "fields": {
                     "value" : float(sample),
-                    "longitude" : float(longit),
-                    "latitude" : float(lat)
+                    "longitude" : str(longit),
+                    "latitude" : str(lat)
                 } 
             }
         ]
