@@ -34,8 +34,8 @@ def main(host='10.0.12.127', port=8086):
                                           periods=30, freq='H'), columns=['0'])
 
     print(df)
-    print("Write DataFrame")
-    client.write_points(df, 'demo', protocol=protocol)
+    #print("Write DataFrame")
+    #client.write_points(df, 'demo', protocol=protocol)
     
 
     #print("Write DataFrame with Tags")
