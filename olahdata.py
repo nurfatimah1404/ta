@@ -28,6 +28,6 @@ client = DataFrameClient(
 )
 # Here we fetch the execution timings for a hypothetical JSON RPC method
 # providing registration to the service. This uses InfluxQL.
-# NOTE: This function returns a Pandas dataframe!
-res = client.query(f'select * from temperature')
-res = res['rpc_api.register']
+# This function returns a Pandas dataframe!
+res = client.query(f'select * from "temperature"')
+res = res['temperature']
