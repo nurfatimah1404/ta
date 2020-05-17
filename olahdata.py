@@ -19,31 +19,15 @@ import json
 #dbConnDF = DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
 #dbConnDF.write_points('NOAA_water_database', 'olahdat', timeValues)
 #print("Finished writing to InfluxDB")
-def main(host='10.0.12.127', port=8086):
-    """Instantiate the connection to the InfluxDB client."""
-    user = 'admin'
-    password = '123456'
-    dbname = 'mydb'
-    protocol = 'line'
-
-    client = DataFrameClient(host, port, user, password, dbname)
-
-    print("Create pandas DataFrame")
-    df = pd.DataFrame(data=list(range(30)),
-                      index=pd.date_range(start='2020-05-09',
-                                          periods=30, freq='H'), columns=['0'])
-
-    print(df)
-    #print("Write DataFrame")
-    #client.write_points(df, 'demo', protocol=protocol)
-    
-
-    #print("Write DataFrame with Tags")
-    #client.write_points(df, 'demo',
-     #                   {'k1': 'v1', 'k2': 'v2'}, protocol=protocol)
-
-    #print("Read DataFrame")
-    #client.query("select * from demo")
-
-    #print("Delete database: " + dbname)
-    #client.drop_database(dbname)
+client = DataFrameClient(
+    '10.0.12.127', # DB server hostname
+    8086, # DB server port
+    'admin', # DB user
+    '123456, # Password
+    'mydb' # DB name
+)
+# Here we fetch the execution timings for a hypothetical JSON RPC method
+# providing registration to the service. This uses InfluxQL.
+# NOTE: This function returns a Pandas dataframe!
+res = client.query(f'select * from temperature')
+res = res['rpc_api.register']
