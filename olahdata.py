@@ -14,8 +14,8 @@ df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 print (df)
 #tes = df.to_json(orient='records')
 #print (tes)
-timeValues  = df[ ['col4'] ]
-tags        = { 'col1': df[['col0']], 'col2': df[['col1']], 'col3':df[['col3']] }
+timeValues  = df[ ['time'] ]
+tags        = { 'col1': df[['col0']], 'col2': df[['col1']], 'col3':df[['col4']] }
 
 dbConnDF = DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
 dbConnDF.write_points('mydb', 'olah', timeValues, tags = tags)
