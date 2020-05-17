@@ -23,7 +23,7 @@ client = DataFrameClient(
     '10.0.12.127', # DB server hostname
     8086, # DB server port
     'admin', # DB user
-    '123456, # Password
+    '123456', # Password
     'mydb' # DB name
 )
 # Here we fetch the execution timings for a hypothetical JSON RPC method

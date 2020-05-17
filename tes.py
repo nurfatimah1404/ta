@@ -23,27 +23,15 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("temperature")
     client.subscribe("pressure")
     client.subscribe("humidity")
-    client.subscribe("PM_2.5")
+    client.subscribe("PM_25")
     client.subscribe("NH")  
     client.subscribe("NO2")  
     client.subscribe("CO2")
     client.subscribe("CO")
     client.subscribe("Asap")
-# panel surya---------------------------------
-    client.subscribe("Cap/Bateray")
-    client.subscribe("RELAY/Relay")
-    client.subscribe("BH1750/Light")
-    client.subscribe("TEMPERATUR/celcius")
-    client.subscribe("INA219/busvoltage_C")
-    client.subscribe("INA219/shuntvoltage_C")
-    client.subscribe("INA219/current_mA_C")
-    client.subscribe("INA219/power_mW_C")
-    client.subscribe("INA219/loadvoltage_C")
-    client.subscribe("INA219/busvoltage_B")
-    client.subscribe("INA219/shuntvoltage_B")
-    client.subscribe("INA219/current_mA_B")
-    client.subscribe("INA219/power_mW_B")
-    client.subscribe("INA219/loadvoltage_B")
+    client.subscribe("PM_10")
+    client.subscribe("SO_2")
+
 #----------------------------------------------
 def on_message(client, userdata, msg):
     print("Received a message on topic: " + msg.topic)
@@ -99,3 +87,4 @@ while(connOK == False):
 #====================================================
 # Blocking loop to the Mosquitto broker
 client.loop_forever()
+#hrusnyaaa id itu pake tags
