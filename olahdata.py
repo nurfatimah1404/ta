@@ -10,7 +10,7 @@ import json
     
 client = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
 q = "SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1"
-df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000, tz=UTC).get_points())
+df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000, tz='UTC').get_points())
 print (df)
 #tes = df.to_json(orient='records')
 #print (tes)
