@@ -15,7 +15,7 @@ print (df)
 #tes = df.to_json(orient='records')
 #print (tes)
 timeValues  = df[ ['time'] ]
-tags        = { 'col1': df[['col0']], 'col2': df[['col1']], 'col3':df[['col4']] }
+tags        = { 'col1': df[['level']], 'col2': df[['level description']], 'col3':df[['location']], 'col4':df[['water_level']] }
 
 dbConnDF = DataFrameClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
 dbConnDF.write_points('mydb', 'olah', timeValues, tags = tags)
