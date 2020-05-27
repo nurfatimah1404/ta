@@ -10,7 +10,8 @@ import json
     
 clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
 clienty = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'hasilolah')
-current_data = clientx.query("SELECT MEAN(value), stddev(value) FROM PM_10 GROUP BY time(1h) LIMIT 1")
+#current_data = clientx.query("SELECT MEAN(value), stddev(value) FROM PM_10 GROUP BY time(1h)")
+current_data = clientx.query("SELECT MEAN(value), stddev(value) FROM PM_10 where id='321abc' AND latitude='-4.123834' AND longitude='231.912345' AND time<='2020-05-09 01:41:06' group by time(1h)")
 list_current_data = list(current_data.get_points())
 for data_point in current_data.get_points():
     if data_point['mean'] <=50 :
@@ -28,14 +29,14 @@ for data_point in current_data.get_points():
                         "measurement" : "PM_10",
                         "time" : data_point['time'],
                         "tags" : {
-                            "id" : "123abc"
+                            "id" : "321abc"
                         },
                         "fields":  {
                             "rata_rata": data_point['mean'],
                             "std_deviasi" : data_point['stddev'],
                             "kategori": x,
-                            "longitude" : "119.423790",
-                            "latitude" : "-5.135399"
+                            "longitude" : "231.912345",
+                            "latitude" : "-4.123834"
 
                         }
                     }]
