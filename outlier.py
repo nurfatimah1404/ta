@@ -10,7 +10,7 @@ clienty = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'hasilolah')
 current_data = clientx.query("SELECT value FROM PM_10 where time<='2020-05-09 00:59:14'")
 list_current_data = list(current_data.get_points())
 #print(list_current_data)
-elements = numpy.array(list_current_data['value'])
+elements = numpy.array(int(list_current_data['value']))
 mean = numpy.mean(elements, axis=0)
 sd = numpy.std(elements, axis=0)
 final_listx = [x for x in list_current_data['value'] if (x > mean - 2 * sd)]
