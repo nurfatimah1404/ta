@@ -8,24 +8,37 @@ from influxdb import DataFrameClient
 import requests
 import json
     
-client = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'NOAA_water_database')
-current_data = client.query("SELECT MEAN(water_level) FROM h2o_feet GROUP BY time(1h) LIMIT 1")
+clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
+clienty = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'hasilolah')
+current_data = clientx.query("SELECT stddev(value), MEAN(value) FROM PM_10 GROUP BY time(1h) LIMIT 3")
 list_current_data = list(current_data.get_points())
 for data_point in current_data.get_points():
-    if data_point['mean'] >= 50 :
-        indexx= "baik"
-    else:
-        indexx= "buruk"
+    if data_point['mean'] <= 50 :
+        x = "Baik"
+    elif data_point['mean'] <=150 :
+        x = "Sedang"
+    elif data_point['mean'] <=350 :
+        x = "Tidak Sehat"
+    elif data_point['mean'] <=420 :
+        x = "Sangat Tidak Sehat"
+    elif data_point['mean'] >420  :
+        x = "Berbahaya"
     data_to_write = [
                         {
                         "measurement" : "olahdata",
                         "time" : data_point['time'],
+                        "tags" : {
+                            "id" : "123abc"
+                        },
                         "fields":  {
-                            "value": data_point['mean'],
-                            "indexx": indexx
+                            "rata_rata": data_point['mean'],
+                            "kategori": x,
+                            "longitude" : "119.423790",
+                            "latitude" : "-5.135399"
+
                         }
                     }]
-    client.write_points(data_to_write)
+    clienty.write_points(data_to_write)
 #q = "SELECT * from h2o_feet LIMIT 10"
 #df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 #print (df)
