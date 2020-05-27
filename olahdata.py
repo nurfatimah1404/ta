@@ -25,7 +25,7 @@ for data_point in current_data.get_points():
         x = "Berbahaya"
     data_to_write = [
                         {
-                        "measurement" : "olahdata",
+                        "measurement" : "PM_10",
                         "time" : data_point['time'],
                         "tags" : {
                             "id" : "123abc"
