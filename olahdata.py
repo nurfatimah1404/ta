@@ -29,15 +29,15 @@ for data_point in current_data.get_points():
                         "measurement" : "PM_10",
                         "time" : data_point['time'],
                         "tags" : {
-                            "id" : "32"
+                            "id" : "32",
+                            "longitude" : "231.9123",
+                            "latitude" : "-4.123834"
+
                         },
                         "fields":  {
                             "rata_rata": data_point['mean'],
                             "std_deviasi" : data_point['stddev'],
-                            "kategori": x,
-                            "longitude" : "231.9123",
-                            "latitude" : "-4.123834"
-
+                            "kategori": x
                         }
                     }]
     clienty.write_points(data_to_write)
