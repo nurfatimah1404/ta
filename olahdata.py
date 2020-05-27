@@ -30,7 +30,7 @@ for data_point in current_data.get_points():
                         "time" : data_point['time'],
                         "tags" : {
                             "id" : "32",
-                            "longitude" : "231.9123",
+                            "longitude" : "231",
                             "latitude" : "-4.123834"
 
                         },
