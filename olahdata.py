@@ -41,6 +41,10 @@ for data_point in current_data.get_points():
                         }
                     }]
     clienty.write_points(data_to_write)
+    print(data_to_write)
+    print ("==================================")
+    print("Finished writing to InfluxDB")
+    print ("==================================")
 #q = "SELECT * from h2o_feet LIMIT 10"
 #df = pd.DataFrame(client.query(q, chunked=True, chunk_size=10000).get_points())
 #print (df)
