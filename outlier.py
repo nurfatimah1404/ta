@@ -14,7 +14,7 @@ for data_point in current_data.get_points():
     elements = numpy.array(data_point['value'])
     mean = numpy.mean(elements, axis=0)
     sd = numpy.std(elements, axis=0)
-    final_listx = [x for x in data_point['value'] if (x > mean - 2 * sd)
+    final_listx = [x for x in data_point['value'] if (x > mean - 2 * sd)]
     final_list = [x for x in final_listx if (x < mean + 2 * sd)]
     print(final_list)
 
