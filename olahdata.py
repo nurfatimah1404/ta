@@ -15,7 +15,7 @@ for data_point in current_data.get_points():
     if data_point['mean'] >= 50 :
         indexx= "baik"
     else:
-        index= "buruk"
+        indexx= "buruk"
     data_to_write = [
                         {
                         "measurement" : "olahdata",
