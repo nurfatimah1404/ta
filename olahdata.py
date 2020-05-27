@@ -35,7 +35,7 @@ for data_point in current_data.get_points():
                             "rata_rata": data_point['mean'],
                             "std_deviasi" : data_point['stddev'],
                             "kategori": x,
-                            "longitude" : "231.912345",
+                            "longitude" : "231.9123",
                             "latitude" : "-4.123834"
 
                         }
