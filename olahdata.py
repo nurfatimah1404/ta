@@ -41,7 +41,7 @@ for data_point in current_data.get_points():
                         }
                     }]
     clienty.write_points(data_to_write)
-    print(data_to_write)
+    #print(data_to_write)
     print ("==================================")
     print("Finished writing to InfluxDB")
     print ("==================================")
