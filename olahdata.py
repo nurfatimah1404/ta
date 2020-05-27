@@ -13,7 +13,7 @@ clienty = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'hasilolah')
 current_data = clientx.query("SELECT stddev(value), MEAN(value) FROM PM_10 GROUP BY time(1h) LIMIT 3")
 list_current_data = list(current_data.get_points())
 for data_point in current_data.get_points():
-    if data_point['mean'] <= 50 :
+    if data_point['mean'] <=50 :
         x = "Baik"
     elif data_point['mean'] <=150 :
         x = "Sedang"
