@@ -16,21 +16,21 @@ clienty = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'hasilolah')
 current_data = clientx.query("SELECT value FROM PM_10 where time<='2020-05-09 00:59:14'")
 list_current_data = list(current_data.get_points())
 print(list_current_data)
-for data_point in current_data.get_points():
-    print(data_point)
-    print(data_point['value'])
+#for data_point in current_data.get_points():
+
+print(list_current_data['value'])
 # generate univariate observations
-    data = (data_point['value'])
-    # calculate summary statistics
-    data_mean, data_std = mean(data), std(data)
-    # identify outliers
-    cut_off = data_std * 3
-    lower, upper = data_mean - cut_off, data_mean + cut_off
-    # identify outliers
-    outliers = [x for x in data if x < lower or x > upper]
-    print(outliers)
-    print('Identified outliers: %d' % len(outliers))
-    # remove outliers
-    outliers_removed = [x for x in data if x >= lower and x <= upper]
-    print('Non-outlier observations: %d' % len(outliers_removed))
-    print(outliers_removed)
+data = (list_current_data['value'])
+# calculate summary statistics
+data_mean, data_std = mean(data), std(data)
+# identify outliers
+cut_off = data_std * 3
+lower, upper = data_mean - cut_off, data_mean + cut_off
+# identify outliers
+outliers = [x for x in data if x < lower or x > upper]
+print(outliers)
+print('Identified outliers: %d' % len(outliers))
+# remove outliers
+outliers_removed = [x for x in data if x >= lower and x <= upper]
+print('Non-outlier observations: %d' % len(outliers_removed))
+print(outliers_removed)
