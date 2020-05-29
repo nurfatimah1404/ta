@@ -14,6 +14,7 @@ clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
 clienty = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'hasilolah')
 current_data = clientx.query("SELECT value FROM PM_10 where time<='2020-05-09 00:59:14'")
 list_current_data = list(current_data.get_points())
+print(list_current_data)
 #print(list_current_data)
 data = list_current_data['value']
 # calculate summary statistics
