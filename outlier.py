@@ -18,9 +18,9 @@ list_current_data = list(current_data.get_points())
 print(list_current_data)
 #for data_point in current_data.get_points():
 
-print(list_current_data['value'])
+print(current_data['value'])
 # generate univariate observations
-data = (list_current_data['value'])
+data = (current_data['value'])
 # calculate summary statistics
 data_mean, data_std = mean(data), std(data)
 # identify outliers
