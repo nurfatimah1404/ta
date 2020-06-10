@@ -17,11 +17,11 @@ current_data = clientx.query("SELECT value FROM PM_10 where time<='2020-05-09 00
 list_current_data = list(current_data.get_points())
 print(list_current_data)
 print("")
-for x in current_data.get_points():
-    data = []
-    data.append(x('value'))
+for data_point in current_data.get_points():
+    data = (data_point['value'])
+    result.append(data)
 # calculate summary statistics
-print(data)
+print(result)
 print("")
 data_mean, data_std = mean(data), std(data)
 # identify outliers
