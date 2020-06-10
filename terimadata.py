@@ -48,7 +48,6 @@ def on_message(client, userdata, msg):
     print(lat)
     print(longit)
     print("------------------")
-    
     if(id is None or sample is None or sample <= 0 or lat is None or longit is None):
         print("Failed writing to InfluxDB")
     else:
