@@ -20,18 +20,16 @@ print("")
 data = []
 for data_point in current_data.get_points():
     data.append(data_point['value'])
-# calculate summary statistics
 print(data)
 print("")
+# calculate summary statistics
 data_mean, data_std = mean(data), std(data)
 # identify outliers
 cut_off = data_std * 3
 lower, upper = data_mean - cut_off, data_mean + cut_off
 # identify outliers
 outliers = [x for x in data if x < lower or x > upper]
-print(outliers)
 print('Identified outliers: %d' % len(outliers))
 # remove outliers
 outliers_removed = [x for x in data if x >= lower and x <= upper]
 print('Non-outlier observations: %d' % len(outliers_removed))
-print(outliers_removed)
