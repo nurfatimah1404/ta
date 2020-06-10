@@ -27,6 +27,10 @@ data_mean, data_std = mean(data), std(data)
 # identify outliers
 cut_off = data_std * 3
 lower, upper = data_mean - cut_off, data_mean + cut_off
+print(cut_off)
+print(lower)
+print(upper)
+print("")
 # identify outliers
 outliers = [x for x in data if x < lower or x > upper]
 print('Identified outliers: %d' % len(outliers))
