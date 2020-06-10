@@ -18,7 +18,8 @@ list_current_data = list(current_data.get_points())
 print(list_current_data)
 print("")
 for x in current_data.get_points():
-    data.append = (x['value'])
+    data = []
+    data.append(x('value'))
 # calculate summary statistics
 print(data)
 print("")
