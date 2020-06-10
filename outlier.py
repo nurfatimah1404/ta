@@ -17,7 +17,9 @@ current_data = clientx.query("SELECT value FROM PM_10 where time<='2020-05-09 00
 list_current_data = list(current_data.get_points())
 print(list_current_data)
 for data_point in current_data.get_points():
+    print("")
     print(data_point['value'])
+    print("")
 # generate univariate observationsx
     data = (data_point['value'])
     # calculate summary statistics
