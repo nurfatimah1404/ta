@@ -17,25 +17,20 @@ current_data = clientx.query("SELECT value FROM PM_10 where time<='2020-05-09 00
 list_current_data = list(current_data.get_points())
 print(list_current_data)
 print("")
-list_current_data2 = list(current_data.get_points('value'))
-print(list_current_data2)
-print("")
 for data_point in current_data.get_points():
-    print("")
-    print(data_point['value'])
-    print("")
-# generate univariate observationsx
     data = (data_point['value'])
-    # calculate summary statistics
-    data_mean, data_std = mean(data), std(data)
-    # identify outliers
-    cut_off = data_std * 3
-    lower, upper = data_mean - cut_off, data_mean + cut_off
-    # identify outliers
-    outliers = [x for x in data if x < lower or x > upper]
-    print(outliers)
-    print('Identified outliers: %d' % len(outliers))
-    # remove outliers
-    outliers_removed = [x for x in data if x >= lower and x <= upper]
-    print('Non-outlier observations: %d' % len(outliers_removed))
-    print(outliers_removed)
+# calculate summary statistics
+print(data)
+print("")
+data_mean, data_std = mean(data), std(data)
+# identify outliers
+cut_off = data_std * 3
+lower, upper = data_mean - cut_off, data_mean + cut_off
+# identify outliers
+outliers = [x for x in data if x < lower or x > upper]
+print(outliers)
+print('Identified outliers: %d' % len(outliers))
+# remove outliers
+outliers_removed = [x for x in data if x >= lower and x <= upper]
+print('Non-outlier observations: %d' % len(outliers_removed))
+print(outliers_removed)
