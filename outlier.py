@@ -23,7 +23,7 @@ for data_point in current_data.get_points():
     # calculate summary statistics
     data_mean, data_std = mean(data), std(data)
     # identify outliers
-    cut_off = data_std 
+    cut_off = data_std * 3
     lower, upper = data_mean - cut_off, data_mean + cut_off
     # identify outliers
     outliers = [x for x in data if x < lower or x > upper]
