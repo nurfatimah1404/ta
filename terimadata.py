@@ -48,26 +48,9 @@ def on_message(client, userdata, msg):
     print(lat)
     print(longit)
     print("------------------")
-    if(id is None or sample is None or sample <= 0 or lat is None or longit is None):
-        print("Failed writing to InfluxDB")
-    else:
-        json_body = [
-            {
-                "measurement": msg.topic,
-                "time": str(receiveTime),
-                "tags": {
-                    "id" : id
-                },
-                "fields": {
-                    "value" : float(sample),
-                    "longitude" : str(longit),
-                    "latitude" : str(lat)
-                } 
-            }
-        ]
-        dbclient.write_points(json_body)
-        print("Finished writing to InfluxDB")
-        print ("==================================")
+
+    print("Failed writing to InfluxDB")
+    
         #client.publish("demo")
 #====================================================        
 # Set up a client for InfluxDB
