@@ -10,7 +10,6 @@ dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
 dbname = "coba"
-dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 #---------------------------------------------------
 # set mqtt configuration ===========================
 mqtt_server = "10.0.12.127"
@@ -50,7 +49,7 @@ def on_message(client, userdata, msg):
     print(longit)
     print("------------------")
 
-    if(id is None or sample is None or sample <= 0 or lat is None or longit is None):
+    if (id is None or sample is None or sample <= 0 or lat is None or longit is None):
         print("Failed writing to InfluxDB")
     else:
         json_body = [
@@ -73,7 +72,7 @@ def on_message(client, userdata, msg):
         #client.publish("demo")
 #====================================================        
 # Set up a client for InfluxDB
-
+dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 
 #====================================================
 # Initialize the MQTT client that should connect to the Mosquitto broker
@@ -93,4 +92,3 @@ while(connOK == False):
 #====================================================
 # Blocking loop to the Mosquitto broker
 client.loop_forever()
-#hrusnyaaa id itu pake tags
