@@ -40,16 +40,16 @@ def on_message(client, userdata, msg):
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
 #receiveTime=datetime.datetime.utcnow()
     message=msg.payload.decode("utf-8")
-    id, sample, lat, longit = message.split(";")
+    id, float(sample), lat, longit = message.split(";")
     print("------------------")
     print("Receive Time : "+receiveTime)
-    print(id)
+    print(nmrid)
     print(sample)
     print(lat)
     print(longit)
     print("------------------")
 
-    if (id is None or sample is None):
+    if (id is None or sample is None or sample <= 0 or lat is None or longit is None):
         print("Failed writing to InfluxDB")
     else:
         json_body = [
