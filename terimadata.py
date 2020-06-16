@@ -9,7 +9,7 @@ dbhost = "10.0.12.127"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
-dbname = "coba"
+dbname = "mydb"
 #---------------------------------------------------
 # set mqtt configuration ===========================
 mqtt_server = "10.0.12.127"
