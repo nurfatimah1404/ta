@@ -12,5 +12,5 @@ h2O_points = [p for p in h2O.get_points()]
 h2O_df = pd.DataFrame(h2O_points)
 h2O_df['time_step'] = range(0,len(h2O_df['time']))
 h2O_df.plot(kind='line',x='time_step',y='h2O_temp')
-matplotlib.pyplot.show()
+matplotlib.get_backend()
 print(h2O)
