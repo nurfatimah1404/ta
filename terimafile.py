@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 import os
 # For Random
 import random
-from gpiozero import CPUTemperature
+#from gpiozero import CPUTemperature
 
 UPLOAD_FOLDER = './data/post'
 ALLOWED_EXTENSIONS = {'txt'}
