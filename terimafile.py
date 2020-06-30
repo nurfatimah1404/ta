@@ -6,7 +6,7 @@ import os
 import random
 #from gpiozero import CPUTemperature
 
-UPLOAD_FOLDER = 'home/data/post'
+UPLOAD_FOLDER = '/home/data/post'
 ALLOWED_EXTENSIONS = {'txt'}
 
 app = Flask(__name__)
