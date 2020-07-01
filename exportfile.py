@@ -4,10 +4,13 @@ import time
 import os
 import csv
 from csv import reader
+from influxdb import client as influxdb
 import argparse
 import io
 import sys
-from influxdb import client as influxdb
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 
 
 db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "coba")
@@ -27,7 +30,7 @@ def read_data(filename):
 
 if __name__ == '__main__':
     filename = r'/home/data/kualitas.txt'
-    lines = read_data(filename).encode("utf-8")
+    lines = read_data(filename)
     for rawline in lines:
         line = rawline.rstrip('\n').split(",")
         print (line)
