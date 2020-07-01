@@ -7,6 +7,7 @@ from csv import reader
 from influxdb import client as influxdb
 import argparse
 import io
+from importlib import reload
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
