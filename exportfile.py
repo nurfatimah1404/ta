@@ -40,28 +40,28 @@ if __name__ == '__main__':
         #grades.append(lists[i].rstrip('\n').split(','))
         #EVERYTHING UP TO HERE WORKS. Not sure how to create the json below
         #====================================
-        json_body = [
-        {
-            "measurement": "co",
-            "time": waktu,
-            "fields": {
-                "lat": lat,
-                "long": longit,
-                "value": co
+            json_body = [
+            {
+                "measurement": "co",
+                "time": waktu,
+                "fields": {
+                    "lat": lat,
+                    "long": longit,
+                    "value": co
+                }
+            },
+            {
+                "measurement": "so2",
+                "time": waktu,
+                "fields": {
+                    "lat": lat,
+                    "long": longit,
+                    "value": so
+                }
             }
-        },
-        {
-            "measurement": "so2",
-            "time": waktu,
-            "fields": {
-                "lat": lat,
-                "long": longit,
-                "value": so
-            }
-        }
-        ]
+            ]
 
-        print (json_body)
+            print (json_body)
 
-        db.write_points(json_body)
-        print("sukses")
+            db.write_points(json_body)
+            print("sukses")
