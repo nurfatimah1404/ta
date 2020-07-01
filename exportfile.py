@@ -24,7 +24,7 @@ def read_data(filename):
     
 
 if __name__ == '__main__':
-    filename = r"/home/data/kualitas.txt"
+    filename = r'/home/data/kualitas.txt'
     lines = read_data(filename)
     for rawline in lines:
         line = rawline.rstrip('\n').split(",")
