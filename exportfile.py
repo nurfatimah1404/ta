@@ -7,10 +7,9 @@ from csv import reader
 from influxdb import client as influxdb
 import argparse
 import io
-from importlib import reload
+#from importlib import reload
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
 
 
 
@@ -24,7 +23,7 @@ db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "coba")
 def read_data(filename):
     print (filename)
     with open(filename) as f:
-        lines = f.readlines()[1:]
+        lines = f.readlines()[1:].encode("utf-8")
         print(lines)
     return lines
     
