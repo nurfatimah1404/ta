@@ -6,6 +6,7 @@ import csv
 from csv import reader
 import argparse
 import io
+import sys
 from influxdb import client as influxdb
 
 
