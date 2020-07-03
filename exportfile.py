@@ -9,13 +9,9 @@ import argparse
 import io
 #from importlib import reload
 import sys
+from glob import glob
 
 db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "coba")
-
-#with open(filename) as f:
-   # mylist = f.read().splitlines() 
-
-#temp = open(filename,'r').read().split('\n')
 
 def read_data(filename):
     print (filename)
@@ -24,9 +20,8 @@ def read_data(filename):
         print(lines)
     return lines
     
-
 if __name__ == '__main__':
-    filename = r'/home/data/kualitas.txt'
+    filename = glob(r'/home/data/*.txt')[0]
     lines = read_data(filename)
     for rawline in lines:
         line = rawline.rstrip('\n').split(",")
