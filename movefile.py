@@ -3,8 +3,8 @@ import os
 #import glob
 import glob
 
-source = '/home/data/post'
-dst = '/home/data/mvfile'
+source = '/home/data/post/'
+dst = '/home/data/mvfile/'
 files = glob.iglob(os.path.join(source, "*.csv"))
 #print(files)
 for file in files:
