@@ -3,7 +3,7 @@ import os
 #import glob
 import glob
 
-source = '/home/data/'
+source = '/home/data/post'
 dst = '/home/data/mvfile'
 files = glob.iglob(os.path.join(source, "*.csv"))
 #print(files)
