@@ -11,7 +11,7 @@ import io
 import sys
 from glob import glob
 
-db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "coba")
+db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "file")
 
 def read_data(filename):
     print (filename)
