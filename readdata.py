@@ -123,7 +123,7 @@ def dataDic(arrayData, tipeData):
             print("=======================")
 
     
-folderDataku = os.listdir('/home/data')
+folderDataku = os.listdir('/home/data/post')
 for dataku in folderDataku:
     folderFileku = os.listdir('/home/data/post/'+dataku)
     for fileku in folderFileku:
