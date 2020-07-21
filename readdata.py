@@ -125,12 +125,12 @@ def dataDic(arrayData, tipeData):
     
 folderDataku = os.listdir('/home/data/post')
 for dataku in folderDataku:
-    folderFileku = os.listdir('/home/data/post/'+dataku)
-    for fileku in folderFileku:
-        path = '/home/data/post/'+dataku+'/'+fileku
-        #print(path)
-        tipe = path[-5:-4]
-        lines = read_data(path)
-        for line in lines:
-            dataSplited = splitData(line)
-            dataDic(dataSplited, tipe)
+    # folderFileku = os.listdir('/home/data/post/'+dataku)
+    # for fileku in folderFileku:
+    path = '/home/data/post/'+dataku+'/'+fileku
+    #print(path)
+    tipe = path[-5:-4]
+    lines = read_data(path)
+    for line in lines:
+        dataSplited = splitData(line)
+        dataDic(dataSplited, tipe)
