@@ -17,13 +17,13 @@ def read_data(filename):
 # Split Data
 def splitData(lineData):
     line2 = lineData.rstrip('\n').split(",")
-    print(line2)
     return line2
 
 # Bikin Model Data
 def dataDic(arrayData, tipeData):
     if tipeData == 'a':
         waktuA = arrayData[0]
+        print(waktuA)
         suhu = float(arrayData[1])
         tek = float(arrayData[2])
         kel = float(arrayData[3])
