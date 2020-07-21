@@ -7,6 +7,18 @@ from influxdb import client as influxdb
 
 db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "polusi")
 
+folderDataku = os.listdir('/home/data/post')
+for dataku in folderDataku:
+    # folderFileku = os.listdir('/home/data/post/'+dataku)
+    # for fileku in folderFileku:
+    path = '/home/data/post/'+dataku
+    print(path)
+    tipe = path[-5:-4]
+    lines = read_data(path)
+    for line in lines:
+        dataSplited = splitData(line)
+        dataDic(dataSplited, tipe)
+
 # Baca Data
 def read_data(filename):
     print (filename)
@@ -123,14 +135,3 @@ def dataDic(arrayData, tipeData):
             print("=======================")
 
     
-folderDataku = os.listdir('/home/data/post')
-for dataku in folderDataku:
-    # folderFileku = os.listdir('/home/data/post/'+dataku)
-    # for fileku in folderFileku:
-    path = '/home/data/post/'+dataku
-    print(path)
-    tipe = path[-5:-4]
-    lines = read_data(path)
-    for line in lines:
-        dataSplited = splitData(line)
-        dataDic(dataSplited, tipe)
