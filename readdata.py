@@ -12,12 +12,12 @@ def read_data(filename):
     print(filename)
     with open(filename) as f:
         lines = f.readlines()[0:]
-        print(lines)
+        #print(lines)
     return lines
 # Split Data
 def splitData(lineData):
     line2 = lineData.rstrip('\n').split(",")
-    #print(line2)
+    print(line2)
     return line2
 
 # Bikin Model Data
