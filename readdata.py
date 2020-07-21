@@ -9,10 +9,10 @@ db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "polusi")
 
 # Baca Data
 def read_data(filename):
-    print (filename)
+    print(filename)
     with open(filename) as f:
         lines = f.readlines()[0:]
-        #print(lines)
+        print(lines)
     return lines
 # Split Data
 def splitData(lineData):
@@ -128,10 +128,9 @@ for dataku in folderDataku:
     # folderFileku = os.listdir('/home/data/post/'+dataku)
     # for fileku in folderFileku:
     path = '/home/data/post/'+dataku
-    print(path)
+    #print(path)
     tipe = path[-5:-4]
     lines = read_data(path)
-    print(lines)
     for line in lines:
         dataSplited = splitData(line)
         dataDic(dataSplited, tipe)
