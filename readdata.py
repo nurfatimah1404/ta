@@ -131,7 +131,7 @@ for dataku in folderDataku:
     #print(path)
     tipe = path[-5:-4]
     lines = read_data(path)
-    print(lines)
+    #print(lines)
     for line in lines:
         dataSplited = splitData(line)
         print(dataSplited)
