@@ -60,7 +60,7 @@ if __name__ == '__main__':
                 "id": idx
             },
             "fields": {
-                "long": long,
+                "long": longit,
                 "lang": lat,
                 "value": co2
             }
@@ -72,7 +72,7 @@ if __name__ == '__main__':
                 "id": idx
             },
             "fields": {
-                "long": long,
+                "long": longit,
                 "lang": lat,
                 "value": tem
             }
@@ -84,7 +84,7 @@ if __name__ == '__main__':
                 "id": idx
             },
             "fields": {
-                "long": long,
+                "long": longit,
                 "lang": lat,
                 "value": hum
             }
@@ -96,7 +96,7 @@ if __name__ == '__main__':
                 "id": idx
             },
             "fields": {
-                "long": long,
+                "long": longit,
                 "lang": lat,
                 "value": pm
             }
