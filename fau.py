@@ -26,9 +26,10 @@ if __name__ == '__main__':
     lines = read_data(filename)
     for rawline in lines:
         line = rawline.rstrip('\n').split(",")
-        print (line)
+        
         #grades.append(lists[i].rstrip('\n').split(','))
         co2 = float(line[0])
+        print(co2)
         co = float(line[1])
         tem = float(line[2])
         hum = float(line[3])
