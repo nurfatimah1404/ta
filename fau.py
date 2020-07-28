@@ -15,7 +15,7 @@ db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "polusi2")
 def read_data(filename):
     print (filename)
     with open(filename) as f:
-        lines = f.readlines()[1:]
+        lines = f.readlines()[0:]
         print(lines)
     return lines
     
