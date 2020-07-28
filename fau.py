@@ -28,13 +28,13 @@ if __name__ == '__main__':
         line = rawline.rstrip('\n').split(",")
         print (line)
         #grades.append(lists[i].rstrip('\n').split(','))
-        co2 = line[0]
-        co = line[1]
-        tem = line[2]
-        hum = line[3]
-        pm = line[4]
-        lat = line[5]
-        long = line[6]
+        co2 = float(line[0])
+        co = float(line[1])
+        tem = float(line[2])
+        hum = float(line[3])
+        pm = float(line[4])
+        lat = float(line[5])
+        longit = float(line[6])
         waktu = line[7]
         idx = line[8]
         
@@ -48,7 +48,7 @@ if __name__ == '__main__':
                 "id": idx
             },
             "fields": {
-                "long": long,
+                "long": longit,
                 "lang": lat,
                 "value": co
             }
@@ -104,7 +104,5 @@ if __name__ == '__main__':
         ]
 
         print(json_body)
-
-
         db.write_points(json_body)
         print("sukses")
