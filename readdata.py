@@ -4,6 +4,8 @@ import datetime
 import time
 import argparse
 from influxdb import client as influxdb
+import shutil
+import glob
 
 db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "polusi")
 
@@ -136,3 +138,11 @@ for dataku in folderDataku:
     for line in lines:
         dataSplited = splitData(line)
         dataDic(dataSplited, tipe)
+
+source = '/home/data/post/'
+dst = '/home/data/post2/'
+files = glob.iglob(os.path.join(source, "*.txt"))
+#print(files)
+for file in files:
+    shutil.move(file, dst)
+    print("file berhasil dipindahkan")
