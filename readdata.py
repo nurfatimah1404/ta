@@ -139,8 +139,8 @@ for dataku in folderDataku:
         dataSplited = splitData(line)
         dataDic(dataSplited, tipe)
 
-source = '/home/data/post/'
-dst = '/home/data/post2/'
+source = '/home/data/post2/'
+dst = '/home/data/post/'
 files = glob.iglob(os.path.join(source, "*.txt"))
 #print(files)
 for file in files:
