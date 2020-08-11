@@ -23,14 +23,11 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("temperature")
     client.subscribe("pressure")
     client.subscribe("humidity")
-    client.subscribe("PM_25")
-    client.subscribe("NH")  
-    client.subscribe("NO2")  
-    client.subscribe("CO2")
-    client.subscribe("CO")
-    client.subscribe("Asap")
-    client.subscribe("PM_10")
-    client.subscribe("SO2")
+    client.subscribe("pm2.5")
+    client.subscribe("co2")
+    client.subscribe("co")
+    client.subscribe("pm10")
+    client.subscribe("so")
 
 #----------------------------------------------
 def on_message(client, userdata, msg):
