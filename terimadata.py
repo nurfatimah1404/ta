@@ -5,17 +5,17 @@ import time
 from datetime import datetime
 from influxdb import InfluxDBClient
 # set influxDB configuration -----------------------------
-dbhost = "10.0.12.127"
+dbhost = "localhost"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
 dbname = "mydb"
 #---------------------------------------------------
 # set mqtt configuration ===========================
-mqtt_server = "10.0.12.127"
+mqtt_server = "127.0.0.1"
 mqtt_port = 1883
-mqtt_user = "admin"
-mqtt_password = "123456"
+mqtt_user = "server-asd"
+mqtt_password = ""
 # =================================================
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
@@ -37,24 +37,26 @@ def on_message(client, userdata, msg):
     receiveTime = now.strftime("%Y-%m-%d %H:%M:%S")
 #receiveTime=datetime.datetime.utcnow()
     message=msg.payload.decode("utf-8")
-    id, sample, lat, longit = message.split(";")
-    value = float(sample)
+    # Debug
+    # id, myTopic, value, lat, longit, sensorTime, sendTime = message.split(",")
+    # Data asli
+    sensorTime, value, lat, longit, id = message.split(',')
+    value = float(value)
     print("------------------")
     print("Receive Time : "+receiveTime)
     print(id)
-    print(sample)
     print(value)
     print(lat)
     print(longit)
     print("------------------")
 
-    if(id is None or sample is None or value <= 0 or lat is None or longit is None):
+    if id is None or value == 0 or value <= 0 or lat is None or longit is None:
         print("Failed writing to InfluxDB")
     else:
         json_body = [
             {
                 "measurement": msg.topic,
-                "time": str(receiveTime),
+                "time": str(sensorTime),
                 "tags": {
                     "id" : id
                 },
