@@ -51,8 +51,8 @@ if __name__ == '__main__':
                     "id": idx
                 },
                 "fields": {
-                    "long": longit,
-                    "lang": lat,
+                    "latitude": lat,
+                    "longitude": longit,
                     "value": co
                 }
             },
@@ -63,8 +63,8 @@ if __name__ == '__main__':
                     "id": idx
                 },
                 "fields": {
-                    "long": longit,
-                    "lang": lat,
+                    "latitude": lat,
+                    "longitude": longit,
                     "value": co2
                 }
             },
@@ -75,8 +75,8 @@ if __name__ == '__main__':
                     "id": idx
                 },
                 "fields": {
-                    "long": longit,
-                    "lang": lat,
+                    "latitude": lat,
+                    "longitude": longit,
                     "value": tem
                 }
             },
@@ -87,8 +87,8 @@ if __name__ == '__main__':
                     "id": idx
                 },
                 "fields": {
-                    "long": longit,
-                    "lang": lat,
+                    "latitude": lat,
+                    "longitude": longit,
                     "value": hum
                 }
             },
@@ -99,8 +99,8 @@ if __name__ == '__main__':
                     "id": idx
                 },
                 "fields": {
-                    "long": longit,
-                    "lang": lat,
+                    "latitude": lat,
+                    "longitude": longit,
                     "value": pm
                 }
             }
