@@ -10,7 +10,7 @@ from glob import glob
 #print(glob.glob("C:\Users\acer\txt\*.txt"))
 
 
-db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "polusi2")
+db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "polusi")
 
 def read_data(filename):
     print (filename)
@@ -21,7 +21,7 @@ def read_data(filename):
     
 
 if __name__ == '__main__':
-    filename = glob(r"/home/data/post/tes/*.csv")[0]
+    filename = glob(r"/home/data/mvfile/*.csv")[0]
     #filename = glob("MAIN/DATA/*.csv")[0]
     lines = read_data(filename)
     for rawline in lines:
@@ -29,7 +29,6 @@ if __name__ == '__main__':
         
         #grades.append(lists[i].rstrip('\n').split(','))
         co2 = float(line[0])
-        print(co2)
         co = float(line[1])
         tem = float(line[2])
         hum = float(line[3])
