@@ -125,11 +125,11 @@ def dataDic(arrayData, tipeData):
             print("=======================")
 
 while True:
-    folderDataku = os.listdir('/home/data/post')
+    folderDataku = os.listdir('/home/data/post2')
     for dataku in folderDataku:
         # folderFileku = os.listdir('/home/data/post/'+dataku)
         # for fileku in folderFileku:
-        path = '/home/data/post/'+dataku
+        path = '/home/data/post2/'+dataku
         #print(path)
         tipe = path[-5:-4]
         print(tipe)
@@ -139,8 +139,8 @@ while True:
             dataSplited = splitData(line)
             dataDic(dataSplited, tipe)
 
-    source = '/home/data/post/'
-    dst = '/home/data/post2/'
+    source = '/home/data/post2/'
+    dst = '/home/data/post/'
     files = glob.iglob(os.path.join(source, "*.txt"))
     #print(files)
     for file in files:
