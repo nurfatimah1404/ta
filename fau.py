@@ -37,72 +37,75 @@ if __name__ == '__main__':
         longit = float(line[6])
         waktu = line[7]
         idx = line[8]
+        if (tem<=0 or co2<=0 or co<=0 or hum<=0 or pm<=0 or lat==0 or longit==0 or waktu==0):
+            print("Failed")
+        else:
         
         #EVERYTHING UP TO HERE WORKS. Not sure how to create the json below
             #====================================
-        json_body = [
-        {
-            "measurement": "co",
-            "time": waktu,
-            "tags": {
-                "id": idx
-            },
-            "fields": {
-                "long": longit,
-                "lang": lat,
-                "value": co
-            }
-        },
+            json_body = [
             {
-            "measurement": "co2",
-            "time": waktu,
-            "tags": {
-                "id": idx
+                "measurement": "co",
+                "time": waktu,
+                "tags": {
+                    "id": idx
+                },
+                "fields": {
+                    "long": longit,
+                    "lang": lat,
+                    "value": co
+                }
             },
-            "fields": {
-                "long": longit,
-                "lang": lat,
-                "value": co2
-            }
-        },
-            {
-            "measurement": "temperature",
-            "time": waktu,
-            "tags": {
-                "id": idx
+                {
+                "measurement": "co2",
+                "time": waktu,
+                "tags": {
+                    "id": idx
+                },
+                "fields": {
+                    "long": longit,
+                    "lang": lat,
+                    "value": co2
+                }
             },
-            "fields": {
-                "long": longit,
-                "lang": lat,
-                "value": tem
-            }
-        },
-            {
-            "measurement": "humidity",
-            "time": waktu,
-            "tags": {
-                "id": idx
+                {
+                "measurement": "temperature",
+                "time": waktu,
+                "tags": {
+                    "id": idx
+                },
+                "fields": {
+                    "long": longit,
+                    "lang": lat,
+                    "value": tem
+                }
             },
-            "fields": {
-                "long": longit,
-                "lang": lat,
-                "value": hum
-            }
-        },
-            {
-            "measurement": "pm25",
-            "time": waktu,
-            "tags": {
-                "id": idx
+                {
+                "measurement": "humidity",
+                "time": waktu,
+                "tags": {
+                    "id": idx
+                },
+                "fields": {
+                    "long": longit,
+                    "lang": lat,
+                    "value": hum
+                }
             },
-            "fields": {
-                "long": longit,
-                "lang": lat,
-                "value": pm
+                {
+                "measurement": "pm25",
+                "time": waktu,
+                "tags": {
+                    "id": idx
+                },
+                "fields": {
+                    "long": longit,
+                    "lang": lat,
+                    "value": pm
+                }
             }
-        }
-        ]
+            ]
 
-        print(json_body)
-        db.write_points(json_body)
-        print("sukses")
+            print(json_body)
+            db.write_points(json_body)
+            print("sukses")
