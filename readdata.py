@@ -26,7 +26,7 @@ def dataDic(arrayData, tipeData):
     if tipeData == 'a':
         waktuA = arrayData[0]
         print(waktuA)
-        suhu = float(arrayData[1])
+        temperature = float(arrayData[1])
         tek = float(arrayData[2])
         kel = float(arrayData[3])
         pm = float(arrayData[4])
@@ -36,13 +36,13 @@ def dataDic(arrayData, tipeData):
         else:
             json_body = [
             {
-                "measurement": "suhu",
+                "measurement": "temperature",
                 "time": waktuA,
                 "tags": {
                     "id": idA
                 },
                 "fields": {
-                    "value": suhu,
+                    "value": temperature,
                 }
             },
             {
@@ -94,7 +94,7 @@ def dataDic(arrayData, tipeData):
         else:
             json_body = [
                 {
-                    "measurement": "co2",
+                    "measurement": "co",
                     "time": waktuB,
                     "tags": {
                         "id": idB
