@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 from influxdb import InfluxDBClient
 # set influxDB configuration -----------------------------
-dbhost = "localhost"
+dbhost = "10.0.12.127"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
@@ -50,7 +50,7 @@ def on_message(client, userdata, msg):
     print(longit)
     print("------------------")
 
-    if id is None or value == 0 or value <= 0 or lat is None or longit is None:
+    if id is None or value <= 0 or lat is None or longit is None or sensorTime is None:
         print("Failed writing to InfluxDB")
     else:
         json_body = [
@@ -61,9 +61,9 @@ def on_message(client, userdata, msg):
                     "id" : id
                 },
                 "fields": {
-                    "value" : float(value),
-                    "longitude" : str(longit),
-                    "latitude" : str(lat)
+                    "latitude" : float(lat),
+                    "longitude" : float(longit),                    
+                    "value" : float(value)
                 } 
             }
         ]
