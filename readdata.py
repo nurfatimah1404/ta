@@ -124,7 +124,7 @@ def dataDic(arrayData, tipeData):
             print("Sukses fileB")
             print("=======================")
 
-for true:
+while True:
     folderDataku = os.listdir('/home/data/post')
     for dataku in folderDataku:
         # folderFileku = os.listdir('/home/data/post/'+dataku)
