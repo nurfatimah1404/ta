@@ -129,7 +129,7 @@ while True:
     for dataku in folderDataku:
         # folderFileku = os.listdir('/home/data/post/'+dataku)
         # for fileku in folderFileku:
-        path = '/home/data/post/'+dataku
+        path = '/home/data/post2/'+dataku
         #print(path)
         tipe = path[-5:-4]
         print(tipe)
