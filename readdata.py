@@ -124,25 +124,25 @@ def dataDic(arrayData, tipeData):
             print("Sukses fileB")
             print("=======================")
 
-    
-folderDataku = os.listdir('/home/data/post')
-for dataku in folderDataku:
-    # folderFileku = os.listdir('/home/data/post/'+dataku)
-    # for fileku in folderFileku:
-    path = '/home/data/post/'+dataku
-    #print(path)
-    tipe = path[-5:-4]
-    print(tipe)
-    lines = read_data(path)
-    #print(lines)
-    for line in lines:
-        dataSplited = splitData(line)
-        dataDic(dataSplited, tipe)
+for true:
+    folderDataku = os.listdir('/home/data/post')
+    for dataku in folderDataku:
+        # folderFileku = os.listdir('/home/data/post/'+dataku)
+        # for fileku in folderFileku:
+        path = '/home/data/post/'+dataku
+        #print(path)
+        tipe = path[-5:-4]
+        print(tipe)
+        lines = read_data(path)
+        #print(lines)
+        for line in lines:
+            dataSplited = splitData(line)
+            dataDic(dataSplited, tipe)
 
-source = '/home/data/post/'
-dst = '/home/data/post2/'
-files = glob.iglob(os.path.join(source, "*.txt"))
-#print(files)
-for file in files:
-    shutil.move(file, dst)
-    print("file berhasil dipindahkan")
+    source = '/home/data/post/'
+    dst = '/home/data/post2/'
+    files = glob.iglob(os.path.join(source, "*.txt"))
+    #print(files)
+    for file in files:
+        shutil.move(file, dst)
+        print("file berhasil dipindahkan")
