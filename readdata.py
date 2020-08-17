@@ -31,7 +31,7 @@ def dataDic(arrayData, tipeData):
         kel = float(arrayData[3])
         pm = float(arrayData[4])
         idA = arrayData[5]
-        if (suhu<=0 or kel<=0 or tek<=0 or pm<=0):
+        if (temperature<=0 or kel<=0 or tek<=0 or pm<=0):
             print("Failed")
         else:
             json_body = [
