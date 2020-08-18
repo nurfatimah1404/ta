@@ -31,8 +31,9 @@ def hello_world():
     # def ambil_data():
     #     #query Influx
     idSensor = request.args.get('id')
-    clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'polusi')
-    data  = clientx.query("SELECT * FROM co2 WHERE id='{}'".format(idSensor))
+    measurement = request.args.get('measurement')
+    clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
+    data  = clientx.query("SELECT * FROM {} WHERE id='{}'".format(measurement, idSensor))
     list_current_data = list(data.get_points())
     dataKirim = []
     for row in list_current_data:
@@ -40,13 +41,13 @@ def hello_world():
         dataKirim.append(row)
     return jsonify(dataKirim)
 
-    data2  = clientx.query("SELECT * FROM co WHERE id='{}'".format(idSensor))
-    list_current_data2 = list(data.get_points())
-    dataKirim2 = []
-    for row in list_current_data2:
-        row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%d %H:%M:%S.%f')
-        dataKirim2.append(row)
-    return jsonify(dataKirim2)
+    # data2  = clientx.query("SELECT * FROM co WHERE id='{}'".format(idSensor))
+    # list_current_data2 = list(data.get_points())
+    # dataKirim2 = []
+    # for row in list_current_data2:
+    #     row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%d %H:%M:%S.%f')
+    #     dataKirim2.append(row)
+    # return jsonify(dataKirim2)
 
 @app.route('/')
 def tampilkanData():
