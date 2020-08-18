@@ -32,11 +32,11 @@ def hello_world():
     #     #query Influx
     idSensor = request.args.get('id')
     clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'polusi')
-    data  = clientx.query("SELECT * FROM temperature WHERE id='{}'".format(idSensor))
+    data  = clientx.query("SELECT * FROM co2 WHERE id='{}'".format(idSensor))
     list_current_data = list(data.get_points())
     dataKirim = []
     for row in list_current_data:
-        row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%S.%9').strftime('%Y-%m-%d %H:%M:%S.%f')
+        row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%d %H:%M:%S.%f')
         dataKirim.append(row)
     return jsonify(dataKirim)
 
