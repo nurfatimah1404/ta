@@ -36,7 +36,7 @@ def hello_world():
     list_current_data = list(data.get_points())
     dataKirim = []
     for row in list_current_data:
-        row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%S.%f').strftime('%Y-%m-%d %H:%M:%S.%f')
+        row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%S.%9').strftime('%Y-%m-%d %H:%M:%S.%f')
         dataKirim.append(row)
     return jsonify(dataKirim)
 
