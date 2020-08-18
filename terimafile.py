@@ -31,7 +31,7 @@ def hello_world():
     # def ambil_data():
     #     #query Influx
     idSensor = request.args.get('id')
-    clientx = InfluxDBClient('localhost', 8086, 'admin', '123456', 'mydb')
+    clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'polusi')
     data  = clientx.query("SELECT * FROM temperature WHERE id='{}'".format(idSensor))
     list_current_data = list(data.get_points())
     dataKirim = []
@@ -63,4 +63,4 @@ def getFiles():
         return jsonify({'response': 'error', 'message': 'File extension denied!'})
 
 
-app.run('192.168.1.14', 8000, debug=True)
+app.run('10.0.12.127', 8000, debug=True)

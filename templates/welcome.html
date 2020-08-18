@@ -89,7 +89,7 @@
             options: {}
         });
 
-        $.getJSON("http://192.168.1.14:8000/getData?id=015e", function (data) {
+        $.getJSON("http://10.0.12.127:8000/getData?id=015e", function (data) {
             data.forEach(element => {
                 chart.data.labels.push(element.time);
                 chart.data.datasets[0].data.push(element.value)
