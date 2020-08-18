@@ -44,6 +44,7 @@ def on_message(client, userdata, msg):
     value = float(value)
     print("------------------")
     print("Receive Time : "+receiveTime)
+    print("Sensor Time : "+sensorTime)
     print(id)
     print(value)
     print(lat)
@@ -56,7 +57,7 @@ def on_message(client, userdata, msg):
         json_body = [
             {
                 "measurement": msg.topic,
-                "time": str(sensorTime),
+                "time": sensorTime,
                 "tags": {
                     "id" : id
                 },

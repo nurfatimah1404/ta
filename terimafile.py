@@ -30,16 +30,20 @@ def hello_world():
     # @app.route('/ambildata')
     # def ambil_data():
     #     #query Influx
-    idSensor = request.args.get('id')
-    measurement = request.args.get('measurement')
+    # idSensor = request.args.get('id')
+    # measurement = request.args.get('sensor')
+    # print(measurement)
+    # print(idSensor)
+
     clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
-    data  = clientx.query("SELECT * FROM {} WHERE id='{}'".format(measurement, idSensor))
+    query  = "SELECT * FROM temperature WHERE id='cd14'"
+    data  = clientx.query(query)
     list_current_data = list(data.get_points())
-    dataKirim = []
-    for row in list_current_data:
-        row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%d %H:%M:%S.%f')
-        dataKirim.append(row)
-    return jsonify(dataKirim)
+    # print(list_current_data)
+    # for row in list_current_data:
+    #     row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%S.%fZ').strftime('%Y-%m-%d %H:%M:%S.%f')
+    #     dataKirim.append(row)
+    return jsonify(list_current_data)
 
     # data2  = clientx.query("SELECT * FROM co WHERE id='{}'".format(idSensor))
     # list_current_data2 = list(data.get_points())
@@ -48,6 +52,17 @@ def hello_world():
     #     row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%d %H:%M:%S.%f')
     #     dataKirim2.append(row)
     # return jsonify(dataKirim2)
+
+@app.route('/getAverage')
+def getAverage():
+    idSensor = request.args.get('id')
+    measurement = request.args.get('sensor')
+    clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
+    query  = "SELECT MEAN(value), stddev(value) FROM {} where id='{}' AND time >='2020-08-18 00:00:00' AND time <='2020-08-19 00:00:00'group by time(1h)".format(measurement, idSensor)
+    data  = clientx.query(query)
+    list_current_data = list(data.get_points())
+    print(list_current_data)
+    return jsonify(list_current_data)
 
 @app.route('/')
 def tampilkanData():

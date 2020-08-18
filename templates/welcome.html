@@ -53,7 +53,26 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <canvas id="myChart"></canvas>
+                        <div class="container">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="idSensor">Sensor</label>
+                                    <select name="idSensor" id="idSensor" class="form-control">
+                                        <option value="cd14">cd14 - Basestation Iran</option>
+                                        <option value="015e">015e - ESP8266 1 Rahmat</option>
+                                        <option value="025f">025f - ESP8266 2 Rahmat</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr>
+                            <h1>Temperature</h1>
+                            <canvas id="chartTemperature"></canvas>
+                            <hr>
+                            <h1>Humidity</h1>
+                            <canvas id="chartHumidity"></canvas>
+                            <h1>Presure</h1>
+                            <canvas id="chartPressure"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,33 +87,93 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
+        //  Bikin Object DOM
+        var ctx1 = document.getElementById('chartTemperature').getContext('2d');
+        var ctx2 = document.getElementById('chartHumidity').getContext('2d');
+        var ctx3 = document.getElementById('chartPressure').getContext('2d');
         var dataPoints = [];
-        var chart = new Chart(ctx, {
-            // The type of chart we want to create
+        // Bikin Objek Chart dan Konfigurasinya
+        var chart1 = new Chart(ctx1, {
             type: 'line',
-
-            // The data for our dataset
             data: {
                 labels: [],
                 datasets: [{
-                    label: 'CO2',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: []
+                    label: 'Temperature',
+                    backgroundColor: '#ff7961',
+                    borderColor: '#ba000d',
+                    data: [],
+                    lineTension: 0
                 }]
             },
-
-            // Configuration options go here
-            options: {}
+            options: {
+                bezierCurve : true
+            }
         });
-
-        $.getJSON("http://10.0.12.127:8000/getData?id=3955834637", function (data) {
+        var chart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Humidity',
+                    backgroundColor: '#63a4ff',
+                    borderColor: '#004ba0',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart3 = new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        // Get Datanya pakae AJAX
+        $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
             data.forEach(element => {
-                chart.data.labels.push(element.time);
-                chart.data.datasets[0].data.push(element.value)
+                chart1.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart1.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart1.data.datasets[0].data.push(0)
+                }
             });
-            chart.update();
+            chart1.update();
+        });
+        $.getJSON("getAverage?sensor=humidity&id=cd14", function (data) {
+            data.forEach(element => {
+                chart2.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart2.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart2.data.datasets[0].data.push(0)
+                }
+            });
+            chart2.update();
+        });
+        $.getJSON("getAverage?sensor=pressure&id=cd14", function (data) {
+            data.forEach(element => {
+                chart3.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart3.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart3.data.datasets[0].data.push(0)
+                }
+            });
+            chart3.update();
         });
     </script>
 </body>
