@@ -91,7 +91,6 @@
         var ctx1 = document.getElementById('chartTemperature').getContext('2d');
         var ctx2 = document.getElementById('chartHumidity').getContext('2d');
         var ctx3 = document.getElementById('chartPressure').getContext('2d');
-        var ctx4 = document.getElementById('chartCO2').getContext('2d');
         var dataPoints = [];
         // Bikin Objek Chart dan Konfigurasinya
         var chart1 = new Chart(ctx1, {
@@ -142,22 +141,6 @@
                 bezierCurve : true
             }
         });
-        var chart4 = new Chart(ctx4, {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [{
-                    label: 'CO2',
-                    backgroundColor: '#6abf69',
-                    borderColor: '#00600f',
-                    data: [],
-                    lineTension: 0
-                }]
-            },
-            options: {
-                bezierCurve : true
-            }
-        });
         // Get Datanya pakae AJAX
         $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
             data.forEach(element => {
@@ -191,17 +174,6 @@
                 }
             });
             chart3.update();
-        });
-        $.getJSON("getAverage?sensor=co2&id=cd14", function (data) {
-            data.forEach(element => {
-                chart4.data.labels.push(element.time);
-                if(element.mean != null){
-                    chart4.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart4.data.datasets[0].data.push(0)
-                }
-            });
-            chart4.update();
         });
     </script>
 </body>
