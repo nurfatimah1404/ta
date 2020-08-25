@@ -32,7 +32,7 @@ def dataDic(arrayData, tipeData):
         lat = float(arrayData[5])
         longit = float(arrayData[6])
         idA = arrayData[7]
-        if (co<=0 or so<=0 or pm10<=0 or lat==0 or longit==0):
+        if (co<=0 or so2<=0 or pm10<=0 or lat==0 or longit==0):
             print("Failed")
         else:
             json_body = [
@@ -86,7 +86,7 @@ def dataDic(arrayData, tipeData):
         height = float(arrayData[4])
         humidity = float(arrayData[5])
         idB = arrayData[6]
-        if (temperature<=0 or so<=0 or pressure<=0 or height<=0 or humidity<=0):
+        if (temperature<=0 or pressure<=0 or height<=0 or humidity<=0):
             print("Failed")
         else:
             json_body = [
