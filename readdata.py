@@ -7,7 +7,7 @@ from influxdb import client as influxdb
 import shutil
 import glob
 
-db = influxdb.InfluxDBClient("10.0.12.127", 8086, "admin", "123456", "polusi")
+db = influxdb.InfluxDBClient("182.23.82.22", 8086, "admin", "123456", "polusi")
 
 # Baca Data
 def read_data(filename):
@@ -26,53 +26,50 @@ def dataDic(arrayData, tipeData):
     if tipeData == 'a':
         waktuA = arrayData[0]
         print(waktuA)
-        temperature = float(arrayData[1])
-        tek = float(arrayData[2])
-        kel = float(arrayData[3])
-        pm = float(arrayData[4])
-        idA = arrayData[5]
-        if (temperature<=0 or kel<=0 or tek<=0 or pm<=0):
+        co = float(arrayData[2])
+        so2 = float(arrayData[3])
+        pm10 = float(arrayData[4])
+        lat = float(arrayData[5])
+        longit = float(arrayData[6])
+        idA = arrayData[7]
+        if (co<=0 or so<=0 or pm10<=0 or lat==0 or longit==0):
             print("Failed")
         else:
             json_body = [
             {
-                "measurement": "temperature",
+                "measurement": "co",
                 "time": waktuA,
                 "tags": {
                     "id": idA
                 },
                 "fields": {
-                    "value": temperature,
+                    "latitude": lat,
+                    "longitude": longit,
+                    "value": co
                 }
             },
             {
-                "measurement": "pressure",
+                "measurement": "so2",
                 "time": waktuA,
                 "tags": {
                     "id": idA
                 },
                 "fields": {
-                    "value": tek,
+                    "latitude": lat,
+                    "longitude": longit,
+                    "value": so2
                 }
             },
             {
-                "measurement": "humidity",
+                "measurement": "pm.10",
                 "time": waktuA,
                 "tags": {
                     "id": idA
                 },
                 "fields": {
-                    "value": kel,
-                }
-            },
-            {
-                "measurement": "pm25",
-                "time": waktuA,
-                "tags": {
-                    "id": idA
-                },
-                "fields": {
-                    "value": pm,
+                    "latitude": lat,
+                    "longitude": longit,
+                    "value": pm10
                 }
             }
             ]
@@ -84,37 +81,53 @@ def dataDic(arrayData, tipeData):
         #print('Bikin struktur A')
     if tipeData == 'b':
         waktuB = arrayData[0]
-        lat = float(arrayData[2])
-        long = float(arrayData[3])
-        co = float(arrayData[4])
-        so = float(arrayData[5])
+        temperature = float(arrayData[2])
+        pressure = float(arrayData[3])
+        height = float(arrayData[4])
+        humidity = float(arrayData[5])
         idB = arrayData[6]
-        if (co<=0 or so<=0):
+        if (temperature<=0 or so<=0 or pressure<=0 or height<=0 or humidity<=0):
             print("Failed")
         else:
             json_body = [
                 {
-                    "measurement": "co",
+                    "measurement": "temperature",
                     "time": waktuB,
                     "tags": {
                         "id": idB
                     },
                     "fields": {
-                        "latitude": lat,
-                        "longitude": long,
-                        "value": co
+                        "value": temperature
                     }
                 },
                 {
-                    "measurement": "so2",
+                    "measurement": "pressure",
                     "time": waktuB,
                     "tags": {
                         "id": idB
                     },
                     "fields": {
-                        "latitude": lat,
-                        "longitude": long,
-                        "value": so
+                        "value": pressure
+                    }
+                },
+                {
+                    "measurement": "height",
+                    "time": waktuB,
+                    "tags": {
+                        "id": idB
+                    },
+                    "fields": {
+                        "value": height
+                    }
+                },
+                {
+                    "measurement": "humidity",
+                    "time": waktuB,
+                    "tags": {
+                        "id": idB
+                    },
+                    "fields": {
+                        "value": humidity
                     }
                 }
 

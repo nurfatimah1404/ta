@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 from influxdb import InfluxDBClient
 # set influxDB configuration -----------------------------
-dbhost = "10.0.12.127"
+dbhost = "182.23.82.22"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
