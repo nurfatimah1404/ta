@@ -72,6 +72,8 @@
                             <canvas id="chartHumidity"></canvas>
                             <h1>Presure</h1>
                             <canvas id="chartPressure"></canvas>
+                            <h1>CO2</h1>
+                            <canvas id="chartCO2"></canvas>
                         </div>
                     </div>
                 </div>
@@ -91,7 +93,7 @@
         var ctx1 = document.getElementById('chartTemperature').getContext('2d');
         var ctx2 = document.getElementById('chartHumidity').getContext('2d');
         var ctx3 = document.getElementById('chartPressure').getContext('2d');
-        var ctx4 = document.getElementById('charco2').getContext('2d');
+        var ctx4 = document.getElementById('charCO2').getContext('2d');
         var dataPoints = [];
         // Bikin Objek Chart dan Konfigurasinya
         var chart1 = new Chart(ctx1, {
