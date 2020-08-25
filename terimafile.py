@@ -35,7 +35,7 @@ def hello_world():
     # print(measurement)
     # print(idSensor)
 
-    clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
+    clientx = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
     query  = "SELECT * FROM temperature WHERE id='cd14'"
     data  = clientx.query(query)
     list_current_data = list(data.get_points())
@@ -57,7 +57,7 @@ def hello_world():
 def getAverage():
     idSensor = request.args.get('id')
     measurement = request.args.get('sensor')
-    clientx = InfluxDBClient('10.0.12.127', 8086, 'admin', '123456', 'mydb')
+    clientx = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
     query  = "SELECT MEAN(value), stddev(value) FROM {} where id='{}' AND time >='2020-08-18 00:00:00' AND time <='2020-08-19 00:00:00'group by time(1h)".format(measurement, idSensor)
     data  = clientx.query(query)
     list_current_data = list(data.get_points())
@@ -87,4 +87,4 @@ def getFiles():
         return jsonify({'response': 'error', 'message': 'File extension denied!'})
 
 
-app.run('10.0.12.127', 8000, debug=True)
+app.run('182.23.82.22', 8000, debug=True)
