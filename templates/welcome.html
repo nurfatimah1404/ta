@@ -91,6 +91,7 @@
         var ctx1 = document.getElementById('chartTemperature').getContext('2d');
         var ctx2 = document.getElementById('chartHumidity').getContext('2d');
         var ctx3 = document.getElementById('chartPressure').getContext('2d');
+        var ctx4 = document.getElementById('charco2').getContext('2d');
         var dataPoints = [];
         // Bikin Objek Chart dan Konfigurasinya
         var chart1 = new Chart(ctx1, {
@@ -131,6 +132,22 @@
                 labels: [],
                 datasets: [{
                     label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart4 = new Chart(ctx4, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'CO2',
                     backgroundColor: '#6abf69',
                     borderColor: '#00600f',
                     data: [],
