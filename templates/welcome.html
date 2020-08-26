@@ -144,22 +144,22 @@
                 bezierCurve : true
             }
         });
-        var chart4 = new Chart(ctx4, {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [{
-                    label: 'CO2',
-                    backgroundColor: '#6abf69',
-                    borderColor: '#00600f',
-                    data: [],
-                    lineTension: 0
-                }]
-            },
-            options: {
-                bezierCurve : true
-            }
-        });
+        // var chart4 = new Chart(ctx4, {
+        //     type: 'line',
+        //     data: {
+        //         labels: [],
+        //         datasets: [{
+        //             label: 'CO2',
+        //             backgroundColor: '#6abf69',
+        //             borderColor: '#00600f',
+        //             data: [],
+        //             lineTension: 0
+        //         }]
+        //     },
+        //     options: {
+        //         bezierCurve : true
+        //     }
+        // });
         // Get Datanya pakae AJAX
         $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
             data.forEach(element => {
