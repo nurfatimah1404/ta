@@ -45,14 +45,6 @@ def hello_world():
     #     dataKirim.append(row)
     return jsonify(list_current_data)
 
-    # data2  = clientx.query("SELECT * FROM co WHERE id='{}'".format(idSensor))
-    # list_current_data2 = list(data.get_points())
-    # dataKirim2 = []
-    # for row in list_current_data2:
-    #     row['time'] = datetime.strptime(row['time'], '%Y-%m-%dT%H:%M:%SZ').strftime('%Y-%m-%d %H:%M:%S.%f')
-    #     dataKirim2.append(row)
-    # return jsonify(dataKirim2)
-
 @app.route('/getAverage')
 def getAverage():
     idSensor = request.args.get('id')
