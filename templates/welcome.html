@@ -426,7 +426,7 @@
 
         //data dari rahmad
 
-        $.getJSON("getAverage?sensor=temperature&id=025f", function (data) {
+        $.getJSON("getAverageRahmad?sensor=temperature&id=025f", function (data) {
             data.forEach(element => {
                 chart4.data.labels.push(element.time);
                 if(element.mean != null){
@@ -437,7 +437,7 @@
             });
             chart4.update();
         });
-        $.getJSON("getAverage?sensor=humidity&id=025f", function (data) {
+        $.getJSON("getAverageRahmad?sensor=humidity&id=025f", function (data) {
             data.forEach(element => {
                 chart5.data.labels.push(element.time);
                 if(element.mean != null){
@@ -448,7 +448,7 @@
             });
             chart5.update();
         });
-        $.getJSON("getAverage?sensor=pressure&id=025f", function (data) {
+        $.getJSON("getAverageRahmad?sensor=pressure&id=025f", function (data) {
             data.forEach(element => {
                 chart6.data.labels.push(element.time);
                 if(element.mean != null){
@@ -459,7 +459,7 @@
             });
             chart6.update();
         });
-        $.getJSON("getAverage?sensor=height&id=025f", function (data) {
+        $.getJSON("getAverageRahmad?sensor=height&id=025f", function (data) {
             data.forEach(element => {
                 chart7.data.labels.push(element.time);
                 if(element.mean != null){
@@ -470,7 +470,7 @@
             });
             chart7.update();
         });
-        $.getJSON("getAverage?sensor=co&id=015e", function (data) {
+        $.getJSON("getAverageRahmad?sensor=co&id=015e", function (data) {
             data.forEach(element => {
                 chart8.data.labels.push(element.time);
                 if(element.mean != null){
@@ -481,7 +481,7 @@
             });
             chart8.update();
         });
-        $.getJSON("getAverage?sensor=so2&id=015e", function (data) {
+        $.getJSON("getAverageRahmad?sensor=so2&id=015e", function (data) {
             data.forEach(element => {
                 chart9.data.labels.push(element.time);
                 if(element.mean != null){
@@ -492,7 +492,7 @@
             });
             chart9.update();
         });
-        $.getJSON("getAverage?sensor=pm.102&id=015e", function (data) {
+        $.getJSON("getAverageRahmad?sensor=pm.102&id=015e", function (data) {
             data.forEach(element => {
                 chart10.data.labels.push(element.time);
                 if(element.mean != null){
