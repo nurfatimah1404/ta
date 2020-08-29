@@ -8,7 +8,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <style>
-        /* body { margin: 0; padding: 0; } */
+        body { margin: 0; padding-top: 100; }
 	    #map { position: absolute; top: 0; bottom: 0; width: 100%; padding-top: 100px; }
     </style>
     
@@ -737,7 +737,7 @@
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
         var map = new mapboxgl.Map({
         container: 'map',
-        // style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/streets-v11',
         center: [12.550343, 55.665957],
         zoom: 8
         });
