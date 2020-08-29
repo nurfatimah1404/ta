@@ -286,17 +286,46 @@
             });
             chart3.update();
         });
-        // $.getJSON("getAverage?sensor=co&id=015e", function (data) {
-        //     data.forEach(element => {
-        //         chart4.data.labels.push(element.time);
-        //         if(element.mean != null){
-        //             chart4.data.datasets[0].data.push(Number.parseFloat(element.mean))
-        //         } else {
-        //             chart4.data.datasets[0].data.push(0)
-        //         }
-        //     });
-        //     chart4.update();
-        // });
+
+
+        //data dari rahmad
+
+        $.getJSON("getAverage?sensor=temperature&id=015e", function (data) {
+            data.forEach(element => {
+                chart1.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart1.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart1.data.datasets[0].data.push(0)
+                }
+            });
+            chart1.update();
+        });
+        $.getJSON("getAverage?sensor=humidity&id=015e", function (data) {
+            data.forEach(element => {
+                chart2.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart2.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart2.data.datasets[0].data.push(0)
+                }
+            });
+            chart2.update();
+        });
+        $.getJSON("getAverage?sensor=pressure&id=015e", function (data) {
+            data.forEach(element => {
+                chart3.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart3.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart3.data.datasets[0].data.push(0)
+                }
+            });
+            chart3.update();
+        });
+
+
+
         $(document).ready(function(){
             $('#idSensor').change(function(){
                 var a = $(this). children("option:selected"). val();
