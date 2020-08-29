@@ -37,9 +37,9 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="idSensor">Sensor</label>
-                                    <select name="idSensor" id="idSensor" class="form-control">
-                                        <option value="cd14" id="irman">cd14 - Basestation Irman</option>
-                                        <option value="015e" id="rahmad">015e - ESP8266 1 Rahmad</option>
+                                    <select name="idSensor" id="idSensor" onchange="" class="form-control">
+                                        <option value="cd14">cd14 - Basestation Irman</option>
+                                        <option value="015e" >015e - ESP8266 1 Rahmad</option>
                                         <option value="025f">025f - ESP8266 2 Rahmad</option>
                                         <option value="025f">3F0D - ESP8266 1 Fauzan</option>
                                     </select>
@@ -249,15 +249,16 @@
         //     chart4.update();
         // });
         $(document).ready(function(){
-            $("#irman").on("click", function(){
-
-                $('#mashuri').show(200);
-                $('#rahmad').hide();
-            });
-            $("rahmad").on("click", function(){
-
-                $('#iswadi').show(200);
-                $('#mashuri').hide();
+            $('#idSensor').change(function(){
+                var a = find(":selected").val();
+                if (a == "cd14"){
+                    $('#mashuri').show(200);
+                    $('#rahmad').hide();
+                }
+                else if(a == "015e"){
+                    $('#iswadi').show(200);
+                    $('#mashuri').hide();
+                }
             });
         });  
     </script>
