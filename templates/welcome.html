@@ -40,7 +40,6 @@
                                     <select name="idSensor" id="idSensor" onchange="" class="form-control">
                                         <option value="cd14">cd14 - Basestation Irman</option>
                                         <option value="015e" >015e - ESP8266 1 Rahmad</option>
-                                        <option value="025f">025f - ESP8266 2 Rahmad</option>
                                         <option value="3F0D">3F0D - ESP8266 1 Fauzan</option>
                                     </select>
                                 </div>
@@ -479,7 +478,7 @@
             });
             chart9.update();
         });
-        $.getJSON("getAverageRahmad?sensor=pm.102&id=015e", function (data) {
+        $.getJSON("getAverageRahmad?sensor=pm.10&id=015e", function (data) {
             data.forEach(element => {
                 chart10.data.labels.push(element.time);
                 if(element.mean != null){
@@ -507,12 +506,6 @@
                     $('#rahmad').show(200);
                     $('#irman').hide(200);
                     $('#rahmad2').hide();
-                    $('#fauzan').hide();
-                }
-                else if(a == "025f"){
-                    $('#rahmad2').show(200);
-                    $('#irman').hide(200);
-                    $('#rahmad').hide();
                     $('#fauzan').hide();
                 }
                 else if(a == "3F0D"){
