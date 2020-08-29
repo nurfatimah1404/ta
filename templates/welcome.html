@@ -41,15 +41,13 @@
                                         <option value="cd14">cd14 - Basestation Irman</option>
                                         <option value="015e" >015e - ESP8266 1 Rahmad</option>
                                         <option value="025f">025f - ESP8266 2 Rahmad</option>
-                                        <option value="025f">3F0D - ESP8266 1 Fauzan</option>
+                                        <option value="3F0D">3F0D - ESP8266 1 Fauzan</option>
                                     </select>
                                 </div>
                             </div>
-                            <div id="iswadi" style="display: none;">
-                                indonesia merdeka
-                            </div>
+                            
 
-<div id="mashuri">
+<div id="irman">
                             <div class="row my-5">
 
                                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
@@ -116,7 +114,58 @@
                             <canvas id="chartPressure"></canvas>
                             <!-- <h1>CO2</h1>
                             <canvas id="chartCO2"></canvas> -->
-                        </div>
+</div>
+
+<div id="rahmad" style="display: none;">
+                            <div class="row my-5">
+
+                                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Temperature</h5>
+                                            <h1 class="text-success"><span id="valueCPUTemp">30</span><small>&#8451</small></h1>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Pressure</h5>
+                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>Pa</small></h1>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">Humidity</h5>
+                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>%H</small></h1>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">CO2</h5>
+                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">SO2</h5>
+                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                        </div>
+                                    </div>
+                                </div>                    
+                            </div>
+
+</div>
                         </div>
                     </div>
                 </div>
@@ -253,12 +302,28 @@
                 var a = $(this). children("option:selected"). val();
                 console.log(a);
                 if (a == "cd14"){
-                    $('#mashuri').show(200);
+                    $('#irman').show(200);
                     $('#rahmad').hide();
+                    $('#rahmad2').hide();
+                    $('#fauzan').hide();
                 }
                 else if(a == "015e"){
-                    $('#iswadi').show(200);
-                    $('#mashuri').hide();
+                    $('#rahmad').show(200);
+                    $('#irman').hide(200);
+                    $('#rahmad2').hide();
+                    $('#fauzan').hide();
+                }
+                else if(a == "025f"){
+                    $('#rahmad2').show(200);
+                    $('#irman').hide(200);
+                    $('#rahmad').hide();
+                    $('#fauzan').hide();
+                }
+                else if(a == "3F0D"){
+                    $('#fauzan').show(200);
+                    $('#irman').hide(200);
+                    $('#rahmad').hide();
+                    $('#rahmad2').hide();
                 }
             });
         });  
