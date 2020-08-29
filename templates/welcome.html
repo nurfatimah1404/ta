@@ -112,8 +112,24 @@
                             <canvas id="chartHumidity"></canvas>
                             <h1>Presure</h1>
                             <canvas id="chartPressure"></canvas>
-                            <!-- <h1>CO2</h1>
-                            <canvas id="chartCO2"></canvas> -->
+
+                            <!-- tampilan rahmad -->
+                            <h1>Temperature</h1>
+                            <canvas id="chartTemperature_rahmad"></canvas>
+                            <h1>Humidity</h1>
+                            <canvas id="chartHumidity_rahmad"></canvas>
+                            <h1>Pressure</h1>
+                            <canvas id="chartPressure_rahmad"></canvas>
+                            <h1></h1>
+                            <canvas id="chartTemperature_rahmad"></canvas>
+                            <h1>Height</h1>
+                            <canvas id="chartHeight_rahmad"></canvas>
+                            <h1>PM10</h1>
+                            <canvas id="chartPM10_rahmad"></canvas>
+                            <h1>CO</h1>
+                            <canvas id="chartCO_rahmad"></canvas>
+                            <h1>SO2</h1>
+                            <canvas id="chartSO2_rahmad"></canvas>
 </div>
 
 <div id="rahmad" style="display: none;">
@@ -185,7 +201,13 @@
         var ctx1 = document.getElementById('chartTemperature').getContext('2d');
         var ctx2 = document.getElementById('chartHumidity').getContext('2d');
         var ctx3 = document.getElementById('chartPressure').getContext('2d');
-        // var ctx4 = document.getElementById('chartCO2').getContext('2d');
+        var ctx4 = document.getElementById('chartTemperature_rahmad').getContext('2d');
+        var ctx5 = document.getElementById('chartHumidity_rahmad').getContext('2d');
+        var ctx6 = document.getElementById('chartPressure_rahmad').getContext('2d');
+        var ctx7 = document.getElementById('chartHeight_rahmad').getContext('2d');
+        var ctx8 = document.getElementById('chartCO_rahmad').getContext('2d');
+        var ctx9 = document.getElementById('chartSO2_rahmad').getContext('2d');
+        var ctx10 = document.getElementById('chartPM10_rahmad').getContext('2d');
         var dataPoints = [];
         // Bikin Objek Chart dan Konfigurasinya
         var chart1 = new Chart(ctx1, {
@@ -236,23 +258,137 @@
                 bezierCurve : true
             }
         });
-        // var chart4 = new Chart(ctx4, {
-        //     type: 'line',
-        //     data: {
-        //         labels: [],
-        //         datasets: [{
-        //             label: 'CO2',
-        //             backgroundColor: '#6abf69',
-        //             borderColor: '#00600f',
-        //             data: [],
-        //             lineTension: 0
-        //         }]
-        //     },
-        //     options: {
-        //         bezierCurve : true
-        //     }
-        // });
+        var chart4 = new Chart(ctx4, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart5 = new Chart(ctx5, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart6 = new Chart(ctx6, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart7 = new Chart(ctx7, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart8 = new Chart(ctx8, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'CO2',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart9 = new Chart(ctx9, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart10 = new Chart(ctx10, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
+        var chart11 = new Chart(ctx11, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Pressure',
+                    backgroundColor: '#6abf69',
+                    borderColor: '#00600f',
+                    data: [],
+                    lineTension: 0
+                }]
+            },
+            options: {
+                bezierCurve : true
+            }
+        });
         // Get Datanya pakae AJAX
+
+        //data dari IRMAN
         $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
             data.forEach(element => {
                 chart1.data.labels.push(element.time);
@@ -290,38 +426,82 @@
 
         //data dari rahmad
 
-        $.getJSON("getAverage?sensor=temperature&id=015e", function (data) {
+        $.getJSON("getAverage?sensor=temperature&id=025f", function (data) {
             data.forEach(element => {
-                chart1.data.labels.push(element.time);
+                chart4.data.labels.push(element.time);
                 if(element.mean != null){
-                    chart1.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                    chart4.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 } else {
-                    chart1.data.datasets[0].data.push(0)
+                    chart4.data.datasets[0].data.push(0)
                 }
             });
-            chart1.update();
+            chart4.update();
         });
-        $.getJSON("getAverage?sensor=humidity&id=015e", function (data) {
+        $.getJSON("getAverage?sensor=humidity&id=025f", function (data) {
             data.forEach(element => {
-                chart2.data.labels.push(element.time);
+                chart5.data.labels.push(element.time);
                 if(element.mean != null){
-                    chart2.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                    chart5.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 } else {
-                    chart2.data.datasets[0].data.push(0)
+                    chart5.data.datasets[0].data.push(0)
                 }
             });
-            chart2.update();
+            chart5.update();
         });
-        $.getJSON("getAverage?sensor=pressure&id=015e", function (data) {
+        $.getJSON("getAverage?sensor=pressure&id=025f", function (data) {
             data.forEach(element => {
-                chart3.data.labels.push(element.time);
+                chart6.data.labels.push(element.time);
                 if(element.mean != null){
-                    chart3.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                    chart6.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 } else {
-                    chart3.data.datasets[0].data.push(0)
+                    chart6.data.datasets[0].data.push(0)
                 }
             });
-            chart3.update();
+            chart6.update();
+        });
+        $.getJSON("getAverage?sensor=height&id=025f", function (data) {
+            data.forEach(element => {
+                chart7.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart7.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart7.data.datasets[0].data.push(0)
+                }
+            });
+            chart7.update();
+        });
+        $.getJSON("getAverage?sensor=co&id=015e", function (data) {
+            data.forEach(element => {
+                chart8.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart8.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart8.data.datasets[0].data.push(0)
+                }
+            });
+            chart8.update();
+        });
+        $.getJSON("getAverage?sensor=so2&id=015e", function (data) {
+            data.forEach(element => {
+                chart9.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart9.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart9.data.datasets[0].data.push(0)
+                }
+            });
+            chart9.update();
+        });
+        $.getJSON("getAverage?sensor=pm.102&id=015e", function (data) {
+            data.forEach(element => {
+                chart10.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart10.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart10.data.datasets[0].data.push(0)
+                }
+            });
+            chart10.update();
         });
 
 
