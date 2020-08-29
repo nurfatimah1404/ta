@@ -37,8 +37,8 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="idSensor">Sensor</label>
-                                    <button onclick="irman();">Irman</button>
-                                    <button onclick="rahmad();">Rahmad</button>
+                                    <button id="irman">Irman</button>
+                                    <button id="rahmad">Rahmad</button>
                                     <select name="idSensor" id="idSensor" class="form-control">
                                         <option value="cd14" >cd14 - Basestation Irman</option>
                                         <option value="015e" >015e - ESP8266 1 Rahmad</option>
@@ -251,17 +251,17 @@
         //     chart4.update();
         // });
         $(document).ready(function(){
-        $("#irman").on("click", function(){
+            $("#irman").on("click", function(){
 
-            $('#mashuri').show(200);
-            $('#rahmad').hide();
-        });
-        $("rahmad").on("click", function(){
+                $('#mashuri').show(200);
+                $('#rahmad').hide();
+            });
+            $("rahmad").on("click", function(){
 
-            $('#iswadi').show(200);
-            $('#mashuri').hide();
-        });
-    });  
+                $('#iswadi').show(200);
+                $('#mashuri').hide();
+            });
+        });  
     </script>
 </body>
 
