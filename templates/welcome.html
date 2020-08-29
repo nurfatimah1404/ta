@@ -195,7 +195,7 @@
 <!-- tampilan fau -->
 <div id="fauzan" style="display: none;">
         
-                            <div class="row my-5" style="height: 1000px; width: 1000px;">
+                            <div class="row my-5" style="height: 1000px; width: 1000px; padding-top: 100px;">
                                 <h2>Maps</h2>
                                 <div id="map"></div>
                             <!-- <div class="col-6 col-sm-6 col-md-3 col-lg-3">
@@ -736,6 +736,7 @@
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
         var map = new mapboxgl.Map({
         container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
         center: [12.550343, 55.665957],
         zoom: 8
         });
