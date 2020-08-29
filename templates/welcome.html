@@ -478,7 +478,7 @@
             });
             chart9.update();
         });
-        $.getJSON("getAverageRahmad?sensor=pm.10&id=015e", function (data) {
+        $.getJSON("getAverageRahmad?sensor='pm.10'&id=015e", function (data) {
             data.forEach(element => {
                 chart10.data.labels.push(element.time);
                 if(element.mean != null){
