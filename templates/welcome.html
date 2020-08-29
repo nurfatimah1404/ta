@@ -249,14 +249,16 @@
         //     chart4.update();
         // });
        
-        function irman(){
+        $("#irman").on("click", function(){
+
             $('#mashuri').show(200);
             $('#rahmad').hide();
-        };
-        function rahmad(){
+        });
+        $("rahmad").on("click", function(){
+
             $('#iswadi').show(200);
             $('#mashuri').hide();
-        };
+        });
     </script>
 </body>
 
