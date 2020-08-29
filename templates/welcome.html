@@ -38,8 +38,8 @@
                                 <div class="form-group">
                                     <label for="idSensor">Sensor</label>
                                     <select name="idSensor" id="idSensor" class="form-control">
-                                        <option value="cd14" id="irman">cd14 - Basestation Irman</option>
-                                        <option value="015e" id="rahmad">015e - ESP8266 1 Rahmad</option>
+                                        <option value="cd14" onclick="irman();">cd14 - Basestation Irman</option>
+                                        <option value="015e" onclick="rahmad();">015e - ESP8266 1 Rahmad</option>
                                         <option value="025f">025f - ESP8266 2 Rahmad</option>
                                         <option value="025f">3F0D - ESP8266 1 Fauzan</option>
                                     </select>
@@ -249,14 +249,14 @@
         //     chart4.update();
         // });
        
-        $('#irman').click(function(){
+        function irman(){
             $('#mashuri').show(200);
             $('#rahmad').hide();
-        });
-        $('#rahmad').click(function(){
+        };
+        function rahmad(){
             $('#iswadi').show(200);
             $('#mashuri').hide();
-        })
+        };
     </script>
 </body>
 
