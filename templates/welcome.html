@@ -181,8 +181,67 @@
                             <canvas id="chartSO2_rahmad"></canvas>
 
 </div>
+<!-- batas tampilan rahmad -->
+<!-- tampilan fau -->
 <div id="fauzan" style="display: none;">
-    tes
+                        <div class="row my-5">
+
+                            <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Temperature</h5>
+                                        <h1 class="text-success"><span id="valueCPUTemp">30</span><small>&#8451</small></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Humidity</h5>
+                                        <h1 class="text-success"><span id="valueMemoryLoad"></span><small>%H</small></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">CO2</h5>
+                                        <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">CO</h5>
+                                        <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">PM 2.5</h5>
+                                        <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                    </div>
+                                </div>
+                            </div>                      
+                        </div>
+
+                        <h1>Temperature</h1>
+                        <canvas id="chartTemperature_fau"></canvas>
+                        <h1>Humidity</h1>
+                        <canvas id="chartHumidity_fau"></canvas>
+                        <h1>CO2</h1>
+                        <canvas id="chartCO2_fau"></canvas>
+                        <h1>CO</h1>
+                        <canvas id="chartCO_fau"></canvas>
+                        <h1>PM 2.5</h1>
+                        <canvas id="chartPM25_fau"></canvas>
+    
 </div>
                         </div>
                     </div>
@@ -210,6 +269,11 @@
         var ctx8 = document.getElementById('chartCO_rahmad').getContext('2d');
         var ctx9 = document.getElementById('chartSO2_rahmad').getContext('2d');
         var ctx10 = document.getElementById('chartPM10_rahmad').getContext('2d');
+        var ctx11 = document.getElementById('chartTemperature_fau').getContext('2d');        
+        var ctx12 = document.getElementById('chartHumidity_fau').getContext('2d');        
+        var ctx13 = document.getElementById('chartCO2_fau').getContext('2d');        
+        var ctx14 = document.getElementById('chartCO_fau').getContext('2d');        
+        var ctx15 = document.getElementById('chartPM25_fau').getContext('2d');
         var dataPoints = [];
         // Bikin Objek Chart dan Konfigurasinya
         var chart1 = new Chart(ctx1, {
@@ -478,7 +542,7 @@
             });
             chart9.update();
         });
-        $.getJSON("getAverageRahmad?sensor='pm.10'&id=015e", function (data) {
+        $.getJSON("getAverageRahmad?sensor=pm.10&id=015e", function (data) {
             data.forEach(element => {
                 chart10.data.labels.push(element.time);
                 if(element.mean != null){
@@ -489,6 +553,65 @@
             });
             chart10.update();
         });
+
+
+        // DATA DARI FAU
+        $.getJSON("getAverageRahmad?sensor=temperature&id=3F0D", function (data) {
+            data.forEach(element => {
+                chart11.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart11.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart11.data.datasets[0].data.push(0)
+                }
+            });
+            chart11.update();
+        });
+        $.getJSON("getAverageRahmad?sensor=humidity&id=3F0D", function (data) {
+            data.forEach(element => {
+                chart12.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart12.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart12.data.datasets[0].data.push(0)
+                }
+            });
+            chart12.update();
+        });
+        $.getJSON("getAverageRahmad?sensor=co2&id=3F0D", function (data) {
+            data.forEach(element => {
+                chart13.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart13.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart13.data.datasets[0].data.push(0)
+                }
+            });
+            chart13.update();
+        });
+        $.getJSON("getAverageRahmad?sensor=co&id=3F0D", function (data) {
+            data.forEach(element => {
+                chart14.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart14.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart14.data.datasets[0].data.push(0)
+                }
+            });
+            chart14.update();
+        });
+        $.getJSON("getAverageRahmad?sensor=pm.10&id=3F0D", function (data) {
+            data.forEach(element => {
+                chart15.data.labels.push(element.time);
+                if(element.mean != null){
+                    chart15.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                } else {
+                    chart15.data.datasets[0].data.push(0)
+                }
+            });
+            chart15.update();
+        });
+
 
 
 
