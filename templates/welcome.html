@@ -10,7 +10,8 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <style>
         /* body { margin: 0; padding-top: 100px; } */
-	    #map { position: absolute; top: 0; bottom: 0; width: 100%; margin-top: 200px; }
+	    /* #map { position: absolute; top: 0; bottom: 0; width: 100%; margin-top: 200px; } */
+        #map { position: absolute; top: 0; bottom: 0; margin-top: 200px; } */
     </style>
     
     
@@ -199,7 +200,6 @@
         
                             <div style="height: 1000px; width: 1000px; padding-top: 80px;">
                                 <h2>Maps</h2>
-                                <div id="bodymaps">
                                 <!-- <canvas id="map"></canvas> -->
                                 <div id="map"></div>
                             <!-- <div class="col-6 col-sm-6 col-md-3 col-lg-3">
@@ -245,7 +245,7 @@
                                     </div>
                                 </div>
                             </div>                       -->
-                        </div>
+                        
                         </div>
                         <hr>
                         <!-- <h1>Temperature</h1>
@@ -261,19 +261,6 @@
                         <hr><hr> -->
     
 </div>
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
-        var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [12.550343, 55.665957],
-        zoom: 8
-        });
-        
-        var marker = new mapboxgl.Marker()
-        .setLngLat([12.550343, 55.665957])
-        .addTo(map);
-    </script>
                         </div>
                     </div>
                 </div>
@@ -751,7 +738,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnb
     //     });
     //     });
     
-	
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [12.550343, 55.665957],
+        zoom: 8
+        });
+        
+        var marker = new mapboxgl.Marker()
+        .setLngLat([12.550343, 55.665957])
+        .addTo(map);
     
         
     </script>
