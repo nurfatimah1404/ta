@@ -6,8 +6,8 @@
     <title>Monitoring Polusi Udara</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" /> -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <style>
         /* body { margin: 0; padding-top: 100px; } */
 	    #map { position: absolute; top: 0; bottom: 0; width: 100%; margin-top: 200px; }
@@ -197,41 +197,11 @@
 <!-- batas tampilan rahmad -->
 <!-- tampilan fau -->
 <div id="fauzan" style="display: none;">
-    <!DOCTYPE HTML>
-<html>
-  <head>
-    <title>OpenLayers Demo</title>
-    <style type="text/css">
-      html, body, #basicMap {
-          width: 100%;
-          height: 100%;
-          margin: 0;
-      }
-    </style>
-    <script src="OpenLayers.js"></script>
-    <script>
-      function init() {
-        map = new OpenLayers.Map("basicMap");
-        var mapnik         = new OpenLayers.Layer.OSM();
-        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
-        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-        var position       = new OpenLayers.LonLat(13.41,52.52).transform( fromProjection, toProjection);
-        var zoom           = 15; 
-
-        map.addLayer(mapnik);
-        map.setCenter(position, zoom );
-      }
-    </script>
-  </head>
-  <body onload="init();">
-    <div id="basicMap"></div>
-  </body>
-</html>
         
-                            <!-- <div style="height: 1000px; width: 1000px; padding-top: 80px;">
+                            <div style="height: 1000px; width: 1000px; padding-top: 80px;">
                                 <h2>Maps</h2>
-                                 <canvas id="map"></canvas> -->
-                                <!-- <div id="map"></div> -->
+                                <!-- <canvas id="map"></canvas> -->
+                                <div id="map"></div>
                             <!-- <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                                 <div class="card">
                                     <div class="card-body text-center">
@@ -276,7 +246,7 @@
                                 </div>
                             </div>                       -->
                         
-                        </div> -->
+                        </div>
                         <hr>
                         <!-- <h1>Temperature</h1>
                         <canvas id="chartTemperature_fau"></canvas>
