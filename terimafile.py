@@ -69,14 +69,14 @@ def getAverageRahmad():
 
 @app.route('/getFau')
 def getFau():
-    idSensor2 = request.args.get('id')
-    measurement2 = request.args.get('sensor')
-    clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
-    query2  = "SELECT * FROM {} where id='{}' ".format(measurement2, idSensor2)
-    data2  = clientx2.query(query2)
-    list_current_data2 = list(data2.get_points())
-    print(list_current_data2)
-    return jsonify(list_current_data2)
+    idSensor3 = request.args.get('id')
+    measurement3 = request.args.get('sensor')
+    clientx3 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
+    query3  = "SELECT * FROM {} where id='{}' ".format(measurement3, idSensor3)
+    data3  = clientx3.query(query3)
+    list_current_data3 = list(data3.get_points())
+    print(list_current_data3)
+    return jsonify(list_current_data3)
 
 @app.route('/')
 def tampilkanData():
