@@ -638,7 +638,7 @@
                 },
                 'geometry': {
                 'type': 'Point',
-                'coordinates': [[],[]]
+                'coordinates': [119.481961, -5.137894]
                 }
                 }
             ]
@@ -692,17 +692,6 @@
             });
             });
 
-            mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/streets-v11',
-                    center: [119.481961, -5.137894],
-                    zoom: 8
-                });
-            
-                var marker = new mapboxgl.Marker()
-                    .setLngLat([12.550343, 55.665957])
-                    .addTo(map);
             
         $.getJSON("getFau?sensor=co2&id=3F0D", function (data) {
             data.forEach(element => {
