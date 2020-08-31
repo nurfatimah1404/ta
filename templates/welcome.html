@@ -11,8 +11,16 @@
     <style>
         /* body { margin: 0; padding-top: 100px; } */
 	    #map { position: absolute; top: 0; bottom: 0; width: 100%; margin-top: 200px; }
-        /* #map { position: absolute; top: 0; bottom: 0; margin-top: 200px; } */ */
+        .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+        
+
+        
     </style>
+    
+    
     
     
 
@@ -197,69 +205,13 @@
 <!-- batas tampilan rahmad -->
 <!-- tampilan fau -->
 <div id="fauzan" style="display: none;">
-        
-                            <!-- <div style="height: 1000px; width: 1000px; padding-top: 80px;">
-                                <h2>Maps</h2>
-                                 <canvas id="map"></canvas> -->
-                                <!-- <div id="map"></div> -->
-                            <!-- <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Temperature</h5>
-                                        <h1 class="text-success"><span id="valueCPUTemp">30</span><small>&#8451</small></h1>
-                                    </div>
-                                </div>
-                            </div> -->
+                        <div style="margin: 0; padding-top: 100px;">
 
-                            <!-- <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Humidity</h5>
-                                        <h1 class="text-success"><span id="valueMemoryLoad"></span><small>%H</small></h1>
-                                    </div>
-                                </div>
-                            </div> -->
+                        <div id="map"></div>
 
-                            <!-- <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">CO2</h5>
-                                        <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">CO</h5>
-                                        <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                <div class="card">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">PM 2.5</h5>
-                                        <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                    </div>
-                                </div>
-                            </div>                       
-                        
-                        </div> -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.817203295012!2d119.4810283143308!3d-5.133120653363125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMDcnNTkuMyJTIDExOcKwMjgnNTkuNiJF!5e0!3m2!1sid!2sid!4v1598763359032!5m2!1sid!2sid" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                         <hr>
-                        <!-- <h1>Temperature</h1>
-                        <canvas id="chartTemperature_fau"></canvas>
-                        <h1>Humidity</h1>
-                        <canvas id="chartHumidity_fau"></canvas>
-                        <h1>CO2</h1>
-                        <canvas id="chartCO2_fau"></canvas>
-                        <h1>CO</h1>
-                        <canvas id="chartCO_fau"></canvas>
-                        <h1>PM 2.5</h1>
-                        <canvas id="chartPM25_fau"></canvas>
-                        <hr><hr> -->
+                        </div>
+                        
     
 </div>
                         </div>
@@ -666,91 +618,89 @@
             });
         });  
 
-        // map
-
-        
-	// mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
-    //     var map = new mapboxgl.Map({
-    //     container: 'map',
-    //     style: 'mapbox://styles/mapbox/streets-v11',
-    //     center: [-77.04, 38.907],
-    //     zoom: 11.15
-    //     });
-        
-    //     map.on('load', function() {
-    //     map.addSource('places', {
-    //     'type': 'geojson',
-    //     'data': {
-    //     'type': 'FeatureCollection',
-    //     'features': [
-    //     {
-    //     'type': 'Feature',
-    //     'properties': {
-    //     'description':
-    //     '<strong>Make it Mount Pleasant</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">Make it Mount Pleasant</a> is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>',
-    //     'icon': 'theatre'
-    //     },
-    //     'geometry': {
-    //     'type': 'Point',
-    //     'coordinates': [-77.038659, 38.931567]
-    //     }
-    //     },
-    //     ]
-    //     }
-    //     });
-    //     // Add a layer showing the places.
-    //     map.addLayer({
-    //     'id': 'places',
-    //     'type': 'symbol',
-    //     'source': 'places',
-    //     'layout': {
-    //     'icon-image': '{icon}-15',
-    //     'icon-allow-overlap': true
-    //     }
-    //     });
-        
-    //     // When a click event occurs on a feature in the places layer, open a popup at the
-    //     // location of the feature, with description HTML from its properties.
-    //     map.on('click', 'places', function(e) {
-    //     var coordinates = e.features[0].geometry.coordinates.slice();
-    //     var description = e.features[0].properties.description;
-        
-    //     // Ensure that if the map is zoomed out such that multiple
-    //     // copies of the feature are visible, the popup appears
-    //     // over the copy being pointed to.
-    //     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-    //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-    //     }
-        
-    //     new mapboxgl.Popup()
-    //     .setLngLat(coordinates)
-    //     .setHTML(description)
-    //     .addTo(map);
-    //     });
-        
-    //     // Change the cursor to a pointer when the mouse is over the places layer.
-    //     map.on('mouseenter', 'places', function() {
-    //     map.getCanvas().style.cursor = 'pointer';
-    //     });
-        
-    //     // Change it back to a pointer when it leaves.
-    //     map.on('mouseleave', 'places', function() {
-    //     map.getCanvas().style.cursor = '';
-    //     });
-    //     });
-    
-	mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
-        var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [12.550343, 55.665957],
-        zoom: 8
-        });
-        
-        var marker = new mapboxgl.Marker()
-        .setLngLat([12.550343, 55.665957])
-        .addTo(map);
-    
+        // MAP
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
+            var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [119.481961, -5.137894],
+            zoom: 16
+            });
+            
+            map.on('load', function() {
+            map.loadImage(
+            'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+            // Add an image to use as a custom marker
+            function(error, image) {
+            if (error) throw error;
+            map.addImage('custom-marker', image);
+            
+            map.addSource('places', {
+            'type': 'geojson',
+            'data': {
+            'type': 'FeatureCollection',
+            'features': [
+            {
+            'type': 'Feature',
+            'properties': {
+            'description':
+            '<h3>INI WAKTU</h3> <p>lat &#8451;</p> <p>long</p> <p>co</p> <p>so</p> <p>pm10</p>'
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [119.481961, -5.137894]
+            }
+            }
+            ]
+            }
+            });
+            
+            // Add a layer showing the places.
+            map.addLayer({
+            'id': 'places',
+            'type': 'symbol',
+            'source': 'places',
+            'layout': {
+            'icon-image': 'custom-marker',
+            'icon-allow-overlap': true
+            }
+            });
+            }
+            );
+            
+            // Create a popup, but don't add it to the map yet.
+            var popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+            });
+            
+            map.on('mouseenter', 'places', function(e) {
+            // Change the cursor style as a UI indicator.
+            map.getCanvas().style.cursor = 'pointer';
+            
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var description = e.features[0].properties.description;
+            
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+            
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+            });
+            
+            map.on('mouseleave', 'places', function() {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+            });
+            });
         
     </script>
 </body>
