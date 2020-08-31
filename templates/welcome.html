@@ -706,7 +706,7 @@
             
         $.getJSON("getFau?sensor=co2&id=3F0D", function (data) {
             data.forEach(element => {
-                map.features.coordinates.push(element.latitude, element.longitude)
+                map.features[0].coordinates.push(element.latitude, element.longitude);
                 // if(element.mean != null){
                 //     chart11.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 // } else {
