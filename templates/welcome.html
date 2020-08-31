@@ -527,17 +527,7 @@
 
 
         // // DATA DARI FAU
-        // $.getJSON("getAverageRahmad?sensor=temperature&id=3F0D", function (data) {
-        //     data.forEach(element => {
-        //         chart11.data.labels.push(element.time);
-        //         if(element.mean != null){
-        //             chart11.data.datasets[0].data.push(Number.parseFloat(element.mean))
-        //         } else {
-        //             chart11.data.datasets[0].data.push(0)
-        //         }
-        //     });
-        //     chart11.update();
-        // });
+        
         // $.getJSON("getAverageRahmad?sensor=humidity&id=3F0D", function (data) {
         //     data.forEach(element => {
         //         chart12.data.labels.push(element.time);
@@ -589,7 +579,7 @@
         //     });
         //     chart.update();
         // });
-
+        
 
 
 
@@ -640,17 +630,17 @@
             'data': {
             'type': 'FeatureCollection',
             'features': [
-            {
-            'type': 'Feature',
-            'properties': {
-            'description':
-            '<h3>INI WAKTU</h3> <p>lat &#8451;</p> <p>long</p> <p>co</p> <p>so</p> <p>pm10</p>'
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [119.481961, -5.137894]
-            }
-            }
+                {
+                'type': 'Feature',
+                'properties': {
+                'description':
+                '<h3>INI WAKTU</h3> <p>lat &#8451;</p> <p>long</p> <p>co</p> <p>so</p> <p>pm10</p>'
+                },
+                'geometry': {
+                'type': 'Point',
+                'coordinates': [[],[]]
+                }
+                }
             ]
             }
             });
@@ -701,6 +691,31 @@
             popup.remove();
             });
             });
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: [119.481961, -5.137894],
+                    zoom: 8
+                });
+            
+                var marker = new mapboxgl.Marker()
+                    .setLngLat([12.550343, 55.665957])
+                    .addTo(map);
+            
+        $.getJSON("getFau?sensor=co2&id=3F0D", function (data) {
+            data.forEach(element => {
+                map.features.coordinates.push(element.latitude, element.longitude)
+                // if(element.mean != null){
+                //     chart11.data.datasets[0].data.push(Number.parseFloat(element.mean))
+                // } else {
+                //     chart11.data.datasets[0].data.push(0)
+                // }
+            });
+            map.update();
+        });
+
         
     </script>
 </body>
