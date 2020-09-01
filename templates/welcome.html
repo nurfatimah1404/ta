@@ -413,7 +413,7 @@
         $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
             data.forEach(element => {
                 chart1.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != 0){
                     chart1.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 }
                 else{
