@@ -23,7 +23,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("temperature")
     client.subscribe("pressure")
     client.subscribe("humidity")
-    client.subscribe("pm2.5")
+    client.subscribe("pm25")
     client.subscribe("co2")
     client.subscribe("co")
     client.subscribe("pm10")

@@ -61,7 +61,7 @@ def dataDic(arrayData, tipeData):
                 }
             },
             {
-                "measurement": "pm.10",
+                "measurement": "pm10",
                 "time": waktuA,
                 "tags": {
                     "id": idA
