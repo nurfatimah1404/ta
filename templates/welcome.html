@@ -413,10 +413,11 @@
         $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
             data.forEach(element => {
                 chart1.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null){
                     chart1.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart1.data.datasets[0].data.push(0)
+                }
+                else{
+                pass;
                 }
             });
             chart1.update();
@@ -424,10 +425,11 @@
         $.getJSON("getAverage?sensor=humidity&id=cd14", function (data) {
             data.forEach(element => {
                 chart2.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null){
                     chart2.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart2.data.datasets[0].data.push(0)
+                }
+                else{
+                pass;
                 }
             });
             chart2.update();
@@ -435,10 +437,11 @@
         $.getJSON("getAverage?sensor=pressure&id=cd14", function (data) {
             data.forEach(element => {
                 chart3.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null){
                     chart3.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart3.data.datasets[0].data.push(0)
+                }
+                else{
+                pass;
                 }
             });
             chart3.update();
@@ -450,10 +453,11 @@
         $.getJSON("getAverageRahmad?sensor=temperature&id=025f", function (data) {
             data.forEach(element => {
                 chart4.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null){
                     chart4.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart4.data.datasets[0].data.push(0)
+                }
+                else{
+                pass;
                 }
             });
             chart4.update();
@@ -461,10 +465,11 @@
         $.getJSON("getAverageRahmad?sensor=humidity&id=025f", function (data) {
             data.forEach(element => {
                 chart5.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null){
                     chart5.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart5.data.datasets[0].data.push(0)
+                }
+                else{
+                pass;
                 }
             });
             chart5.update();
@@ -472,10 +477,11 @@
         $.getJSON("getAverageRahmad?sensor=pressure&id=025f", function (data) {
             data.forEach(element => {
                 chart6.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null){
                     chart6.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart6.data.datasets[0].data.push(0)
+                }
+                else{
+                pass;
                 }
             });
             chart6.update();
@@ -483,10 +489,11 @@
         $.getJSON("getAverageRahmad?sensor=height&id=025f", function (data) {
             data.forEach(element => {
                 chart7.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null){
                     chart7.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart7.data.datasets[0].data.push(0)
+                }
+                else{
+                pass;
                 }
             });
             chart7.update();
@@ -494,10 +501,11 @@
         $.getJSON("getAverageRahmad?sensor=co&id=015e", function (data) {
             data.forEach(element => {
                 chart8.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null){
                     chart8.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    chart8.data.datasets[0].data.push(0)
+                }
+                else{
+                pass;
                 }
             });
             chart8.update();
@@ -521,7 +529,6 @@
                     chart10.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 }
                 else{
-                    
                 pass;
                 }
             });
