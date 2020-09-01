@@ -517,7 +517,7 @@
         $.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
             data.forEach(element => {
                 chart10.data.labels.push(element.time);
-                if (element.mean == 0){
+                if (element.mean == null){
                     continue;
                 }
                 else{
