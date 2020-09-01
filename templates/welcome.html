@@ -515,7 +515,7 @@
         });
         $.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
             data.forEach(element => {
-                if (element.mean == "None"){
+                if (element.mean == None){
                     continue;
                 }
                 else{
