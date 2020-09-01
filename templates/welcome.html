@@ -505,10 +505,10 @@
         $.getJSON("getAverageRahmad?sensor=so2&id=015e", function (data) {
             data.forEach(element => {
                 chart9.data.labels.push(element.time);
-                if(element.mean != None){
+                if(element.mean != null){
                     chart9.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 } else {
-                    continue;
+                    pass;
                 }
             });
             chart9.update();
@@ -517,7 +517,7 @@
         $.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
             data.forEach(element => {
                 chart10.data.labels.push(element.time);
-                if (element.mean != None){
+                if (element.mean != 0){
                     chart10.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 }
                 else{
