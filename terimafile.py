@@ -53,7 +53,6 @@ def getAverage():
     query  = "SELECT MEAN(value) FROM {} where id='{}' AND time >='2020-08-18 00:00:00' AND time <='2020-08-26 23:00:00'group by time(1h)".format(measurement, idSensor)
     data  = clientx.query(query)
     list_current_data = list(data.get_points())
-    print(list_current_data)
     return jsonify(list_current_data)
 
 @app.route('/getAverageRahmad')
@@ -77,6 +76,17 @@ def getFau():
     list_current_data3 = list(data3.get_points())
     print(list_current_data3)
     return jsonify(list_current_data3)
+
+@app.route('/getispu')
+def getispu():
+    idSensor4 = request.args.get('id')
+    measurement4 = request.args.get('sensor')
+    clientx4 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'coba')
+    query4  = "SELECT * FROM {} where id='{}' ".format(measurement4, idSensor4)
+    data4  = clientx4.query(query4)
+    list_current_data4 = list(data4.get_points())
+    print(list_current_data4)
+    return jsonify(list_current_data4)
 
 @app.route('/')
 def tampilkanData():

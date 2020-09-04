@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Monitoring Polusi Udara</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
@@ -12,24 +13,23 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         /* body { margin: 0; padding-top: 100px; } */
-	    #map { position: absolute; top: 0; bottom: 0; width: 100%; margin-top: 200px; }
-        .mapboxgl-popup {
-        max-width: 400px;
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            margin-top: 200px;
         }
-        
 
-        
+        .mapboxgl-popup {
+            max-width: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
     </style>
-    
-    
-    
-    
-
 </head>
 
 <body class="bg-dark">
-    
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Sistem Monitoring Polusi Udara</a>
@@ -49,7 +49,7 @@
     </header>
 
     <div class="container">
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -60,189 +60,163 @@
                                     <label for="idSensor">Sensor</label>
                                     <select name="idSensor" id="idSensor" onchange="" class="form-control">
                                         <option value="cd14">cd14 - Basestation Irman</option>
-                                        <option value="015e" >015e - ESP8266 1 Rahmad</option>
+                                        <option value="015e">015e - ESP8266 1 Rahmad</option>
                                         <option value="3F0D">3F0D - ESP8266 1 Fauzan</option>
                                     </select>
                                 </div>
-                            </div>                            
-
-<div id="irman">
-                            <div class="row my-5">
-
-                                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Temperature</h5>
-                                            <h1 class="text-success"><span id="valueCPUTemp">30</span><small>&#8451</small></h1>
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Pressure</h5>
-                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>Pa</small></h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Humidity</h5>
-                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>%H</small></h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">CO2</h5>
-                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">SO2</h5>
-                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                        </div>
-                                    </div>
-                                </div>
-                    
                             </div>
 
-                            <hr>
-                            <h1>Temperature</h1>
-                            <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Max : </h5>            
-                                    <h5 class="card-title">Min : </h5>
+                            <div id="irman">
+                                <div class="row my-5">
+
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Temperature</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueCPUTemp">30</span><small>&#8451</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Pressure</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueMemoryLoad"></span><small>Pa</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Humidity</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueMemoryLoad"></span><small>%H</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">CO2</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">SO2</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
+
+                                <hr>
+                                <h1>Temperature</h1>
+                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Max : </h5>
+                                        <h5 class="card-title">Min : </h5>
+                                    </div>
+                                </div>
+
+                                <canvas id="chartTemperature"></canvas>
+                                <h1>Humidity</h1>
+                                <canvas id="chartHumidity"></canvas>
+                                <h1>Presure</h1>
+                                <canvas id="chartPressure"></canvas>
+                                <hr>
+                                <hr>
+
                             </div>
 
-                            <canvas id="chartTemperature"></canvas>
-                            <h1>Humidity</h1>
-                            <canvas id="chartHumidity"></canvas>
-                            <h1>Presure</h1>
-                            <canvas id="chartPressure"></canvas>
-                            <hr><hr>
-                            
-</div>
+                            <!-- tampilan Rahmad -->
+                            <div id="rahmad" style="display: none;">
+                                <div class="row my-12">
+                                    <!-- <div class="w3-container"> -->
+                                    <h2>Indeks Standar Pencemaran Udara</h2>
+                                    <!-- <p>The w3-card-* classes makes the table look like a card (adds shadows):</p> -->
 
-<!-- tampilan Rahmad -->
-<div id="rahmad" style="display: none;">
-                            <div class="row my-5">
-                                <div class="w3-container">
-                                    <h2>Table as a Card</h2>
-                                    <p>The w3-card-* classes makes the table look like a card (adds shadows):</p>
-                                  
-                                    <table class="w3-table-all w3-card-4">
-                                      <tr>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Points</th>
-                                      </tr>
-                                      <tr>
-                                        <td>Jill</td>
-                                        <td>Smith</td>
-                                        <td>50</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Eve</td>
-                                        <td>Jackson</td>
-                                        <td>94</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Adam</td>
-                                        <td>Johnson</td>
-                                        <td>67</td>
-                                      </tr>
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="vertical-align : middle;text-align:center;">
+                                                    Parameter</th>
+                                                <th scope="col" style="vertical-align : middle;text-align:center;">Nilai
+                                                    ISPU</th>
+                                                <th scope="col" style="vertical-align : middle;text-align:center;">
+                                                    Kategori</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" style="vertical-align : middle;text-align:center;">1
+                                                </th>
+                                                <td style="vertical-align : middle;text-align:center;">50</td>
+                                                <td style="vertical-align : middle;text-align:center;">BAIK</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="vertical-align : middle;text-align:center;">2
+                                                </th>
+                                                <td style="vertical-align : middle;text-align:center;">30</td>
+                                                <td style="vertical-align : middle;text-align:center;">BAIK</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="vertical-align : middle;text-align:center;">3
+                                                </th>
+                                                <td style="vertical-align : middle;text-align:center;">100</td>
+                                                <td style="vertical-align : middle;text-align:center;">BURUK</td>
+                                            </tr>
+                                        </tbody>
                                     </table>
-                                  </div>
 
-                                <!-- <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Temperature</h5>
-                                            <h1 class="text-success"><span id="valueCPUTemp">30</span><small>&#8451</small></h1>
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Pressure</h5>
-                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>Pa</small></h1>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Humidity</h5>
-                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>%H</small></h1>
-                                        </div>
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
-
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">CO2</h5>
-                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                        </div>
-                                    </div>
+                                <hr>
+                                <div>
+                                    <h1>Temperature</h1>
+                                    <canvas id="chartTemperature_rahmad"></canvas>
+                                    <h1>Humidity</h1>
+                                    <canvas id="chartHumidity_rahmad"></canvas>
+                                    <h1>Pressure</h1>
+                                    <canvas id="chartPressure_rahmad"></canvas>
+                                    <h1></h1>
+                                    <canvas id="chartTemperature_rahmad"></canvas>
+                                    <h1>Height</h1>
+                                    <canvas id="chartHeight_rahmad"></canvas>
+                                    <h1>PM10</h1>
+                                    <canvas id="chartPM10_rahmad"></canvas>
+                                    <h1>CO</h1>
+                                    <canvas id="chartCO_rahmad"></canvas>
+                                    <h1>SO2</h1>
+                                    <canvas id="chartSO2_rahmad"></canvas>
+                                    <hr>
+                                    <hr>
                                 </div>
-
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">SO2</h5>
-                                            <h1 class="text-success"><span id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                        </div>
-                                    </div>
-                                </div>                     -->
                             </div>
-                            <hr>
+                            <!-- batas tampilan rahmad -->
+                            <!-- tampilan fau -->
+                            <div id="fauzan" style="display: none;">
+                                <div style="margin: 0; padding-top: 100px; height: 1000px; width: 100%;">
 
-                            <!-- <h1>Temperature</h1>
-                            <canvas id="chartTemperature_rahmad"></canvas>
-                            <h1>Humidity</h1>
-                            <canvas id="chartHumidity_rahmad"></canvas>
-                            <h1>Pressure</h1>
-                            <canvas id="chartPressure_rahmad"></canvas>
-                            <h1></h1>
-                            <canvas id="chartTemperature_rahmad"></canvas>
-                            <h1>Height</h1>
-                            <canvas id="chartHeight_rahmad"></canvas>
-                            <h1>PM10</h1>
-                            <canvas id="chartPM10_rahmad"></canvas>
-                            <h1>CO</h1>
-                            <canvas id="chartCO_rahmad"></canvas>
-                            <h1>SO2</h1>
-                            <canvas id="chartSO2_rahmad"></canvas>
-                            <hr><hr> -->
+                                    <div id="map"></div>
 
-</div>
-<!-- batas tampilan rahmad -->
-<!-- tampilan fau -->
-<div id="fauzan" style="display: none;">
-                        <div style="margin: 0; padding-top: 100px; height: 1000px; width: 100%;">
+                                    <hr>
+                                </div>
 
-                        <div id="map"></div>
 
-                        <hr>
-                        </div>
-                        
-    
-</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -256,7 +230,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script>
         //  Bikin Object DOM
         var ctx1 = document.getElementById('chartTemperature').getContext('2d');
@@ -285,11 +260,29 @@
                     backgroundColor: '#ff7961',
                     borderColor: '#ba000d',
                     data: [],
-                    lineTension: 0
+                    lineTension: 0,
+                    autoSkip: true,
+                    autoSkipPadding: 0,
+                    spanGaps: true
+                    // skipNullValues: true
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'hour',
+                            displayFormats: {
+                                hour: 'YYYY-MM-DD HH:mm',
+                            }
+                        },
+                    }]
+                }
+            },
+            externals: {
+                moment: 'moment'
             }
         });
         var chart2 = new Chart(ctx2, {
@@ -305,7 +298,21 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'hour',
+                            displayFormats: {
+                                hour: 'YYYY-MM-DD HH:mm',
+                            }
+                        },
+                    }]
+                }
+            },
+            externals: {
+                moment: 'moment'
             }
         });
         var chart3 = new Chart(ctx3, {
@@ -321,7 +328,21 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'hour',
+                            displayFormats: {
+                                hour: 'YYYY-MM-DD HH:mm',
+                            }
+                        },
+                    }]
+                }
+            },
+            externals: {
+                moment: 'moment'
             }
         });
         var chart4 = new Chart(ctx4, {
@@ -337,7 +358,21 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'hour',
+                            displayFormats: {
+                                hour: 'YYYY-MM-DD HH:mm',
+                            }
+                        },
+                    }]
+                }
+            },
+            externals: {
+                moment: 'moment'
             }
         });
         var chart5 = new Chart(ctx5, {
@@ -353,7 +388,21 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'hour',
+                            displayFormats: {
+                                hour: 'YYYY-MM-DD HH:mm',
+                            }
+                        },
+                    }]
+                }
+            },
+            externals: {
+                moment: 'moment'
             }
         });
         var chart6 = new Chart(ctx6, {
@@ -369,7 +418,21 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'hour',
+                            displayFormats: {
+                                hour: 'YYYY-MM-DD HH:mm',
+                            }
+                        },
+                    }]
+                }
+            },
+            externals: {
+                moment: 'moment'
             }
         });
         var chart7 = new Chart(ctx7, {
@@ -385,7 +448,21 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'hour',
+                            displayFormats: {
+                                hour: 'YYYY-MM-DD HH:mm',
+                            }
+                        },
+                    }]
+                }
+            },
+            externals: {
+                moment: 'moment'
             }
         });
         var chart8 = new Chart(ctx8, {
@@ -401,7 +478,21 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true,
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'hour',
+                            displayFormats: {
+                                hour: 'YYYY-MM-DD HH:mm',
+                            }
+                        },
+                    }]
+                }
+            },
+            externals: {
+                moment: 'moment'
             }
         });
         var chart9 = new Chart(ctx9, {
@@ -417,7 +508,7 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true
             }
         });
         var chart10 = new Chart(ctx10, {
@@ -433,44 +524,49 @@
                 }]
             },
             options: {
-                bezierCurve : true
+                bezierCurve: true
             }
         });
         // Get Datanya pakae AJAX
 
         //data dari IRMAN
+        // $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
+        //     data.forEach(element => {
+        //         chart1.data.labels.push(element.time);
+        //         if (element.mean != 0){
+        //             chart1.data.datasets[0].data.push(Number.parseFloat(element.mean))
+        //         }
+        //         else{
+        //         continue;
+        //         }
+        //     });
+        //     chart1.update();
+        // });
         $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
+            
             data.forEach(element => {
-                chart1.data.labels.push(element.time);
-                if (element.mean != 0){
+                if (element.mean != null) {
+                    chart1.data.labels.push(element.time);
                     chart1.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
                 }
             });
             chart1.update();
         });
         $.getJSON("getAverage?sensor=humidity&id=cd14", function (data) {
+            console.log(data)
             data.forEach(element => {
-                chart2.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != null) {
                     chart2.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
+                    chart2.data.labels.push(element.time);
                 }
             });
             chart2.update();
         });
         $.getJSON("getAverage?sensor=pressure&id=cd14", function (data) {
             data.forEach(element => {
-                chart3.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != null) {
+                    chart3.data.labels.push(element.time);
                     chart3.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
                 }
             });
             chart3.update();
@@ -481,84 +577,64 @@
 
         $.getJSON("getAverageRahmad?sensor=temperature&id=025f", function (data) {
             data.forEach(element => {
-                chart4.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != null) {
+                    chart4.data.labels.push(element.time);
                     chart4.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
                 }
             });
             chart4.update();
         });
         $.getJSON("getAverageRahmad?sensor=humidity&id=025f", function (data) {
             data.forEach(element => {
-                chart5.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != null) {
+                    chart5.data.labels.push(element.time);
                     chart5.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
                 }
             });
             chart5.update();
         });
         $.getJSON("getAverageRahmad?sensor=pressure&id=025f", function (data) {
             data.forEach(element => {
-                chart6.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != null) {
+                    chart6.data.labels.push(element.time);
                     chart6.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
                 }
             });
             chart6.update();
         });
         $.getJSON("getAverageRahmad?sensor=height&id=025f", function (data) {
             data.forEach(element => {
-                chart7.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != null) {
+                    chart7.data.labels.push(element.time);
                     chart7.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
                 }
             });
             chart7.update();
         });
         $.getJSON("getAverageRahmad?sensor=co&id=015e", function (data) {
             data.forEach(element => {
-                chart8.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != null) {
+                    chart8.data.labels.push(element.time);
                     chart8.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
                 }
             });
             chart8.update();
         });
         $.getJSON("getAverageRahmad?sensor=so2&id=015e", function (data) {
             data.forEach(element => {
-                chart9.data.labels.push(element.time);
-                if(element.mean != null){
+                if (element.mean != null) {
+                    chart9.data.labels.push(element.time);
                     chart9.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                } else {
-                    pass;
                 }
             });
             chart9.update();
-            
+
         });
         $.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
             data.forEach(element => {
-                chart10.data.labels.push(element.time);
-                if (element.mean != null){
+                if (element.mean != null) {
+                    chart10.data.labels.push(element.time);
                     chart10.data.datasets[0].data.push(Number.parseFloat(element.mean))
-                }
-                else{
-                pass;
                 }
             });
             chart10.update();
@@ -566,7 +642,7 @@
 
 
         // // DATA DARI FAU
-        
+
         // $.getJSON("getAverageRahmad?sensor=humidity&id=3F0D", function (data) {
         //     data.forEach(element => {
         //         chart12.data.labels.push(element.time);
@@ -618,134 +694,134 @@
         //     });
         //     chart.update();
         // });
-        
 
 
 
-        $(document).ready(function(){
-            $('#idSensor').change(function(){
-                var a = $(this). children("option:selected"). val();
+
+        $(document).ready(function () {
+            $('#idSensor').change(function () {
+                var a = $(this).children("option:selected").val();
                 console.log(a);
-                if (a == "cd14"){
+                if (a == "cd14") {
                     $('#irman').show(200);
                     $('#rahmad').hide();
                     $('#rahmad2').hide();
                     $('#fauzan').hide();
                 }
-                else if(a == "015e"){
+                else if (a == "015e") {
                     $('#rahmad').show(200);
                     $('#irman').hide(200);
                     $('#rahmad2').hide();
                     $('#fauzan').hide();
                 }
-                else if(a == "3F0D"){
+                else if (a == "3F0D") {
                     $('#fauzan').show(200);
                     $('#irman').hide(200);
                     $('#rahmad').hide();
                     $('#rahmad2').hide();
                 }
             });
-        });  
+        });
 
         // MAP
-            // mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
-            // var map = new mapboxgl.Map({
-            // container: 'map',
-            // style: 'mapbox://styles/mapbox/streets-v11',
-            // center: [119.481961, -5.137894],
-            // zoom: 16
-            // });
-            
-            // map.on('load', function() {
-            // map.loadImage(
-            // 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-            // // Add an image to use as a custom marker
-            // function(error, image) {
-            // if (error) throw error;
-            // map.addImage('custom-marker', image);
-            
-            // map.addSource('places', {
-            // 'type': 'geojson',
-            // 'data': {
-            // 'type': 'FeatureCollection',
-            // 'features': [
-            //     {
-            //     'type': 'Feature',
-            //     'properties': {
-            //     'description':
-            //     '<h3>INI WAKTU</h3> <p>lat &#8451;</p> <p>long</p> <p>co</p> <p>so</p> <p>pm10</p>'
-            //     },
-            //     'geometry': {
-            //     'type': 'Point',
-            //     'coordinates': [119.481961, -5.137894]
-            //     }
-            //     }
-            // ]
-            // }
-            // });
-            
-            // // Add a layer showing the places.
-            // map.addLayer({
-            // 'id': 'places',
-            // 'type': 'symbol',
-            // 'source': 'places',
-            // 'layout': {
-            // 'icon-image': 'custom-marker',
-            // 'icon-allow-overlap': true
-            // }
-            // });
-            // }
-            // );
-            
-            // // Create a popup, but don't add it to the map yet.
-            // var popup = new mapboxgl.Popup({
-            // closeButton: false,
-            // closeOnClick: false
-            // });
-            
-            // map.on('mouseenter', 'places', function(e) {
-            // // Change the cursor style as a UI indicator.
-            // map.getCanvas().style.cursor = 'pointer';
-            
-            // var coordinates = e.features[0].geometry.coordinates.slice();
-            // var description = e.features[0].properties.description;
-            
-            // // Ensure that if the map is zoomed out such that multiple
-            // // copies of the feature are visible, the popup appears
-            // // over the copy being pointed to.
-            // while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            // coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            // }
-            
-            // // Populate the popup and set its coordinates
-            // // based on the feature found.
-            // popup
-            // .setLngLat(coordinates)
-            // .setHTML(description)
-            // .addTo(map);
-            // });
-            
-            // map.on('mouseleave', 'places', function() {
-            // map.getCanvas().style.cursor = '';
-            // popup.remove();
-            // });
-            // });
+        // mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
+        // var map = new mapboxgl.Map({
+        // container: 'map',
+        // style: 'mapbox://styles/mapbox/streets-v11',
+        // center: [119.481961, -5.137894],
+        // zoom: 16
+        // });
 
-            mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/streets-v11',
-                    center: [119.481961, -5.137894],
-                    zoom: 18
-                });
-            
-                var marker = new mapboxgl.Marker()
-                    .setLngLat([])
-                    .addTo(map);
-            
+        // map.on('load', function() {
+        // map.loadImage(
+        // 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+        // // Add an image to use as a custom marker
+        // function(error, image) {
+        // if (error) throw error;
+        // map.addImage('custom-marker', image);
+
+        // map.addSource('places', {
+        // 'type': 'geojson',
+        // 'data': {
+        // 'type': 'FeatureCollection',
+        // 'features': [
+        //     {
+        //     'type': 'Feature',
+        //     'properties': {
+        //     'description':
+        //     '<h3>INI WAKTU</h3> <p>lat &#8451;</p> <p>long</p> <p>co</p> <p>so</p> <p>pm10</p>'
+        //     },
+        //     'geometry': {
+        //     'type': 'Point',
+        //     'coordinates': [119.481961, -5.137894]
+        //     }
+        //     }
+        // ]
+        // }
+        // });
+
+        // // Add a layer showing the places.
+        // map.addLayer({
+        // 'id': 'places',
+        // 'type': 'symbol',
+        // 'source': 'places',
+        // 'layout': {
+        // 'icon-image': 'custom-marker',
+        // 'icon-allow-overlap': true
+        // }
+        // });
+        // }
+        // );
+
+        // // Create a popup, but don't add it to the map yet.
+        // var popup = new mapboxgl.Popup({
+        // closeButton: false,
+        // closeOnClick: false
+        // });
+
+        // map.on('mouseenter', 'places', function(e) {
+        // // Change the cursor style as a UI indicator.
+        // map.getCanvas().style.cursor = 'pointer';
+
+        // var coordinates = e.features[0].geometry.coordinates.slice();
+        // var description = e.features[0].properties.description;
+
+        // // Ensure that if the map is zoomed out such that multiple
+        // // copies of the feature are visible, the popup appears
+        // // over the copy being pointed to.
+        // while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        // coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        // }
+
+        // // Populate the popup and set its coordinates
+        // // based on the feature found.
+        // popup
+        // .setLngLat(coordinates)
+        // .setHTML(description)
+        // .addTo(map);
+        // });
+
+        // map.on('mouseleave', 'places', function() {
+        // map.getCanvas().style.cursor = '';
+        // popup.remove();
+        // });
+        // });
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [119.481961, -5.137894],
+            zoom: 18
+        });
+
+        var marker = new mapboxgl.Marker()
+            .setLngLat([])
+            .addTo(map);
+
         $.getJSON("getFau?sensor=co2&id=3F0D", function (data) {
             data.forEach(element => {
-                marker.setLngLat.push(element.latitude),(element.longitude);
+                marker.setLngLat.push(element.latitude), (element.longitude);
                 // if(element.mean != null){
                 //     chart11.data.datasets[0].data.push(Number.parseFloat(element.mean))
                 // } else {
@@ -755,8 +831,18 @@
             marker.update();
         });
 
-        
+
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

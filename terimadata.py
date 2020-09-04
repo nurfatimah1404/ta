@@ -10,7 +10,7 @@ dbhost = "182.23.82.22"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
-dbname = "mydb"
+dbname = "tes"
 #---------------------------------------------------
 # set mqtt configuration ===========================
 mqtt_server = "127.0.0.1"
@@ -42,6 +42,7 @@ def on_message(client, userdata, msg):
     # Debug
     # id, myTopic, value, lat, longit, sensorTime, sendTime = message.split(",")
     # Data asli
+    # sensorTime, value, lat, longit, id = message.split(',')
     sensorTime, value, lat, longit, id = message.split(',')
     value = float(value)
     print("------------------")
@@ -55,9 +56,24 @@ def on_message(client, userdata, msg):
 
     SqlMonitor.sqlWrite(msg.topic, message, receiveTime)
 
-    if id is None or value <= 0 or lat is None or longit is None or sensorTime is None:
-        print("Failed writing to InfluxDB")
-    else:
+    
+    if id == '025f' and value >0 or value is not None or sensorTime is not None or sensorTime >0:
+        json_body = [
+            {
+                "measurement": msg.topic,
+                "time": sensorTime,
+                "tags": {
+                    "id" : id
+                },
+                "fields": {                   
+                    "value" : float(value)
+                } 
+            }
+        ]
+        dbclient.write_points(json_body)
+        print("Finished writing to InfluxDB")
+        print ("==================================")
+    elif value >0 or value is not None or sensorTime is not None or sensorTime >0:
         json_body = [
             {
                 "measurement": msg.topic,
@@ -75,6 +91,8 @@ def on_message(client, userdata, msg):
         dbclient.write_points(json_body)
         print("Finished writing to InfluxDB")
         print ("==================================")
+    else:
+        print ("Failed Writing to InfluxDB")
         #client.publish("demo")
 #====================================================        
 # Set up a client for InfluxDB
