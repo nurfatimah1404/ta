@@ -10,7 +10,7 @@ dbhost = "182.23.82.22"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
-dbname = "tes"
+dbname = "mydb"
 #---------------------------------------------------
 # set mqtt configuration ===========================
 mqtt_server = "127.0.0.1"
