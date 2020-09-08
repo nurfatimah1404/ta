@@ -1,5 +1,5 @@
 
-from flask import Flask, request, redirect, url_for, jsonify, render_template
+from flask import Flask, request, redirect, url_for, jsonify, render_template, send_from_directory
 from werkzeug.utils import secure_filename
 from datetime import datetime
 import os
@@ -12,7 +12,8 @@ from influxdb import DataFrameClient
 UPLOAD_FOLDER = '/home/data/post'
 ALLOWED_EXTENSIONS = {'txt'}
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="webdoc/templates",
+            static_folder='webdoc/static')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
@@ -63,7 +64,7 @@ def getAverageRahmad():
     query2  = "SELECT MEAN(value) FROM {} where id='{}' AND time >='2020-08-23 09:00:00' AND time <='2020-08-27 13:49:19'group by time(1h)".format(measurement2, idSensor2)
     data2  = clientx2.query(query2)
     list_current_data2 = list(data2.get_points())
-    print(list_current_data2)
+    # print(list_current_data2)
     return jsonify(list_current_data2)
 
 @app.route('/getFau')
@@ -74,7 +75,7 @@ def getFau():
     query3  = "SELECT * FROM {} where id='{}' ".format(measurement3, idSensor3)
     data3  = clientx3.query(query3)
     list_current_data3 = list(data3.get_points())
-    print(list_current_data3)
+    # print(list_current_data3)
     return jsonify(list_current_data3)
 
 @app.route('/getispu')
@@ -85,7 +86,7 @@ def getispu():
     query4  = "SELECT * FROM {} where id='{}' ".format(measurement4, idSensor4)
     data4  = clientx4.query(query4)
     list_current_data4 = list(data4.get_points())
-    print(list_current_data4)
+    # print(list_current_data4)
     return jsonify(list_current_data4)
 
 @app.route('/')
@@ -110,5 +111,8 @@ def getFiles():
     else:
         return jsonify({'response': 'error', 'message': 'File extension denied!'})
 
+@app.route('/<path:filename>')
+def custom_static(filename):
+    return send_from_directory('./webdoc/static/', filename)
 
 app.run('182.23.82.22', 8000, debug=True)

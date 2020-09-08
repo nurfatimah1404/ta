@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Monitoring Polusi Udara</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* body { margin: 0; padding-top: 100px; } */
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 10px;
+            width: 100%;
+            margin-top: 100px;
+            padding-left: 0%;
+        }
+
+        .mapboxgl-popup {
+            max-width: 80px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+
+        .mapboxgl-canvas-container {
+
+            height: 100vh;
+
+        }
+
+        /* .map_box_container{
+            position: relative;
+            height: 100% !important;
+            width: 100% !important;
+        } */
+    </style>
+</head>
+
+<body class="bg-dark" style="margin: 0; padding: 0;">
+    <!-- <div style="margin: 0; padding-top: 10px; height: 1000px; width: 80%;"> -->
+
+    <!-- style="margin: 0; padding-top: 10px; height: 1000px; width: 80%;" -->
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Sistem Monitoring Polusi Udara</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="idSensor">Sensor</label>
+                                    <select name="idSensor" id="idSensor" onchange="" class="form-control">
+                                        <option value="cd14">cd14 - Basestation Irman</option>
+                                        <option value="015e">015e - ESP8266 1 Rahmad</option>
+                                        <option value="3F0D">3F0D - ESP8266 1 Fauzan</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="irman">
+                                <div class="row my-5">
+
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Temperature</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueCPUTemp">30</span><small>&#8451</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Pressure</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueMemoryLoad"></span><small>Pa</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">Humidity</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueMemoryLoad"></span><small>%H</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">CO2</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">SO2</h5>
+                                                <h1 class="text-success"><span
+                                                        id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <hr>
+                                <h1>Temperature</h1>
+                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Max : </h5>
+                                        <h5 class="card-title">Min : </h5>
+                                    </div>
+                                </div>
+
+                                <canvas id="chartTemperature"></canvas>
+                                <h1>Humidity</h1>
+                                <canvas id="chartHumidity"></canvas>
+                                <h1>Presure</h1>
+                                <canvas id="chartPressure"></canvas>
+                                <hr>
+                                <hr>
+
+                            </div>
+
+                            <!-- tampilan Rahmad -->
+                            <div id="rahmad" style="display: none;">
+                                <div class="row my-12">
+                                    <!-- <div class="w3-container"> -->
+                                    <h2>Indeks Standar Pencemaran Udara</h2>
+                                    <!-- <p>The w3-card-* classes makes the table look like a card (adds shadows):</p> -->
+
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="vertical-align : middle;text-align:center;">
+                                                    Parameter</th>
+                                                <th scope="col" style="vertical-align : middle;text-align:center;">Nilai
+                                                    ISPU</th>
+                                                <th scope="col" style="vertical-align : middle;text-align:center;">
+                                                    Kategori</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" style="vertical-align : middle;text-align:center;">1
+                                                </th>
+                                                <td style="vertical-align : middle;text-align:center;">50</td>
+                                                <td style="vertical-align : middle;text-align:center;">BAIK</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="vertical-align : middle;text-align:center;">2
+                                                </th>
+                                                <td style="vertical-align : middle;text-align:center;">30</td>
+                                                <td style="vertical-align : middle;text-align:center;">BAIK</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="vertical-align : middle;text-align:center;">3
+                                                </th>
+                                                <td style="vertical-align : middle;text-align:center;">100</td>
+                                                <td style="vertical-align : middle;text-align:center;">BURUK</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                    <!-- </div> -->
+                                </div>
+                                <hr>
+                                <div>
+                                    <h1>Temperature</h1>
+                                    <canvas id="chartTemperature_rahmad"></canvas>
+                                    <h1>Humidity</h1>
+                                    <canvas id="chartHumidity_rahmad"></canvas>
+                                    <h1>Pressure</h1>
+                                    <canvas id="chartPressure_rahmad"></canvas>
+                                    <h1></h1>
+                                    <canvas id="chartTemperature_rahmad"></canvas>
+                                    <h1>Height</h1>
+                                    <canvas id="chartHeight_rahmad"></canvas>
+                                    <h1>PM10</h1>
+                                    <canvas id="chartPM10_rahmad"></canvas>
+                                    <h1>CO</h1>
+                                    <canvas id="chartCO_rahmad"></canvas>
+                                    <h1>SO2</h1>
+                                    <canvas id="chartSO2_rahmad"></canvas>
+                                    <hr>
+                                    <hr>
+                                </div>
+                            </div>
+                            <!-- batas tampilan rahmad -->
+
+
+                            <!-- tampilan fau -->
+                            <div id="fauzan" style="display: none;">
+
+                                <div
+                                    style="margin: 0; padding-top: 10px; padding-bottom: 60px; height: 900px; width: 60%;">
+
+                                    <div id="map"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+
+</html>
