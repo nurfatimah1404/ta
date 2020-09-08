@@ -341,7 +341,6 @@ $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
     chart1.update();
 });
 $.getJSON("getAverage?sensor=humidity&id=cd14", function (data) {
-    console.log(data)
     data.forEach(element => {
         if (element.mean != null) {
             chart2.data.datasets[0].data.push(Number.parseFloat(element.mean))
@@ -457,7 +456,6 @@ $.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
 $(document).ready(function () {
     $('#idSensor').change(function () {
         var a = $(this).children("option:selected").val();
-        console.log(a);
         if (a == "cd14") {
             $('#irman').show(200);
             $('#rahmad').hide();
@@ -479,101 +477,29 @@ $(document).ready(function () {
     });
 });
 
-
-
+// map
 mapboxgl.accessToken = 'pk.eyJ1IjoiZmF0aW1haDE0IiwiYSI6ImNrZWZuNmE0ODB2ajUydGxnbWljYXp6OW4ifQ.53UTfZmsMUXJjDmF9OVYBg';
 // mapboxgl.accessToken = 'pk.eyJ1IjoiZGFpbnQiLCJhIjoiY2tlZ29pbXI1MTV1YzM0bGcxaXdkbmR0ZyJ9.DKWwkyXev1SJTzCv-YpCuQ';
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [119.481961, -5.137894],
-    zoom: 16
+    zoom: 12
 });
 
-map.on('load', function () {
-    map.resize();
-    map.loadImage(
-        'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-        // Add an image to use as a custom marker
-        function (error, image) {
-            if (error) throw error;
-            map.addImage('custom-marker', image);
-
-
-            map.addSource('places',
-                {
-                    'type': 'geojson',
-                    'data':
-                    {
-                        'type': 'FeatureCollection',
-                        'features': [
-                            {
-                                'type': 'Feature',
-                                'properties':
-                                {
-                                    'description':
-                                        '<h3>INI WAKTU</h3> <p>lat &#8451;</p> <p>long</p> <p>co</p> <p>so</p> <p>pm10</p>'
-                                },
-                                'geometry':
-                                {
-                                    'type': 'Point',
-                                    'coordinates': [119.481961, -5.137894]
-                                }
-                            }]
-                    }
-                });
-
-            // Add a layer showing the places.
-            map.addLayer({
-                'id': 'places',
-                'type': 'symbol',
-                'source': 'places',
-                'layout':
-                {
-                    'icon-image': 'custom-marker',
-                    'icon-allow-overlap': true
-                }
-            });
-        }
-    );
-
-    // Create a popup, but don't add it to the map yet.
-    var popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
-    });
-
-    map.on('mouseenter', 'places', function (e) {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
-
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = e.features[0].properties.description;
-
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
-
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup
-            .setLngLat(coordinates)
-            .setHTML(description)
-            .addTo(map);
-    });
-
-    map.on('mouseleave', 'places', function () {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-    });
-
-});
 
 $.getJSON("getFau?sensor=pm10&id=3F0D", function (data) {
+    console.log(data);
     data.forEach(element => {
-        console.log(element);
+        if (element.latitude != null || element.longitude != null) {
+            var marker = new mapboxgl.Marker()
+                .setLngLat([element.longitude, element.latitude])
+                .setPopup(new mapboxgl.Popup().setHTML(`<p>
+                    PM10<br>
+                    <h5>${element.value}<small>ppm</h5></span><br>
+                </p>`)) // add popup
+                .addTo(map);
+        }
+        // console.log(element);
     });
 });

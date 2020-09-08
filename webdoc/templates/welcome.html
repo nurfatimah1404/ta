@@ -5,37 +5,8 @@
     <meta charset="utf-8" />
     <title>Monitoring Polusi Udara</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* body { margin: 0; padding-top: 100px; } */
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 10px;
-            width: 100%;
-            margin-top: 100px;
-            padding-left: 0%;
-        }
-
-        .mapboxgl-popup {
-            max-width: 80px;
-            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        }
-
-        .mapboxgl-canvas-container {
-
-            height: 100vh;
-
-        }
-
-        /* .map_box_container{
-            position: relative;
-            height: 100% !important;
-            width: 100% !important;
-        } */
-    </style>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body class="bg-dark" style="margin: 0; padding: 0;">
@@ -68,18 +39,22 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="container">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="idSensor">Sensor</label>
-                                    <select name="idSensor" id="idSensor" onchange="" class="form-control">
-                                        <option value="cd14">cd14 - Basestation Irman</option>
-                                        <option value="015e">015e - ESP8266 1 Rahmad</option>
-                                        <option value="3F0D">3F0D - ESP8266 1 Fauzan</option>
-                                    </select>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="idSensor">Sensor</label>
+                                        <select name="idSensor" id="idSensor" onchange="" class="form-control">
+                                            <option value="cd14">cd14 - Basestation Irman</option>
+                                            <option value="015e">015e - ESP8266 1 Rahmad</option>
+                                            <option value="3F0D">3F0D - ESP8266 1 Fauzan</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div id="irman">
+
+
+                            <div id="irman" class="row">
                                 <div class="row my-5">
 
                                     <div class="col-6 col-sm-6 col-md-3 col-lg-3">
@@ -126,8 +101,8 @@
                                         <div class="card">
                                             <div class="card-body text-center">
                                                 <h5 class="card-title">SO2</h5>
-                                                <h1 class="text-success"><span
-                                                        id="valueMemoryLoad"></span><small>ppm</small></h1>
+                                                <h1 class="text-success">
+                                                    <span id="valueMemoryLoad"></span><small>ppm</small></h1>
                                             </div>
                                         </div>
                                     </div>
@@ -154,7 +129,7 @@
                             </div>
 
                             <!-- tampilan Rahmad -->
-                            <div id="rahmad" style="display: none;">
+                            <div id="rahmad" class="row" style="display: none;">
                                 <div class="row my-12">
                                     <!-- <div class="w3-container"> -->
                                     <h2>Indeks Standar Pencemaran Udara</h2>
@@ -222,15 +197,10 @@
 
 
                             <!-- tampilan fau -->
-                            <div id="fauzan" style="display: none;">
-
-                                <div
-                                    style="margin: 0; padding-top: 10px; padding-bottom: 60px; height: 900px; width: 60%;">
-
-                                    <div id="map"></div>
+                            <div id="fauzan" class="row" style="display: none;">
+                                <div class="col-12">
+                                    <div id='map' style='width: 100%; height: 500px;'></div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -247,6 +217,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 </body>
 
