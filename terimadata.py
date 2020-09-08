@@ -4,14 +4,15 @@ import requests
 import time
 from datetime import datetime
 from influxdb import InfluxDBClient
-from SqlMonitor import SqlMonitor
+from SqlMonitor import sqlWrite
+
 # set influxDB configuration -----------------------------
 dbhost = "182.23.82.22"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
 dbname = "mydb"
-#---------------------------------------------------
+# ---------------------------------------------------
 # set mqtt configuration ===========================
 mqtt_server = "127.0.0.1"
 mqtt_port = 1883
@@ -19,9 +20,10 @@ mqtt_user = "server-asd"
 mqtt_password = ""
 # =================================================
 
+
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
-# set client subscriber ----------------------
+    # set client subscriber ----------------------
     client.subscribe("temperature")
     client.subscribe("pressure")
     client.subscribe("humidity")
@@ -30,15 +32,16 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("co")
     client.subscribe("pm10")
     client.subscribe("so")
+    # ----------------------------------------------
 
-#----------------------------------------------
+
 def on_message(client, userdata, msg):
     print("Received a message on topic: " + msg.topic)
-# Use utc as timestamp
+    # Use utc as timestamp
     now = datetime.now()
     receiveTime = str(now)
-#receiveTime=datetime.datetime.utcnow()
-    message=msg.payload.decode("utf-8")
+    # receiveTime=datetime.datetime.utcnow()
+    message = msg.payload.decode("utf-8")
     # Debug
     # id, myTopic, value, lat, longit, sensorTime, sendTime = message.split(",")
     # Data asli
@@ -54,56 +57,58 @@ def on_message(client, userdata, msg):
     print(longit)
     print("------------------")
 
-    SqlMonitor.sqlWrite(msg.topic, message, receiveTime)
+    # Tambahkan data pada SQLite
+    sqlWrite(msg.topic, message, receiveTime)
 
-    
-    if id == '025f' and value >0 or value is not None or sensorTime is not None or sensorTime >0:
+    if id == '025f' and value > 0 or value is not None or sensorTime is not None or sensorTime > 0:
         json_body = [
             {
                 "measurement": msg.topic,
                 "time": sensorTime,
                 "tags": {
-                    "id" : id
-                },
-                "fields": {                   
-                    "value" : float(value)
-                } 
-            }
-        ]
-        dbclient.write_points(json_body)
-        print("Finished writing to InfluxDB")
-        print ("==================================")
-    elif value >0 or value is not None or sensorTime is not None or sensorTime >0:
-        json_body = [
-            {
-                "measurement": msg.topic,
-                "time": sensorTime,
-                "tags": {
-                    "id" : id
+                    "id": id
                 },
                 "fields": {
-                    "latitude" : float(lat),
-                    "longitude" : float(longit),                    
-                    "value" : float(value)
-                } 
+                    "value": float(value)
+                }
             }
         ]
         dbclient.write_points(json_body)
         print("Finished writing to InfluxDB")
-        print ("==================================")
+        print("==================================")
+    elif value > 0 or value is not None or sensorTime is not None or sensorTime > 0:
+        json_body = [
+            {
+                "measurement": msg.topic,
+                "time": sensorTime,
+                "tags": {
+                    "id": id
+                },
+                "fields": {
+                    "latitude": float(lat),
+                    "longitude": float(longit),
+                    "value": float(value)
+                }
+            }
+        ]
+        dbclient.write_points(json_body)
+        print("Finished writing to InfluxDB")
+        print("==================================")
     else:
-        print ("Failed Writing to InfluxDB")
-        #client.publish("demo")
-#====================================================        
+        print("Failed Writing to InfluxDB")
+
+
+        # client.publish("demo")
+# ====================================================
 # Set up a client for InfluxDB
 dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 
-#====================================================
+# ====================================================
 # Initialize the MQTT client that should connect to the Mosquitto broker
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-connOK=False
+connOK = False
 
 while(connOK == False):
     try:
@@ -113,6 +118,6 @@ while(connOK == False):
     except:
         connOK = False
     time.sleep(2)
-#====================================================
+# ====================================================
 # Blocking loop to the Mosquitto broker
 client.loop_forever()
