@@ -16,7 +16,6 @@ def sqlWrite(topic, data, receivedTime):
     c = conn.cursor()
     # Create table
     c.execute("CREATE TABLE IF NOT EXISTS data (sensorTime text NULL, receivedTime text NULL, topic TEXT, id TEXT, value TEXT, lat text NULL, long text NULL)")
-    item = (sensorTime, receivedTime, topic, idSensor, value, lat, lon)
     c.execute("INSERT INTO data values ('{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(sensorTime, receivedTime, topic, idSensor, value, lat, lon))
     conn.commit()
     conn.close()
