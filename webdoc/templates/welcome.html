@@ -52,88 +52,52 @@
                                 </div>
                             </div>
 
-
-
-                            <div id="irman" class="row">
-                                <div class="row my-5">
-
-                                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">Temperature</h5>
-                                                <h1 class="text-success"><span
-                                                        id="valueCPUTemp">30</span><small>&#8451</small></h1>
+                            <div id="irman">
+                                <div class="container">
+                                    <div class="row my-5">
+                                        <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title">Data Diterima</h5>
+                                                    <h1 class="text-success">
+                                                        <span id="valueCPUTemp">30</span><small>&#8451</small></h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title">Data Di Blok</h5>
+                                                        <h1 class="text-success">
+                                                            <span id="valueCPUTemp">30</span><small>&#8451</small></h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">Pressure</h5>
-                                                <h1 class="text-success"><span
-                                                        id="valueMemoryLoad"></span><small>Pa</small></h1>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h2>Temperature</h2>
+                                            <canvas id="chartTemperature"></canvas>
                                         </div>
                                     </div>
-
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">Humidity</h5>
-                                                <h1 class="text-success"><span
-                                                        id="valueMemoryLoad"></span><small>%H</small></h1>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h2>Humidity</h2>
+                                            <canvas id="chartHumidity"></canvas>
                                         </div>
                                     </div>
-
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">CO2</h5>
-                                                <h1 class="text-success"><span
-                                                        id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                            </div>
+                                    <div>
+                                        <div class="col">
+                                            <h1>Presure</h1>
+                                            <canvas id="chartPressure"></canvas>
                                         </div>
-                                    </div>
-
-                                    <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">SO2</h5>
-                                                <h1 class="text-success">
-                                                    <span id="valueMemoryLoad"></span><small>ppm</small></h1>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <hr>
-                                <h1>Temperature</h1>
-                                <div class="col-6 col-sm-6 col-md-2 col-lg-2">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Max : </h5>
-                                        <h5 class="card-title">Min : </h5>
                                     </div>
                                 </div>
-
-                                <canvas id="chartTemperature"></canvas>
-                                <h1>Humidity</h1>
-                                <canvas id="chartHumidity"></canvas>
-                                <h1>Presure</h1>
-                                <canvas id="chartPressure"></canvas>
-                                <hr>
-                                <hr>
-
                             </div>
-
-                            <!-- tampilan Rahmad -->
-                            <div id="rahmad" class="row" style="display: none;">
+                            
+                            <div id="rahmad"style="display: none;">
                                 <div class="row my-12">
-                                    <!-- <div class="w3-container"> -->
                                     <h2>Indeks Standar Pencemaran Udara</h2>
-                                    <!-- <p>The w3-card-* classes makes the table look like a card (adds shadows):</p> -->
 
                                     <table class="table table-striped table-bordered">
                                         <thead>
