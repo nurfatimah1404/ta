@@ -511,3 +511,18 @@ $.getJSON("getFau?sensor=pm10&id=3F0D", function (data) {
         // console.log(element);
     });
 });
+
+const getStatusData = () => {
+    $.ajax({
+        url: 'getCounter',
+        success: (respond) => {
+            $("#dataReceived").text(respond.received);
+            $("#dataBlocked").text(respond.blocked);
+            $("#waktuUpdate").text(respond.time);
+        }
+    })
+}
+getStatusData()
+setInterval(() => {
+    getStatusData();
+}, 5000)

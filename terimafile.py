@@ -8,6 +8,7 @@ import random
 # from gpiozero import CPUTemperature
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
+from CounterData import getCounter, clearCounter
 
 UPLOAD_FOLDER = '/home/data/post'
 ALLOWED_EXTENSIONS = {'txt'}
@@ -144,5 +145,15 @@ def getFiles():
 @app.route('/<path:filename>')
 def custom_static(filename):
     return send_from_directory('./webdoc/static/', filename)
+
+@app.route('/getCounter', methods=['GET'])
+def counter():
+    date = request.args.get("date")
+    return jsonify(getCounter(date))
+
+@app.route('/clearCounter', methods=['GET'])
+def clear():
+    clearCounter()
+    return redirect('/')
 
 app.run('182.23.82.22', 8000, debug=True)

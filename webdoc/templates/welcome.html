@@ -51,28 +51,50 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Class Irman -->
-                            <div id="irman" class="container">
-                                <div class="row my-5">
-                                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">Data Diterima</h5>
-                                                <h1 class="text-success">
-                                                    <span id="valueCPUTemp">30</span><small>&#8451</small></h1>
+                            <div class="row my-5">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h2>Counter Data <small class="text-info" style="font-size: 20px;">(Update
+                                                    <span id="waktuUpdate"></span>)</small></h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title">Data Diterima</h5>
+                                                    <h1 class="text-success">
+                                                        <span id="dataReceived">X</span>
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-sm-6 col-md-3 col-lg-3">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <h5 class="card-title">Data Di Blok</h5>
+                                                    <h1 class="text-danger">
+                                                        <span id="dataBlocked">X</span>
+                                                    </h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">Data Di Blok</h5>
-                                                <h1 class="text-success">
-                                                    <span id="valueCPUTemp">30</span><small>&#8451</small></h1>
-                                            </div>
+                                    <div class="row my-2">
+                                        <div class="col">
+                                            <button class="btn btn-sm btn-danger" data-toggle="modal"
+                                                data-target="#modalClear">
+                                                <i class="fa fa-trash"></i> Clear Counter
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
+
+                            </div>
+                            <!-- Class Irman -->
+                            <div id="irman" class="container">
+
                                 <div class="row">
                                     <div class="col">
                                         <h2>Temperature</h2>
@@ -163,7 +185,7 @@
                                 </div>
                             </div>
                             <!-- End Class Rahmad -->
-                             <!-- Class Fauzan -->
+                            <!-- Class Fauzan -->
                             <div id="fauzan" class="row" style="display: none;">
                                 <div class="col-12">
                                     <div id='map' style='width: 100%; height: 500px;'></div>
@@ -177,6 +199,20 @@
         </div>
 
     </div>
+
+    <div class="modal fade" id="modalClear" tabindex="-1" role="dialog" aria-labelledby="modalClearLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Ingin menghapus counter data?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Kembali</button>
+                    <a href="clearCounter" class="btn btn-danger btn-sm">Lanjutkan</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

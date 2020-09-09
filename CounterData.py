@@ -69,7 +69,7 @@ def clearCounter(date=None):
                 './db/counter.db')
             cursor = conn.cursor()
             cursor.execute(
-                "UPDATE counter SET received = 0, blocked = 0, WHERE time='{}'".format(date))
+                "UPDATE counter SET received = 0, blocked = 0 WHERE time='{}'".format(date))
             conn.commit()
             conn.close()
         else:
@@ -77,7 +77,7 @@ def clearCounter(date=None):
                 './db/counter.db')
             cursor = conn.cursor()
             cursor.execute(
-                "UPDATE counter SET received = 0, blocked = 0, WHERE time='{}'".format(date))
+                "UPDATE counter SET received = 0, blocked = 0 WHERE time='{}'".format(date))
             conn.commit()
             conn.close()
 
