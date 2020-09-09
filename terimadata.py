@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 from influxdb import InfluxDBClient
 from SqlMonitor import sqlWrite
+from config import influxServer
 
 # set influxDB configuration -----------------------------
 dbhost = "182.23.82.22"
@@ -73,9 +74,10 @@ def on_message(client, userdata, msg):
                 }
             }
         ]
-        dbclient.write_points(json_body)
-        print("Finished writing to InfluxDB")
-        print("==================================")
+        if influxServer():
+            dbclient.write_points(json_body)
+            print("Finished writing to InfluxDB")
+            print("==================================")
     elif value > 0 or value is not None or sensorTime is not None or sensorTime > 0:
         json_body = [
             {
@@ -91,9 +93,10 @@ def on_message(client, userdata, msg):
                 }
             }
         ]
-        dbclient.write_points(json_body)
-        print("Finished writing to InfluxDB")
-        print("==================================")
+        if influxServer():
+            dbclient.write_points(json_body)
+            print("Finished writing to InfluxDB")
+            print("==================================")
     else:
         print("Failed Writing to InfluxDB")
 
