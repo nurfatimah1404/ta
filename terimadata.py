@@ -6,6 +6,7 @@ from datetime import datetime
 from influxdb import InfluxDBClient
 from SqlMonitor import sqlWrite
 from config import influxServer
+from CounterData import upBlocked, upReceived
 
 # set influxDB configuration -----------------------------
 dbhost = "182.23.82.22"
@@ -74,6 +75,7 @@ def on_message(client, userdata, msg):
                 }
             }
         ]
+        upReceived()
         if influxServer():
             dbclient.write_points(json_body)
             print("Finished writing to InfluxDB")
@@ -93,11 +95,13 @@ def on_message(client, userdata, msg):
                 }
             }
         ]
+        upReceived()
         if influxServer():
             dbclient.write_points(json_body)
             print("Finished writing to InfluxDB")
             print("==================================")
     else:
+        upBlocked()
         print("Failed Writing to InfluxDB")
 
 

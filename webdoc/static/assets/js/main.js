@@ -494,10 +494,18 @@ $.getJSON("getFau?sensor=pm10&id=3F0D", function (data) {
         if (element.latitude != null || element.longitude != null) {
             var marker = new mapboxgl.Marker()
                 .setLngLat([element.longitude, element.latitude])
-                .setPopup(new mapboxgl.Popup().setHTML(`<p>
-                    PM10<br>
-                    <h5>${element.value}<small>ppm</h5></span><br>
-                </p>`)) // add popup
+                .setPopup(new mapboxgl.Popup().setHTML(`
+                    <span style="margin-bottom:0px;font-size:15px">PM10</span><br>
+                    <h5 style="margin-bottom:0px">${element.pm10}<small>ppm</h5></span><br>
+                    <span style="margin-bottom:0px;font-size:15px">CO2</span><br>
+                    <h5 style="margin-bottom:0px">${element.co2}<small>ppm</h5></span><br>
+                    <span style="margin-bottom:0px;font-size:15px">CO</span><br>
+                    <h5 style="margin-bottom:0px">${element.co}<small>ppm</h5></span><br>
+                    <span style="margin-bottom:0px;font-size:15px">Temperature</span><br>
+                    <h5 style="margin-bottom:0px">${element.temperature}<small>ppm</h5></span><br>
+                    <span style="margin-bottom:0px;font-size:15px">Humidity</span><br>
+                    <h5 style="margin-bottom:0px">${element.humidity}<small>ppm</h5></span><br>
+                `))
                 .addTo(map);
         }
         // console.log(element);
