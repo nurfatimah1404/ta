@@ -495,19 +495,14 @@ $.getJSON("getFau?sensor=pm10&id=3F0D", function (data) {
             var marker = new mapboxgl.Marker()
                 .setLngLat([element.longitude, element.latitude])
                 .setPopup(new mapboxgl.Popup().setHTML(`
-                    <span style="margin-bottom:0px;font-size:15px">PM10</span><br>
-                    <h5 style="margin-bottom:0px">${element.pm10}<small>ppm</h5></span><br>
-                    <span style="margin-bottom:0px;font-size:15px">CO2</span><br>
-                    <h5 style="margin-bottom:0px">${element.co2}<small>ppm</h5></span><br>
-                    <span style="margin-bottom:0px;font-size:15px">CO</span><br>
-                    <h5 style="margin-bottom:0px">${element.co}<small>ppm</h5></span><br>
-                    <span style="margin-bottom:0px;font-size:15px">Temperature</span><br>
-                    <h5 style="margin-bottom:0px">${element.temperature}<small>ppm</h5></span><br>
-                    <span style="margin-bottom:0px;font-size:15px">Humidity</span><br>
-                    <h5 style="margin-bottom:0px">${element.humidity}<small>ppm</h5></span><br>
+                    <p class="sip"; style="margin-bottom:0px;font-size:15px">PM10 : ${element.pm10} ppm</p><br>
+                    <p style="margin-bottom:0px;font-size:15px">CO2 : ${element.co2} ppm</p><br>
+                    <p style="margin-bottom:0px;font-size:15px">CO : ${element.co} ppm</p><br>
+                    <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Temperature : ${element.temperature} &#8451;</p><br>
+                    <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Humidity : ${element.humidity} &#37;</p><br>
                 `))
                 .addTo(map);
-        }
+             }
         // console.log(element);
     });
 });

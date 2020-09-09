@@ -8,18 +8,14 @@ def sqlDir():
         os.makedirs(directory)
 
 def sqlWrite(topic, data, receivedTime):
-    sqlDir()
-    sensorTime, receivedTime, value, lat, lon, idSensor = data.split(',')
-    recTime = datetime.strptime(
-    receivedTime, "%Y-%m-%d %H:%M:%S.%f")
-
-    conn = sqlite3.connect(
-        './db/{}-{}-{}.db'.format(recTime.year, recTime.month, recTime.day))
+    print(data)
+    sensorTime, value, lat, lon, idSensor = data.split(',')
+    now = datetime.now().strftime('%Y-%m-%d')
+    conn = sqlite3.connect('db/{}.db'.format(now))
+    
     c = conn.cursor()
     # Create table
-    c.execute("CREATE TABLE IF NOT EXISTS '%s' (sensorTime text NULL, receivedTime text NULL, id, value, lat NULL, long NULL)" % topic)
-    item = (sensorTime, receivedTime, idSensor, value, lat, lon)
-    c.execute("INSERT INTO '%s' values (?, ?, ?, ?, ?, ?)" %
-            topic, item)
+    c.execute("CREATE TABLE IF NOT EXISTS data (sensorTime text NULL, receivedTime text NULL, topic TEXT, id TEXT, value TEXT, lat text NULL, long text NULL)")
+    c.execute("INSERT INTO data values ('{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(sensorTime, receivedTime, topic, idSensor, value, lat, lon))
     conn.commit()
     conn.close()

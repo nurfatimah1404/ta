@@ -112,19 +112,8 @@ dbclient = InfluxDBClient(dbhost, dbport, dbuser, dbpassword, dbname)
 
 # ====================================================
 # Initialize the MQTT client that should connect to the Mosquitto broker
-client = mqtt.Client()
+client = mqtt.Client('server-ima')
 client.on_connect = on_connect
 client.on_message = on_message
-connOK = False
-
-while(connOK == False):
-    try:
-        client.username_pw_set(mqtt_user, mqtt_password)
-        client.connect(mqtt_server, mqtt_port, 60)
-        connOK = True
-    except:
-        connOK = False
-    time.sleep(2)
-# ====================================================
-# Blocking loop to the Mosquitto broker
+client.connect('127.0.0.1', 1883, 30)
 client.loop_forever()
