@@ -33,7 +33,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("co2")
     client.subscribe("co")
     client.subscribe("pm10")
-    client.subscribe("so")
+    client.subscribe("so2")
     # ----------------------------------------------
 
 
