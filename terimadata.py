@@ -13,7 +13,7 @@ dbhost = "182.23.82.22"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
-dbname = "mydb"
+dbname = "polusi"
 # ---------------------------------------------------
 # set mqtt configuration ===========================
 mqtt_server = "127.0.0.1"
@@ -33,7 +33,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("co2")
     client.subscribe("co")
     client.subscribe("pm10")
-    client.subscribe("so")
+    client.subscribe("so2")
     # ----------------------------------------------
 
 

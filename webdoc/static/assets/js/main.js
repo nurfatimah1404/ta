@@ -5,10 +5,9 @@ var ctx3 = document.getElementById('chartPressure').getContext('2d');
 var ctx4 = document.getElementById('chartTemperature_rahmad').getContext('2d');
 var ctx5 = document.getElementById('chartHumidity_rahmad').getContext('2d');
 var ctx6 = document.getElementById('chartPressure_rahmad').getContext('2d');
-var ctx7 = document.getElementById('chartHeight_rahmad').getContext('2d');
+var ctx7 = document.getElementById('chartPM10_rahmad').getContext('2d');
 var ctx8 = document.getElementById('chartCO_rahmad').getContext('2d');
 var ctx9 = document.getElementById('chartSO2_rahmad').getContext('2d');
-var ctx10 = document.getElementById('chartPM10_rahmad').getContext('2d');
 // var ctx11 = document.getElementById('chartTemperature_fau').getContext('2d');        
 // var ctx12 = document.getElementById('chartHumidity_fau').getContext('2d');        
 // var ctx13 = document.getElementById('chartCO2_fau').getContext('2d');        
@@ -121,7 +120,7 @@ var chart4 = new Chart(ctx4, {
     data: {
         labels: [],
         datasets: [{
-            label: 'Pressure',
+            label: 'Temperature',
             backgroundColor: '#6abf69',
             borderColor: '#00600f',
             data: [],
@@ -154,7 +153,7 @@ var chart5 = new Chart(ctx5, {
     data: {
         labels: [],
         datasets: [{
-            label: 'Pressure',
+            label: 'Humidity',
             backgroundColor: '#6abf69',
             borderColor: '#00600f',
             data: [],
@@ -215,12 +214,13 @@ var chart6 = new Chart(ctx6, {
         moment: 'moment'
     }
 });
+
 var chart7 = new Chart(ctx7, {
     type: 'line',
     data: {
         labels: [],
         datasets: [{
-            label: 'Pressure',
+            label: 'PM.10',
             backgroundColor: '#6abf69',
             borderColor: '#00600f',
             data: [],
@@ -253,14 +253,15 @@ var chart8 = new Chart(ctx8, {
     data: {
         labels: [],
         datasets: [{
-            label: 'CO2',
-            backgroundColor: '#6abf69',
-            borderColor: '#00600f',
+            label: 'CO',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
             data: [],
             lineTension: 0,
             autoSkip: true,
             autoSkipPadding: 0,
             spanGaps: true
+            // skipNullValues: true
         }]
     },
     options: {
@@ -286,7 +287,7 @@ var chart9 = new Chart(ctx9, {
     data: {
         labels: [],
         datasets: [{
-            label: 'Temperature',
+            label: 'SO2',
             backgroundColor: '#ff7961',
             borderColor: '#ba000d',
             data: [],
@@ -364,6 +365,7 @@ $.getJSON("getAverage?sensor=pressure&id=cd14", function (data) {
 
 $.getJSON("getAverageRahmad?sensor=temperature&id=025f", function (data) {
     data.forEach(element => {
+        
         if (element.mean != null) {
             chart4.data.labels.push(element.time);
             chart4.data.datasets[0].data.push(Number.parseFloat(element.mean))
@@ -389,7 +391,7 @@ $.getJSON("getAverageRahmad?sensor=pressure&id=025f", function (data) {
     });
     chart6.update();
 });
-$.getJSON("getAverageRahmad?sensor=height&id=025f", function (data) {
+$.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
     data.forEach(element => {
         if (element.mean != null) {
             chart7.data.labels.push(element.time);
@@ -406,8 +408,9 @@ $.getJSON("getAverageRahmad?sensor=co&id=015e", function (data) {
         }
     });
     chart8.update();
+
 });
-$.getJSON("getAverageRahmad?sensor=so2&id=015e", function (data) {
+$.getJSON("getAverageRahmad?sensor=so&id=015e", function (data) {
     data.forEach(element => {
         if (element.mean != null) {
             chart9.data.labels.push(element.time);
@@ -415,16 +418,6 @@ $.getJSON("getAverageRahmad?sensor=so2&id=015e", function (data) {
         }
     });
     chart9.update();
-
-});
-$.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
-    data.forEach(element => {
-        if (element.mean != null) {
-            chart10.data.labels.push(element.time);
-            chart10.data.datasets[0].data.push(Number.parseFloat(element.mean))
-        }
-    });
-    chart10.update();
 });
 
 
@@ -484,7 +477,9 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [119.481961, -5.137894],
-    zoom: 12
+    zoom: 14
+   
+    
 });
 
 
@@ -495,14 +490,29 @@ $.getJSON("getFau?sensor=pm10&id=3F0D", function (data) {
             var marker = new mapboxgl.Marker()
                 .setLngLat([element.longitude, element.latitude])
                 .setPopup(new mapboxgl.Popup().setHTML(`
-                    <p class="sip"; style="margin-bottom:0px;font-size:15px">PM10 : ${element.pm10} ppm</p><br>
-                    <p style="margin-bottom:0px;font-size:15px">CO2 : ${element.co2} ppm</p><br>
-                    <p style="margin-bottom:0px;font-size:15px">CO : ${element.co} ppm</p><br>
-                    <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Temperature : ${element.temperature} &#8451;</p><br>
-                    <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Humidity : ${element.humidity} &#37;</p><br>
+                <p style="margin-bottom:0px;font-size:15px">PM10 : ${element.pm10} ppm</p><br>
+                <p style="margin-bottom:0px;font-size:15px">CO2 : ${element.co2} ppm</p><br>
+                <p style="margin-bottom:0px;font-size:15px">CO : ${element.co} ppm</p><br>
+                <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Temperature : ${element.temperature} &#8451;</p><br>
+                <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Humidity : ${element.humidity} &#37;</p><br>
                 `))
                 .addTo(map);
-             }
+        }
         // console.log(element);
     });
 });
+
+const getStatusData = () => {
+    $.ajax({
+        url: 'getCounter',
+        success: (respond) => {
+            $("#dataReceived").text(respond.received);
+            $("#dataBlocked").text(respond.blocked);
+            $("#waktuUpdate").text(respond.time);
+        }
+    })
+}
+getStatusData()
+setInterval(() => {
+    getStatusData();
+}, 5000)

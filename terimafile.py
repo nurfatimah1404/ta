@@ -8,6 +8,7 @@ import random
 # from gpiozero import CPUTemperature
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
+from CounterData import getCounter, clearCounter
 
 UPLOAD_FOLDER = '/home/data/post'
 ALLOWED_EXTENSIONS = {'txt'}
@@ -61,7 +62,7 @@ def getAverageRahmad():
     idSensor2 = request.args.get('id')
     measurement2 = request.args.get('sensor')
     clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
-    query2  = "SELECT MEAN(value) FROM {} where id='{}' AND time >='2020-08-23 09:00:00' AND time <='2020-08-27 13:49:19'group by time(1h)".format(measurement2, idSensor2)
+    query2  = "SELECT MEAN(value) FROM {} where id='{}' AND time >='2020-09-07 14:00:00' AND time <='2020-09-07 21:00:00'group by time(1h)".format(measurement2, idSensor2)
     data2  = clientx2.query(query2)
     list_current_data2 = list(data2.get_points())
     # print(list_current_data2)
@@ -144,5 +145,15 @@ def getFiles():
 @app.route('/<path:filename>')
 def custom_static(filename):
     return send_from_directory('./webdoc/static/', filename)
+
+@app.route('/getCounter', methods=['GET'])
+def counter():
+    date = request.args.get("date")
+    return jsonify(getCounter(date))
+
+@app.route('/clearCounter', methods=['GET'])
+def clear():
+    clearCounter()
+    return redirect('/')
 
 app.run('182.23.82.22', 8000, debug=True)
