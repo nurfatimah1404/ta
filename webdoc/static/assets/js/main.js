@@ -41,7 +41,13 @@ var chart1 = new Chart(ctx1, {
                     displayFormats: {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
-                },
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                }
             }]
         }
     },
@@ -75,6 +81,12 @@ var chart2 = new Chart(ctx2, {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 30,
+                    suggestedMax: 60,
+                }
             }]
         }
     },
@@ -108,6 +120,12 @@ var chart3 = new Chart(ctx3, {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 1005,
+                    suggestedMax: 1010,
+                }
             }]
         }
     },

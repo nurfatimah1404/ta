@@ -1,7 +1,7 @@
 
 from flask import Flask, request, redirect, url_for, jsonify, render_template, send_from_directory
 from werkzeug.utils import secure_filename
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 # For Random
 import random
@@ -52,7 +52,9 @@ def getAverage():
     idSensor = request.args.get('id')
     measurement = request.args.get('sensor')
     clientx = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
-    query  = "SELECT MEAN(value), stddev(value), stddev(value)/sqrt(count(value)) FROM {} where id='{}' AND time >='2020-08-16 00:00:00' AND time <='2020-09-01 23:00:00'group by time(1h)".format(measurement, idSensor)
+    nowString = datetime.now().strftime("%Y-%m-%d")
+    pastString = (datetime.now() + timedelta(days=-3)).strftime("%Y-%m-%d")
+    query  = "SELECT MEAN(value), stddev(value), stddev(value)/sqrt(count(value)) FROM {} where id='{}' AND time >='{} 00:00:00' AND time <='{} 23:00:00'group by time(1h)".format(measurement, idSensor, pastString, nowString)
     data  = clientx.query(query)
     list_current_data = list(data.get_points())
     return jsonify(list_current_data)
@@ -72,7 +74,9 @@ def getAverageRahmad():
 def getFau():
     clientx3 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
     # query3  = "SELECT * FROM {} where id='{}' ".format(measurement3, idSensor3)
-    query  = "SELECT * FROM pm10 where id='3F0D' AND time >='2020-08-23 09:00:00' AND time <='2020-08-27T14:00:00.000000000Z'"
+    nowString = datetime.now().strftime("%Y-%m-%d")
+    pastString = (datetime.now() + timedelta(days=-60)).strftime("%Y-%m-%d")
+    query  = "SELECT * FROM pm10 where id='3F0D' AND time >='{} 09:00:00' AND time <='{} 14:00:00'".format(pastString, nowString)
     data  = clientx3.query(query)
     listData = list(data.get_points())
     dataResult = []

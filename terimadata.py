@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 from influxdb import InfluxDBClient
 from SqlMonitor import sqlWrite
-from config import influxServer
+from config import influxServer, influxDBName
 from CounterData import upBlocked, upReceived
 
 # set influxDB configuration -----------------------------
@@ -13,7 +13,7 @@ dbhost = "182.23.82.22"
 dbport = 8086
 dbuser = "admin"
 dbpassword = "123456"
-dbname = "polusi"
+dbname = influxDBName()
 # ---------------------------------------------------
 # set mqtt configuration ===========================
 mqtt_server = "127.0.0.1"
