@@ -219,7 +219,18 @@ var chart4 = new Chart(ctx4, {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Temperature (°C)'
+                }
             }]
+
         }
     },
     externals: {
@@ -252,6 +263,16 @@ var chart5 = new Chart(ctx5, {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Humidity (%)'
+                }
             }]
         }
     },
@@ -285,6 +306,16 @@ var chart6 = new Chart(ctx6, {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Pressure (hPa)'
+                }
             }]
         }
     },
@@ -319,6 +350,16 @@ var chart7 = new Chart(ctx7, {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'PM.10 (ppm)'
+                }
             }]
         }
     },
@@ -353,6 +394,16 @@ var chart8 = new Chart(ctx8, {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'CO (ppm)'
+                }
             }]
         }
     },
@@ -387,6 +438,16 @@ var chart9 = new Chart(ctx9, {
                         hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'SO2 (ppm)'
+                }
             }]
         }
     },
