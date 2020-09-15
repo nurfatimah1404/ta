@@ -9,6 +9,7 @@ import random
 from influxdb import InfluxDBClient
 from influxdb import DataFrameClient
 from CounterData import getCounter, clearCounter
+from config import influxDBName
 
 UPLOAD_FOLDER = '/home/data/post'
 ALLOWED_EXTENSIONS = {'txt'}
@@ -51,7 +52,7 @@ def hello_world():
 def getAverage():
     idSensor = request.args.get('id')
     measurement = request.args.get('sensor')
-    clientx = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
+    clientx = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
     nowString = datetime.now().strftime("%Y-%m-%d")
     pastString = (datetime.now() + timedelta(days=-3)).strftime("%Y-%m-%d")
     query  = "SELECT MEAN(value), stddev(value), stddev(value)/sqrt(count(value)) FROM {} where id='{}' AND time >='{} 00:00:00' AND time <='{} 23:00:00'group by time(1h)".format(measurement, idSensor, pastString, nowString)
@@ -63,7 +64,7 @@ def getAverage():
 def getAverageRahmad():
     idSensor2 = request.args.get('id')
     measurement2 = request.args.get('sensor')
-    clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
+    clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
     query2  = "SELECT MEAN(value) FROM {} where id='{}' AND time >='2020-09-07 14:00:00' AND time <='2020-09-07 21:00:00'group by time(1h)".format(measurement2, idSensor2)
     data2  = clientx2.query(query2)
     list_current_data2 = list(data2.get_points())
@@ -72,7 +73,7 @@ def getAverageRahmad():
 
 @app.route('/getFau')
 def getFau():
-    clientx3 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'mydb')
+    clientx3 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
     # query3  = "SELECT * FROM {} where id='{}' ".format(measurement3, idSensor3)
     nowString = datetime.now().strftime("%Y-%m-%d")
     pastString = (datetime.now() + timedelta(days=-60)).strftime("%Y-%m-%d")

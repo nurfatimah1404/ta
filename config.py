@@ -9,4 +9,4 @@ def influxServer():
 def influxDBName():
     config = open('./config/config.json', 'r')
     config = json.load(config)
-    return bool(config['influxDBName'])
+    return config['influxDBName']

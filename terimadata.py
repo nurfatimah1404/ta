@@ -62,7 +62,7 @@ def on_message(client, userdata, msg):
     # Tambahkan data pada SQLite
     sqlWrite(msg.topic, message, receiveTime)
 
-    if id == '025f' and value > 0 or value is not None or sensorTime is not None or sensorTime > 0:
+    if id == '025f' and sensorTime is not None and (value > 0 or value is not None):
         json_body = [
             {
                 "measurement": msg.topic,
@@ -79,8 +79,8 @@ def on_message(client, userdata, msg):
         if influxServer():
             dbclient.write_points(json_body)
             print("Finished writing to InfluxDB")
-            print("==================================")
-    elif value > 0 or value is not None or sensorTime is not None or sensorTime > 0:
+            print("==================================") 
+    elif sensorTime is not None and (value > 0 or value is not None) and (lat != '' and longit != ''):
         json_body = [
             {
                 "measurement": msg.topic,
@@ -96,6 +96,7 @@ def on_message(client, userdata, msg):
             }
         ]
         upReceived()
+        print("Tipe 2")
         if influxServer():
             dbclient.write_points(json_body)
             print("Finished writing to InfluxDB")

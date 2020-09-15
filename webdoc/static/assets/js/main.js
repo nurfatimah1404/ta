@@ -47,6 +47,10 @@ var chart1 = new Chart(ctx1, {
                 ticks: {
                     suggestedMin: 25,
                     suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Temperature (°C)'
                 }
             }]
         }
@@ -86,6 +90,10 @@ var chart2 = new Chart(ctx2, {
                 ticks: {
                     suggestedMin: 30,
                     suggestedMax: 60,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Hummidity (%)'
                 }
             }]
         }
@@ -125,6 +133,10 @@ var chart3 = new Chart(ctx3, {
                 ticks: {
                     suggestedMin: 1005,
                     suggestedMax: 1010,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Hummidity (%)'
                 }
             }]
         }
@@ -383,7 +395,7 @@ $.getJSON("getAverage?sensor=pressure&id=cd14", function (data) {
 
 $.getJSON("getAverageRahmad?sensor=temperature&id=025f", function (data) {
     data.forEach(element => {
-        
+
         if (element.mean != null) {
             chart4.data.labels.push(element.time);
             chart4.data.datasets[0].data.push(Number.parseFloat(element.mean))
@@ -496,8 +508,8 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [119.481961, -5.137894],
     zoom: 14
-   
-    
+
+
 });
 
 
