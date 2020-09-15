@@ -33,6 +33,7 @@ var chart1 = new Chart(ctx1, {
             // spanGaps: true
             // skipNullValues: true
         }]
+        
     },
     options: {
         bezierCurve: true,
@@ -616,7 +617,21 @@ $(document).ready(function () {
             $('#rahmad2').hide();
         }
     });
-
+     function satu(){
+         $('#satu').show(200);
+         $('#dua').hide(200);
+         $('#tiga').hide(200);
+     }
+     function dua(){
+        $('#dua').show(200);
+        $('#satu').hide(200);
+        $('#tiga').hide(200);
+    }
+    function tiga(){
+        $('#satu').hide(200);
+        $('#dua').hide(200);
+        $('#tiga').show(200);
+    }
 });
 
 // map
