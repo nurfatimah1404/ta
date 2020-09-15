@@ -616,6 +616,7 @@ $(document).ready(function () {
             $('#rahmad2').hide();
         }
     });
+
 });
 
 // map

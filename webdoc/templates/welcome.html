@@ -123,17 +123,22 @@
                             </div>
                             <!-- End Class Irman -->
                             <!-- Class Rahmad -->
+                           
                             <div id="rahmad" class="container" style="display: none;">
-                                
-                                <div class="row">
+                                <div>
+                                    <button class="btn btn-primary"  onclick="satu();">Lokasi 1</button>
+                                    <button class="btn btn-primary" onclick="dua();">Lokasi 2</button>
+                                    <button class="btn btn-primary" onclick="tiga();">Lokasi 3</button>
+                                </div>
+                                <div class="row" id="satu" >
                                     <h1>Temperature</h1>
                                     <canvas id="chartTemperature_rahmad"></canvas>
                                 </div>
-                                <div class="rowl">
+                                <div class="rowl" id="dua" style="display: none;">
                                     <h1>Humidity</h1>
                                     <canvas id="chartHumidity_rahmad"></canvas>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="tiga" style="display: none;">
                                     <h1>Pressure</h1>
                                     <canvas id="chartPressure_rahmad"></canvas>
                                 </div>
@@ -190,6 +195,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+    <script>
+        function satu(){
+            $('#satu').show(200);
+            $('#dua').hide(200);
+            $('#tiga').hide(200);
+        }
+        function dua(){
+            $('#dua').show(200);
+            $('#satu').hide(200);
+            $('#tiga').hide(200);
+        }
+        function tiga(){
+            $('#satu').hide(200);
+            $('#dua').hide(200);
+            $('#tiga').show(200);
+        }
+    </script>
 </body>
 
 </html>
