@@ -438,7 +438,6 @@ $.getJSON("getAverage?sensor=pressure&id=cd14", function (data) {
     chart3.update();
 });
 $.getJSON("getAverage?sensor=pm10&id=cd14", function (data) {
-    console.log(data)
     data.forEach(element => {
         if (element.mean != null) {
             chart10.data.labels.push(element.time);
