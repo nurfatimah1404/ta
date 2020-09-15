@@ -136,7 +136,7 @@ var chart3 = new Chart(ctx3, {
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'Hummidity (%)'
+                    labelString: 'Pressure (hPa)'
                 }
             }]
         }
