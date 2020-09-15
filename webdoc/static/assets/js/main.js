@@ -481,6 +481,7 @@ $.getJSON("getAverage?sensor=temperature&id=cd14", function (data) {
     });
     chart1.update();
 });
+
 $.getJSON("getAverage?sensor=humidity&id=cd14", function (data) {
     data.forEach(element => {
         if (element.mean != null) {
