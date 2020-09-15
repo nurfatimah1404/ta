@@ -1,7 +1,10 @@
 //  Bikin Object DOM
+// Irman
 var ctx1 = document.getElementById('chartTemperature').getContext('2d');
 var ctx2 = document.getElementById('chartHumidity').getContext('2d');
 var ctx3 = document.getElementById('chartPressure').getContext('2d');
+var ctx10 = document.getElementById('chartPM10').getContext('2d');
+// Rahmad
 var ctx4 = document.getElementById('chartTemperature_rahmad').getContext('2d');
 var ctx5 = document.getElementById('chartHumidity_rahmad').getContext('2d');
 var ctx6 = document.getElementById('chartPressure_rahmad').getContext('2d');
@@ -145,6 +148,51 @@ var chart3 = new Chart(ctx3, {
         moment: 'moment'
     }
 });
+var chart10 = new Chart(ctx10, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'PM10',
+            backgroundColor: '#ffee58',
+            borderColor: '#c9bc1f',
+            data: [],
+            lineTension: 0,
+            // autoSkip: true,
+            // autoSkipPadding: 0,
+            // spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    unit: 'hour',
+                    displayFormats: {
+                        hour: 'YYYY-MM-DD HH:mm',
+                    }
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'PM10 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+
 var chart4 = new Chart(ctx4, {
     type: 'line',
     data: {
@@ -388,6 +436,16 @@ $.getJSON("getAverage?sensor=pressure&id=cd14", function (data) {
         }
     });
     chart3.update();
+});
+$.getJSON("getAverage?sensor=pm10&id=cd14", function (data) {
+    console.log(data)
+    data.forEach(element => {
+        if (element.mean != null) {
+            chart10.data.labels.push(element.time);
+            chart10.data.datasets[0].data.push(Number.parseFloat(element.mean))
+        }
+    });
+    chart10.update();
 });
 
 
