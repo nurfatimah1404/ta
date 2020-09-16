@@ -114,6 +114,7 @@ def getFau():
         })
     return jsonify(dataResult)
 
+
 @app.route('/getispu')
 def getispu():
     idSensor4 = request.args.get('id')

@@ -667,6 +667,8 @@ $.getJSON("getFau?sensor=pm10&id=3F0D", function (data) {
     });
 });
 
+
+
 const getStatusData = () => {
     $.ajax({
         url: 'getCounter',
