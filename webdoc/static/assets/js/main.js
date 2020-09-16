@@ -16,20 +16,20 @@ var ctx16 = document.getElementById('chartSO2_rahmad2').getContext('2d');
 
 //LOK 3//
 var ctx17 = document.getElementById('chartPM10_rahmad3').getContext('2d');
-var ctx18 = document.getElementById('chartCO_rahmad3').getContext('2d');
-var ctx19 = document.getElementById('chartSO2_rahmad3').getContext('2d');
+// var ctx18 = document.getElementById('chartCO_rahmad3').getContext('2d');
+// var ctx19 = document.getElementById('chartSO2_rahmad3').getContext('2d');
 
-//LOK 3//
-var ctx20 = document.getElementById('chartPM10_rahmad4').getContext('2d');
-var ctx21 = document.getElementById('chartCO_rahmad4').getContext('2d');
-var ctx22 = document.getElementById('chartSO2_rahmad4').getContext('2d');
+// //LOK 4//
+// var ctx20 = document.getElementById('chartPM10_rahmad4').getContext('2d');
+// var ctx21 = document.getElementById('chartCO_rahmad4').getContext('2d');
+// var ctx22 = document.getElementById('chartSO2_rahmad4').getContext('2d');
 
-// // LOK 4//
-var ctx21 = document.getElementById('chartPM10_rahmad5').getContext('2d');
-var ctx22 = document.getElementById('chartCO_rahmad5').getContext('2d');
-var ctx23 = document.getElementById('chartSO2_rahmad5').getContext('2d');
+// // // LOK 5//
+// var ctx21 = document.getElementById('chartPM10_rahmad5').getContext('2d');
+// var ctx22 = document.getElementById('chartCO_rahmad5').getContext('2d');
+// var ctx23 = document.getElementById('chartSO2_rahmad5').getContext('2d');
 
-// // LOK 5//
+// // LOK 6//
 // var ctx32 = document.getElementById('chartPM10_rahmad5').getContext('2d');
 // var ctx33 = document.getElementById('chartCO_rahmad5').getContext('2d');
 // var ctx34 = document.getElementById('chartSO2_rahmad5').getContext('2d');
@@ -237,9 +237,9 @@ var chart11 = new Chart(ctx11, {
             xAxes: [{
                 type: 'time',
                 time: {
-                    unit: 'minute',
+                    unit: 'hour',
                     displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm:ss',
+                        hour: 'YYYY-MM-DD HH:mm',
                     }
                 },
             }],
@@ -483,6 +483,52 @@ var chart16 = new Chart(ctx16, {
     }
 });
 
+// LOK 3 ///
+var chart17 = new Chart(ctx17, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'SO2',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    unit: 'hour',
+                    displayFormats: {
+                        hour: 'YYYY-MM-DD HH:mm',
+                    }
+                },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'SO2 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+
 
 // Get Datanya pakae AJAX
 
@@ -541,7 +587,7 @@ $.getJSON("getAverage?sensor=pm10&id=cd14", function (data) {
 
 // rahmad LOK 1/////////////////////////////////////////
 
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381", function (data) {
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381 | longitude=119.482", function (data) {
     console.log(data);
     data.forEach(element => {
         if (element.value != null) {
@@ -551,7 +597,7 @@ $.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381", function (data) {
     });
     chart11.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381", function (data) {
+$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381 | longitude=119.482", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart12.data.labels.push(element.time);
@@ -561,7 +607,7 @@ $.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381", function (data) {
     chart12.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381", function (data) {
+$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381|longitude=119.482", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart13.data.labels.push(element.time);
@@ -573,7 +619,7 @@ $.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381", function (data) {
 
 // lok 2///////////////////////
 
-$.getJSON("getRahmad?sensor=pm10&id=015e", function (data) {
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1374|longitude=119.5153", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart14.data.labels.push(element.time);
@@ -582,7 +628,7 @@ $.getJSON("getRahmad?sensor=pm10&id=015e", function (data) {
     });
     chart14.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e", function (data) {
+$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1374|longitude=119.5153", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart15.data.labels.push(element.time);
@@ -592,7 +638,7 @@ $.getJSON("getRahmad?sensor=co&id=015e", function (data) {
     chart15.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e", function (data) {
+$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1374|longitude=119.5153", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart16.data.labels.push(element.time);
@@ -603,7 +649,35 @@ $.getJSON("getRahmad?sensor=so2&id=015e", function (data) {
 });
 
 
-// lok 3
+// lok 3////////////
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart17.data.labels.push(element.time);
+            chart17.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart17.update();
+});
+// $.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381", function (data) {
+//     data.forEach(element => {
+//         if (element.value != null) {
+//             chart18.data.labels.push(element.time);
+//             chart18.data.datasets[0].data.push(Number.parseFloat(element.value))
+//         }
+//     });
+//     chart18.update();
+
+// });
+// $.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381", function (data) {
+//     data.forEach(element => {
+//         if (element.value != null) {
+//             chart19.data.labels.push(element.time);
+//             chart19.data.datasets[0].data.push(Number.parseFloat(element.value))
+//         }
+//     });
+//     chart19.update();
+// });
 
 
 
