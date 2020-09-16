@@ -1,4 +1,4 @@
 {
     "influxServer" : true,
-    "influxDBName" : "pol"
+    "influxDBName" : "polusi"
 }

@@ -4,18 +4,37 @@ var ctx1 = document.getElementById('chartTemperature').getContext('2d');
 var ctx2 = document.getElementById('chartHumidity').getContext('2d');
 var ctx3 = document.getElementById('chartPressure').getContext('2d');
 var ctx10 = document.getElementById('chartPM10').getContext('2d');
-// Rahmad
-var ctx4 = document.getElementById('chartTemperature_rahmad').getContext('2d');
-var ctx5 = document.getElementById('chartHumidity_rahmad').getContext('2d');
-var ctx6 = document.getElementById('chartPressure_rahmad').getContext('2d');
-var ctx7 = document.getElementById('chartPM10_rahmad').getContext('2d');
-var ctx8 = document.getElementById('chartCO_rahmad').getContext('2d');
-var ctx9 = document.getElementById('chartSO2_rahmad').getContext('2d');
-// var ctx11 = document.getElementById('chartTemperature_fau').getContext('2d');        
-// var ctx12 = document.getElementById('chartHumidity_fau').getContext('2d');        
-// var ctx13 = document.getElementById('chartCO2_fau').getContext('2d');        
-// var ctx14 = document.getElementById('chartCO_fau').getContext('2d');        
-// var ctx15 = document.getElementById('chartPM25_fau').getContext('2d');
+// Rahmad lok 1
+var ctx11 = document.getElementById('chartPM10_rahmad').getContext('2d');
+var ctx12 = document.getElementById('chartCO_rahmad').getContext('2d');
+var ctx13 = document.getElementById('chartSO2_rahmad').getContext('2d');
+//LOK 2 //
+
+var ctx14 = document.getElementById('chartPM10_rahmad2').getContext('2d');
+var ctx15 = document.getElementById('chartCO_rahmad2').getContext('2d');
+var ctx16 = document.getElementById('chartSO2_rahmad2').getContext('2d');
+
+//LOK 3//
+var ctx17 = document.getElementById('chartPM10_rahmad3').getContext('2d');
+var ctx18 = document.getElementById('chartCO_rahmad3').getContext('2d');
+var ctx19 = document.getElementById('chartSO2_rahmad3').getContext('2d');
+
+//LOK 3//
+var ctx20 = document.getElementById('chartPM10_rahmad4').getContext('2d');
+var ctx21 = document.getElementById('chartCO_rahmad4').getContext('2d');
+var ctx22 = document.getElementById('chartSO2_rahmad4').getContext('2d');
+
+// // LOK 4//
+var ctx21 = document.getElementById('chartPM10_rahmad5').getContext('2d');
+var ctx22 = document.getElementById('chartCO_rahmad5').getContext('2d');
+var ctx23 = document.getElementById('chartSO2_rahmad5').getContext('2d');
+
+// // LOK 5//
+// var ctx32 = document.getElementById('chartPM10_rahmad5').getContext('2d');
+// var ctx33 = document.getElementById('chartCO_rahmad5').getContext('2d');
+// var ctx34 = document.getElementById('chartSO2_rahmad5').getContext('2d');
+
+
 var dataPoints = [];
 // Bikin Objek Chart dan Konfigurasinya
 var chart1 = new Chart(ctx1, {
@@ -194,138 +213,10 @@ var chart10 = new Chart(ctx10, {
     }
 });
 
-var chart4 = new Chart(ctx4, {
-    type: 'line',
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Temperature',
-            backgroundColor: '#6abf69',
-            borderColor: '#00600f',
-            data: [],
-            lineTension: 0,
-            autoSkip: true,
-            autoSkipPadding: 0,
-            spanGaps: true
-        }]
-    },
-    options: {
-        bezierCurve: true,
-        scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
-            yAxes: [{
-                ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
-                },
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Temperature (°C)'
-                }
-            }]
+// rahmad LOK 1 /////////////////////////////////////////
 
-        }
-    },
-    externals: {
-        moment: 'moment'
-    }
-});
-var chart5 = new Chart(ctx5, {
-    type: 'line',
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Humidity',
-            backgroundColor: '#6abf69',
-            borderColor: '#00600f',
-            data: [],
-            lineTension: 0,
-            autoSkip: true,
-            autoSkipPadding: 0,
-            spanGaps: true
-        }]
-    },
-    options: {
-        bezierCurve: true,
-        scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
-            yAxes: [{
-                ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
-                },
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Humidity (%)'
-                }
-            }]
-        }
-    },
-    externals: {
-        moment: 'moment'
-    }
-});
-var chart6 = new Chart(ctx6, {
-    type: 'line',
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Pressure',
-            backgroundColor: '#6abf69',
-            borderColor: '#00600f',
-            data: [],
-            lineTension: 0,
-            autoSkip: true,
-            autoSkipPadding: 0,
-            spanGaps: true
-        }]
-    },
-    options: {
-        bezierCurve: true,
-        scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
-            yAxes: [{
-                ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
-                },
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Pressure (hPa)'
-                }
-            }]
-        }
-    },
-    externals: {
-        moment: 'moment'
-    }
-});
 
-var chart7 = new Chart(ctx7, {
+var chart11 = new Chart(ctx11, {
     type: 'line',
     data: {
         labels: [],
@@ -346,9 +237,9 @@ var chart7 = new Chart(ctx7, {
             xAxes: [{
                 type: 'time',
                 time: {
-                    unit: 'hour',
+                    unit: 'minute',
                     displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
+                        hour: 'YYYY-MM-DD HH:mm:ss',
                     }
                 },
             }],
@@ -368,7 +259,7 @@ var chart7 = new Chart(ctx7, {
         moment: 'moment'
     }
 });
-var chart8 = new Chart(ctx8, {
+var chart12 = new Chart(ctx12, {
     type: 'line',
     data: {
         labels: [],
@@ -412,7 +303,7 @@ var chart8 = new Chart(ctx8, {
         moment: 'moment'
     }
 });
-var chart9 = new Chart(ctx9, {
+var chart13 = new Chart(ctx13, {
     type: 'line',
     data: {
         labels: [],
@@ -456,6 +347,143 @@ var chart9 = new Chart(ctx9, {
         moment: 'moment'
     }
 });
+
+
+// ------------------------LOK 2 --------------//
+
+var chart14 = new Chart(ctx14, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'PM.10',
+            backgroundColor: '#6abf69',
+            borderColor: '#00600f',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    unit: 'hour',
+                    displayFormats: {
+                        hour: 'YYYY-MM-DD HH:mm',
+                    }
+                },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'PM.10 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+var chart15 = new Chart(ctx15, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'CO',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    unit: 'hour',
+                    displayFormats: {
+                        hour: 'YYYY-MM-DD HH:mm',
+                    }
+                },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'CO (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+var chart16 = new Chart(ctx16, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'SO2',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    unit: 'hour',
+                    displayFormats: {
+                        hour: 'YYYY-MM-DD HH:mm',
+                    }
+                },
+            }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 25,
+                    suggestedMax: 40,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'SO2 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+
+
 // Get Datanya pakae AJAX
 
 //data dari IRMAN
@@ -511,64 +539,75 @@ $.getJSON("getAverage?sensor=pm10&id=cd14", function (data) {
 });
 
 
-//data dari rahmad
+// rahmad LOK 1/////////////////////////////////////////
 
-$.getJSON("getAverageRahmad?sensor=temperature&id=025f", function (data) {
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381", function (data) {
+    console.log(data);
     data.forEach(element => {
-
-        if (element.mean != null) {
-            chart4.data.labels.push(element.time);
-            chart4.data.datasets[0].data.push(Number.parseFloat(element.mean))
+        if (element.value != null) {
+            chart11.data.labels.push(element.time);
+            chart11.data.datasets[0].data.push(Number.parseFloat(element.value))
         }
     });
-    chart4.update();
+    chart11.update();
 });
-$.getJSON("getAverageRahmad?sensor=humidity&id=025f", function (data) {
+$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381", function (data) {
     data.forEach(element => {
-        if (element.mean != null) {
-            chart5.data.labels.push(element.time);
-            chart5.data.datasets[0].data.push(Number.parseFloat(element.mean))
+        if (element.value != null) {
+            chart12.data.labels.push(element.time);
+            chart12.data.datasets[0].data.push(Number.parseFloat(element.value))
         }
     });
-    chart5.update();
-});
-$.getJSON("getAverageRahmad?sensor=pressure&id=025f", function (data) {
-    data.forEach(element => {
-        if (element.mean != null) {
-            chart6.data.labels.push(element.time);
-            chart6.data.datasets[0].data.push(Number.parseFloat(element.mean))
-        }
-    });
-    chart6.update();
-});
-$.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
-    data.forEach(element => {
-        if (element.mean != null) {
-            chart7.data.labels.push(element.time);
-            chart7.data.datasets[0].data.push(Number.parseFloat(element.mean))
-        }
-    });
-    chart7.update();
-});
-$.getJSON("getAverageRahmad?sensor=co&id=015e", function (data) {
-    data.forEach(element => {
-        if (element.mean != null) {
-            chart8.data.labels.push(element.time);
-            chart8.data.datasets[0].data.push(Number.parseFloat(element.mean))
-        }
-    });
-    chart8.update();
+    chart12.update();
 
 });
-$.getJSON("getAverageRahmad?sensor=so&id=015e", function (data) {
+$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381", function (data) {
     data.forEach(element => {
-        if (element.mean != null) {
-            chart9.data.labels.push(element.time);
-            chart9.data.datasets[0].data.push(Number.parseFloat(element.mean))
+        if (element.value != null) {
+            chart13.data.labels.push(element.time);
+            chart13.data.datasets[0].data.push(Number.parseFloat(element.value))
         }
     });
-    chart9.update();
+    chart13.update();
 });
+
+// lok 2///////////////////////
+
+$.getJSON("getRahmad?sensor=pm10&id=015e", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart14.data.labels.push(element.time);
+            chart14.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart14.update();
+});
+$.getJSON("getRahmad?sensor=co&id=015e", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart15.data.labels.push(element.time);
+            chart15.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart15.update();
+
+});
+$.getJSON("getRahmad?sensor=so2&id=015e", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart16.data.labels.push(element.time);
+            chart16.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart16.update();
+});
+
+
+// lok 3
+
+
+
+
 
 
 // // DATA DARI FAU
@@ -649,7 +688,7 @@ var map = new mapboxgl.Map({
 
 
 $.getJSON("getFau?sensor=pm10&id=3F0D", function (data) {
-    console.log(data);
+    // console.log(data);
     data.forEach(element => {
         if (element.latitude != null || element.longitude != null) {
             var marker = new mapboxgl.Marker()

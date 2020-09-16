@@ -60,12 +60,24 @@ def getAverage():
     list_current_data = list(data.get_points())
     return jsonify(list_current_data)
 
-@app.route('/getAverageRahmad')
-def getAverageRahmad():
+# @app.route('/getAverageRahmad')
+# def getAverageRahmad():
+#     idSensor2 = request.args.get('id')
+#     measurement2 = request.args.get('sensor')
+#     clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
+#     query2  = "SELECT MEAN(value) FROM {} where id='{}' AND time >='2020-09-07 14:00:00' AND time <='2020-09-07 21:00:00'group by time(1h)".format(measurement2, idSensor2)
+#     data2  = clientx2.query(query2)
+#     list_current_data2 = list(data2.get_points())
+#     # print(list_current_data2)
+#     return jsonify(list_current_data2)
+
+@app.route('/getRahmad')
+def getRahmad():
     idSensor2 = request.args.get('id')
     measurement2 = request.args.get('sensor')
+    latitude2 = request.args.get('latitude')
     clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
-    query2  = "SELECT MEAN(value) FROM {} where id='{}' AND time >='2020-09-07 14:00:00' AND time <='2020-09-07 21:00:00'group by time(1h)".format(measurement2, idSensor2)
+    query2  = "SELECT value FROM {} where id='{}' AND latitude= {}".format(measurement2, idSensor2, latitude2)
     data2  = clientx2.query(query2)
     list_current_data2 = list(data2.get_points())
     # print(list_current_data2)
