@@ -1071,30 +1071,31 @@ $.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1316&longitude=119.4985", fu
 });
 
 ////LOK 5///////////
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+$.getJSON("getAverageRahmad?sensor=pm10&id=015e", function (data) {
+    console.log(data);
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart23.data.labels.push(element.time);
-            chart23.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart23.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart23.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+$.getJSON("getAverageRahmad?sensor=co&id=015e", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart24.data.labels.push(element.time);
-            chart24.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart24.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart24.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+$.getJSON("getAverageRahmad?sensor=so2&id=015e", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart25.data.labels.push(element.time);
-            chart25.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart25.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart25.update();
