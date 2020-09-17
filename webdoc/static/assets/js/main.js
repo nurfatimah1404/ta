@@ -222,8 +222,8 @@ var chart11 = new Chart(ctx11, {
         labels: [],
         datasets: [{
             label: 'PM.10',
-            backgroundColor: '#6abf69',
-            borderColor: '#00600f',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
             data: [],
             lineTension: 0,
             autoSkip: true,
@@ -358,8 +358,8 @@ var chart14 = new Chart(ctx14, {
         labels: [],
         datasets: [{
             label: 'PM.10',
-            backgroundColor: '#6abf69',
-            borderColor: '#00600f',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
             data: [],
             lineTension: 0,
             autoSkip: true,
