@@ -16,23 +16,23 @@ var ctx16 = document.getElementById('chartSO2_rahmad2').getContext('2d');
 
 //LOK 3//
 var ctx17 = document.getElementById('chartPM10_rahmad3').getContext('2d');
-// var ctx18 = document.getElementById('chartCO_rahmad3').getContext('2d');
-// var ctx19 = document.getElementById('chartSO2_rahmad3').getContext('2d');
+var ctx18 = document.getElementById('chartCO_rahmad3').getContext('2d');
+var ctx19 = document.getElementById('chartSO2_rahmad3').getContext('2d');
 
 // //LOK 4//
-// var ctx20 = document.getElementById('chartPM10_rahmad4').getContext('2d');
-// var ctx21 = document.getElementById('chartCO_rahmad4').getContext('2d');
-// var ctx22 = document.getElementById('chartSO2_rahmad4').getContext('2d');
+var ctx20 = document.getElementById('chartPM10_rahmad4').getContext('2d');
+var ctx21 = document.getElementById('chartCO_rahmad4').getContext('2d');
+var ctx22 = document.getElementById('chartSO2_rahmad4').getContext('2d');
 
 // // // LOK 5//
-// var ctx21 = document.getElementById('chartPM10_rahmad5').getContext('2d');
-// var ctx22 = document.getElementById('chartCO_rahmad5').getContext('2d');
-// var ctx23 = document.getElementById('chartSO2_rahmad5').getContext('2d');
+var ctx23 = document.getElementById('chartPM10_rahmad5').getContext('2d');
+var ctx24 = document.getElementById('chartCO_rahmad5').getContext('2d');
+var ctx25 = document.getElementById('chartSO2_rahmad5').getContext('2d');
 
-// // LOK 6//
-// var ctx32 = document.getElementById('chartPM10_rahmad5').getContext('2d');
-// var ctx33 = document.getElementById('chartCO_rahmad5').getContext('2d');
-// var ctx34 = document.getElementById('chartSO2_rahmad5').getContext('2d');
+// // // LOK 6//
+// var ctx32 = document.getElementById('chartPM10_rahmad6').getContext('2d');
+// var ctx33 = document.getElementById('chartCO_rahmad6').getContext('2d');
+// var ctx34 = document.getElementById('chartSO2_rahmad6').getContext('2d');
 
 
 var dataPoints = [];
@@ -381,8 +381,8 @@ var chart14 = new Chart(ctx14, {
             // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
+                    suggestedMin: 150,
+                    suggestedMax: 50000,
                 },
                 scaleLabel: {
                     display: true,
@@ -425,8 +425,8 @@ var chart15 = new Chart(ctx15, {
             // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
+                    suggestedMin: 4,
+                    suggestedMax: 4.3,
                 },
                 scaleLabel: {
                     display: true,
@@ -469,8 +469,8 @@ var chart16 = new Chart(ctx16, {
             // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
+                    suggestedMin: 0.34,
+                    suggestedMax: 0.4,
                 },
                 scaleLabel: {
                     display: true,
@@ -484,8 +484,96 @@ var chart16 = new Chart(ctx16, {
     }
 });
 
-// LOK 3 ///
+// LOK 3 /////////////////////////////////////////////
 var chart17 = new Chart(ctx17, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'PM10',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 150,
+                    suggestedMax: 50000,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'PM10 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+var chart18 = new Chart(ctx18, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'CO',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 4,
+                    suggestedMax: 7,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'CO (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+var chart19 = new Chart(ctx19, {
     type: 'line',
     data: {
         labels: [],
@@ -515,8 +603,8 @@ var chart17 = new Chart(ctx17, {
             // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
+                    suggestedMin: 0.34,
+                    suggestedMax: 2,
                 },
                 scaleLabel: {
                     display: true,
@@ -529,6 +617,278 @@ var chart17 = new Chart(ctx17, {
         moment: 'moment'
     }
 });
+
+//// LOK 4 ///////////////////////////////
+
+var chart20 = new Chart(ctx20, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'PM10',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 150,
+                    suggestedMax: 50000,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'PM10 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+var chart21 = new Chart(ctx21, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'CO',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 4,
+                    suggestedMax: 6,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'CO (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+var chart22 = new Chart(ctx22, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'SO2',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 0.34,
+                    suggestedMax: 2,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'SO2 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+
+//// LOK 5///////////////////////////////
+
+var chart23 = new Chart(ctx23, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'PM10',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 150,
+                    suggestedMax: 50000,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'PM10 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+var chart24 = new Chart(ctx24, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'CO',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 4,
+                    suggestedMax: 4.3,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'CO (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+var chart25 = new Chart(ctx25, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'SO2',
+            backgroundColor: '#ff7961',
+            borderColor: '#ba000d',
+            data: [],
+            lineTension: 0,
+            autoSkip: true,
+            autoSkipPadding: 0,
+            spanGaps: true
+            // skipNullValues: true
+        }]
+    },
+    options: {
+        bezierCurve: true,
+        scales: {
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
+            yAxes: [{
+                ticks: {
+                    suggestedMin: 0.34,
+                    suggestedMax: 0.4,
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'SO2 (ppm)'
+                }
+            }]
+        }
+    },
+    externals: {
+        moment: 'moment'
+    }
+});
+
+
 
 
 // Get Datanya pakae AJAX
@@ -651,7 +1011,7 @@ $.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1374&longitude=119.5153", fu
 
 
 // lok 3////////////
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381", function (data) {
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1368&longitude=119.5072", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart17.data.labels.push(element.time);
@@ -660,25 +1020,86 @@ $.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381", function (data) {
     });
     chart17.update();
 });
-// $.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381", function (data) {
-//     data.forEach(element => {
-//         if (element.value != null) {
-//             chart18.data.labels.push(element.time);
-//             chart18.data.datasets[0].data.push(Number.parseFloat(element.value))
-//         }
-//     });
-//     chart18.update();
+$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1368&longitude=119.5072", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart18.data.labels.push(element.time);
+            chart18.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart18.update();
 
-// });
-// $.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381", function (data) {
-//     data.forEach(element => {
-//         if (element.value != null) {
-//             chart19.data.labels.push(element.time);
-//             chart19.data.datasets[0].data.push(Number.parseFloat(element.value))
-//         }
-//     });
-//     chart19.update();
-// });
+});
+$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1368&longitude=119.5072", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart19.data.labels.push(element.time);
+            chart19.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart19.update();
+});
+
+////LOK 4///////////
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart20.data.labels.push(element.time);
+            chart20.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart20.update();
+});
+$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart21.data.labels.push(element.time);
+            chart21.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart21.update();
+
+});
+$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart22.data.labels.push(element.time);
+            chart22.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart22.update();
+});
+
+////LOK 5///////////
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart23.data.labels.push(element.time);
+            chart23.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart23.update();
+});
+$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart24.data.labels.push(element.time);
+            chart24.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart24.update();
+
+});
+$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+    data.forEach(element => {
+        if (element.value != null) {
+            chart25.data.labels.push(element.time);
+            chart25.data.datasets[0].data.push(Number.parseFloat(element.value))
+        }
+    });
+    chart25.update();
+});
+
 
 
 
@@ -736,16 +1157,36 @@ $(document).ready(function () {
          $('#satu').show(200);
          $('#dua').hide(200);
          $('#tiga').hide(200);
+         $('#empat').hide(200);
+         $('#lima').hide(200);
      }
      function dua(){
         $('#dua').show(200);
         $('#satu').hide(200);
         $('#tiga').hide(200);
+        $('#empat').hide(200);
+        $('#lima').hide(200);
     }
     function tiga(){
         $('#satu').hide(200);
         $('#dua').hide(200);
         $('#tiga').show(200);
+        $('#empat').hide(200);
+        $('#lima').hide(200);
+    } 
+    function empat(){
+        $('#satu').hide(200);
+        $('#dua').hide(200);
+        $('#tiga').hide(200);
+        $('#empat').show(200);
+        $('#lima').hide(200);
+    }
+    function lima(){
+        $('#satu').hide(200);
+        $('#dua').hide(200);
+        $('#tiga').hide(200);
+        $('#empat').hide(200);
+        $('#lima').show(200);
     }
 });
 

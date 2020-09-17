@@ -129,8 +129,8 @@
                                     <button class="btn btn-primary"  onclick="satu();">Lokasi 1</button>
                                     <button class="btn btn-primary" onclick="dua();">Lokasi 2</button>
                                     <button class="btn btn-primary" onclick="tiga();">Lokasi 3</button>
-                                    <button class="btn btn-primary" onclick="tiga();">Lokasi 4</button>
-                                    <button class="btn btn-primary" onclick="tiga();">Lokasi 5</button>
+                                    <button class="btn btn-primary" onclick="empat();">Lokasi 4</button>
+                                    <button class="btn btn-primary" onclick="lima();">Lokasi 5</button>
                                 </div>
                                 <!-- <div class="col-12"></div> -->
                                 <div id="satu" >
@@ -265,20 +265,41 @@
     <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
     <script>
         function satu(){
-            $('#satu').show(200);
-            $('#dua').hide(200);
-            $('#tiga').hide(200);
-        }
-        function dua(){
-            $('#dua').show(200);
-            $('#satu').hide(200);
-            $('#tiga').hide(200);
-        }
-        function tiga(){
-            $('#satu').hide(200);
-            $('#dua').hide(200);
-            $('#tiga').show(200);
-        }
+         $('#satu').show(200);
+         $('#dua').hide(200);
+         $('#tiga').hide(200);
+         $('#empat').hide(200);
+         $('#lima').hide(200);
+     }
+     function dua(){
+        $('#dua').show(200);
+        $('#satu').hide(200);
+        $('#tiga').hide(200);
+        $('#empat').hide(200);
+        $('#lima').hide(200);
+    }
+    function tiga(){
+        $('#satu').hide(200);
+        $('#dua').hide(200);
+        $('#tiga').show(200);
+        $('#empat').hide(200);
+        $('#lima').hide(200);
+    } 
+    function empat(){
+        $('#satu').hide(200);
+        $('#dua').hide(200);
+        $('#tiga').hide(200);
+        $('#empat').show(200);
+        $('#lima').hide(200);
+    }
+    function lima(){
+        $('#satu').hide(200);
+        $('#dua').hide(200);
+        $('#tiga').hide(200);
+        $('#empat').hide(200);
+        $('#lima').show(200);
+    }
+
     </script>
 </body>
 
