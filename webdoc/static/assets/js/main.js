@@ -57,15 +57,15 @@ var chart1 = new Chart(ctx1, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                }
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'hour',
+            //         displayFormats: {
+            //             hour: 'YYYY-MM-DD HH:mm',
+            //         }
+            //     }
+            // }],
             yAxes: [{
                 ticks: {
                     suggestedMin: 25,
@@ -100,15 +100,15 @@ var chart2 = new Chart(ctx2, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'hour',
+            //         displayFormats: {
+            //             hour: 'YYYY-MM-DD HH:mm',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
                     suggestedMin: 30,
@@ -143,15 +143,15 @@ var chart3 = new Chart(ctx3, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'hour',
+            //         displayFormats: {
+            //             hour: 'YYYY-MM-DD HH:mm',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
                     suggestedMin: 1005,
@@ -187,15 +187,15 @@ var chart10 = new Chart(ctx10, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                }
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'hour',
+            //         displayFormats: {
+            //             hour: 'YYYY-MM-DD HH:mm',
+            //         }
+            //     }
+            // }],
             yAxes: [{
                 ticks: {
                     suggestedMin: 25,
@@ -234,19 +234,20 @@ var chart11 = new Chart(ctx11, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         timezone: 'America/Los_Angeles',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:SS',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
+                    suggestedMin: 150,
+                    suggestedMax: 50000,
                 },
                 scaleLabel: {
                     display: true,
@@ -278,19 +279,19 @@ var chart12 = new Chart(ctx12, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
+                    suggestedMin: 4,
+                    suggestedMax: 4.3,
                 },
                 scaleLabel: {
                     display: true,
@@ -322,19 +323,19 @@ var chart13 = new Chart(ctx13, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 25,
-                    suggestedMax: 40,
+                    suggestedMin: 0.34,
+                    suggestedMax: 0.4,
                 },
                 scaleLabel: {
                     display: true,
@@ -369,15 +370,15 @@ var chart14 = new Chart(ctx14, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
                     suggestedMin: 25,
@@ -413,15 +414,15 @@ var chart15 = new Chart(ctx15, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
                     suggestedMin: 25,
@@ -457,15 +458,15 @@ var chart16 = new Chart(ctx16, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
                     suggestedMin: 25,
@@ -503,15 +504,15 @@ var chart17 = new Chart(ctx17, {
     options: {
         bezierCurve: true,
         scales: {
-            xAxes: [{
-                type: 'time',
-                time: {
-                    unit: 'hour',
-                    displayFormats: {
-                        hour: 'YYYY-MM-DD HH:mm',
-                    }
-                },
-            }],
+            // xAxes: [{
+            //     type: 'time',
+            //     time: {
+            //         unit: 'minute',
+            //         displayFormats: {
+            //             minute: 'YYYY-MM-DD HH:mm:ss',
+            //         }
+            //     },
+            // }],
             yAxes: [{
                 ticks: {
                     suggestedMin: 25,
@@ -587,7 +588,7 @@ $.getJSON("getAverage?sensor=pm10&id=cd14", function (data) {
 
 // rahmad LOK 1/////////////////////////////////////////
 
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381 | longitude=119.482", function (data) {
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381&longitude=119.482", function (data) {
     console.log(data);
     data.forEach(element => {
         if (element.value != null) {
@@ -597,7 +598,7 @@ $.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381 | longitude=119.482", 
     });
     chart11.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381 | longitude=119.482", function (data) {
+$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381&longitude=119.482", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart12.data.labels.push(element.time);
@@ -607,7 +608,7 @@ $.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381 | longitude=119.482", fu
     chart12.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381|longitude=119.482", function (data) {
+$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381&longitude=119.482", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart13.data.labels.push(element.time);
@@ -619,7 +620,7 @@ $.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381|longitude=119.482", fun
 
 // lok 2///////////////////////
 
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1374|longitude=119.5153", function (data) {
+$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1374&longitude=119.5153", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart14.data.labels.push(element.time);
@@ -628,7 +629,7 @@ $.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1374|longitude=119.5153", f
     });
     chart14.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1374|longitude=119.5153", function (data) {
+$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1374&longitude=119.5153", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart15.data.labels.push(element.time);
@@ -638,7 +639,7 @@ $.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1374|longitude=119.5153", fun
     chart15.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1374|longitude=119.5153", function (data) {
+$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1374&longitude=119.5153", function (data) {
     data.forEach(element => {
         if (element.value != null) {
             chart16.data.labels.push(element.time);
