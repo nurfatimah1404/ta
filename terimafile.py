@@ -88,9 +88,10 @@ def getRahmad():
 def getFau():
     clientx3 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
     # query3  = "SELECT * FROM {} where id='{}' ".format(measurement3, idSensor3)
-    nowString = datetime.now().strftime("%Y-%m-%d")
-    pastString = (datetime.now() + timedelta(days=-60)).strftime("%Y-%m-%d")
-    query  = "SELECT * FROM pm10 where id='3F0D' AND time >='{} 09:00:00' AND time <='{} 14:00:00'".format(pastString, nowString)
+    tanggal1 = request.args.get('tanggal')
+    now = datetime.strptime(tanggal1,"%Y-%m-%d")
+    tanggal2 = (now + timedelta(days=+1)).strftime("%Y-%m-%d")
+    query  = "SELECT * FROM pm10 where id='3F0D' AND time >='{}' AND time <'{}'".format(tanggal1, tanggal2)
     data  = clientx3.query(query)
     listData = list(data.get_points())
     dataResult = []
@@ -126,6 +127,7 @@ def getFau():
             'co2' : 0 if len(dataCO2) == 0 else dataCO2[0]['value']
         })
     return jsonify(dataResult)
+    # return(tanggal1)
 
 
 @app.route('/getispu')
