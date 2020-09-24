@@ -77,27 +77,7 @@ var chart1 = new Chart(ctx1, {
                     labelString: 'Temperature (°C)'
                 }
             }]
-        },
-        annotation: {
-            events: ["click"],
-            annotations: [
-                {
-                    drawTime: "afterDatasetsDraw",
-                    id: "hline",
-                    type: "line",
-                    mode: "horizontal",
-                    scaleID: "y-axis-0",
-                    value: 32,
-                    borderColor: "red",
-                    borderWidth: 1,
-                    label: {
-                        backgroundColor: "red",
-                        content: "Ini apa",
-                        enabled: true
-                    }
-                },
-            ]
-            }
+        }
         },
         externals: {
             moment: 'moment'
@@ -227,7 +207,27 @@ var chart10 = new Chart(ctx10, {
                     labelString: 'PM10 (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 32,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -277,6 +277,7 @@ var chart11 = new Chart(ctx11, {
             }]
         }
     },
+    
     externals: {
         moment: 'moment'
     }
@@ -319,7 +320,27 @@ var chart12 = new Chart(ctx12, {
                     labelString: 'CO (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 5,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -363,7 +384,27 @@ var chart13 = new Chart(ctx13, {
                     labelString: 'SO2 (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 0.02,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -454,7 +495,27 @@ var chart15 = new Chart(ctx15, {
                     labelString: 'CO (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 5,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -498,7 +559,27 @@ var chart16 = new Chart(ctx16, {
                     labelString: 'SO2 (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 0.02,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -588,7 +669,27 @@ var chart18 = new Chart(ctx18, {
                     labelString: 'CO (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 5,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -632,7 +733,27 @@ var chart19 = new Chart(ctx19, {
                     labelString: 'SO2 (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 0.02,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -723,7 +844,27 @@ var chart21 = new Chart(ctx21, {
                     labelString: 'CO (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 5,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -767,7 +908,27 @@ var chart22 = new Chart(ctx22, {
                     labelString: 'SO2 (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 0.02,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -858,7 +1019,27 @@ var chart24 = new Chart(ctx24, {
                     labelString: 'CO (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 5,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -902,7 +1083,27 @@ var chart25 = new Chart(ctx25, {
                     labelString: 'SO2 (ppm)'
                 }
             }]
-        }
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 0.02,
+                    borderColor: "red",
+                    borderWidth: 4,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Udara Berpolusi",
+                        enabled: true
+                    }
+                },
+            ]
+            }
     },
     externals: {
         moment: 'moment'
@@ -1243,7 +1444,7 @@ $('#submit').submit(function (event) {
         data.forEach(element => {
             if (element.latitude != null || element.longitude != null) {
                 // alert(element.co);
-                if (element.co >= 2) {
+                if (element.co >= 5) {
                     marker = new mapboxgl.Marker({ color: 'red' })
                         .setLngLat([element.longitude, element.latitude])
                         .setPopup(new mapboxgl.Popup().setHTML(`
