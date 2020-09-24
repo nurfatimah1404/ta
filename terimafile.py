@@ -132,7 +132,7 @@ def getFau():
 
 @app.route('/getispu')
 def getispu():
-    idSensor4 = request.args.get('id')
+    idSensor = request.args.get('id')
     measurement4 = request.args.get('sensor')
     clientx4 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'coba')
     query4  = "SELECT * FROM {} where id='{}' ".format(measurement4, idSensor4)
