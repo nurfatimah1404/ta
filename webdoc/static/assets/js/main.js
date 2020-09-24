@@ -1203,7 +1203,13 @@ var map = new mapboxgl.Map({
 
 });
 
+currentMarker = [];
 $('#submit').submit(function(event){
+    // Hapus jika terdapat isinya
+    currentMarker.forEach(element => {
+        element.remove()
+    })
+    currentMarker = []
     event.preventDefault();
     var a1 = $('input[name=tanggal]').val();
     $('#fauzan').show(200);
@@ -1212,16 +1218,18 @@ $('#submit').submit(function(event){
         console.log(data);
         data.forEach(element => {
             if (element.latitude != null || element.longitude != null) {
-                var marker = new mapboxgl.Marker()
+                marker = new mapboxgl.Marker()
                     .setLngLat([element.longitude, element.latitude])
                     .setPopup(new mapboxgl.Popup().setHTML(`
-                    <p style="margin-bottom:0px;font-size:15px">PM10 : ${element.pm10} ppm</p><br>
-                    <p style="margin-bottom:0px;font-size:15px">CO2 : ${element.co2} ppm</p><br>
-                    <p style="margin-bottom:0px;font-size:15px">CO : ${element.co} ppm</p><br>
-                    <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Temperature : ${element.temperature} &#8451;</p><br>
-                    <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Humidity : ${element.humidity} &#37;</p><br>
+                        <p style="margin-bottom:0px;font-size:15px">PM10 : ${element.pm10} ppm</p><br>
+                        <p style="margin-bottom:0px;font-size:15px">CO2 : ${element.co2} ppm</p><br>
+                        <p style="margin-bottom:0px;font-size:15px">CO : ${element.co} ppm</p><br>
+                        <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Temperature : ${element.temperature} &#8451;</p><br>
+                        <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Humidity : ${element.humidity} &#37;</p><br>
                     `))
                     .addTo(map);
+                currentMarker.push(marker);
+                
             }
             // console.log(element);
         });
