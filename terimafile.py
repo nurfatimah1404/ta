@@ -78,7 +78,23 @@ def getRahmad():
     latitude2 = request.args.get('latitude')
     longitude2 = request.args.get('longitude')
     clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
-    query2  = "SELECT value FROM {} where id='{}' AND latitude = {} OR longitude={} ".format(measurement2, idSensor2, latitude2, longitude2)
+    query2  = "SELECT value FROM {} where id='{}' AND latitude = {} OR longitude={}  ".format(measurement2, idSensor2, latitude2, longitude2)
+    data2  = clientx2.query(query2)
+    list_current_data2 = list(data2.get_points())
+    # print(list_current_data2)
+    return jsonify(list_current_data2)
+
+@app.route('/getRahmadtes')
+def getRahmadtes():
+    idSensor2 = request.args.get('id')
+    measurement2 = request.args.get('sensor')
+    latitude2 = request.args.get('latitude')
+    longitude2 = request.args.get('longitude')
+    time1  = request.args.get('time1')
+    time2 = request.args.get('time2')
+    groupby = request.args.get('groupby')
+    clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
+    query2  = "SELECT mean(value) FROM {} where id='{}' AND latitude = {} OR longitude={} AND time >='{}' AND time <='{}' group by time('{}')  ".format(measurement2, idSensor2, latitude2, longitude2, time1, time2, groupby)
     data2  = clientx2.query(query2)
     list_current_data2 = list(data2.get_points())
     # print(list_current_data2)
@@ -129,17 +145,6 @@ def getFau():
     return jsonify(dataResult)
     # return(tanggal1)
 
-
-@app.route('/getispu')
-def getispu():
-    idSensor = request.args.get('id')
-    measurement4 = request.args.get('sensor')
-    clientx4 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', 'coba')
-    query4  = "SELECT * FROM {} where id='{}' ".format(measurement4, idSensor4)
-    data4  = clientx4.query(query4)
-    list_current_data4 = list(data4.get_points())
-    # print(list_current_data4)
-    return jsonify(list_current_data4)
 
 @app.route('/')
 def tampilkanData():
