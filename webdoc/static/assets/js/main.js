@@ -51,8 +51,9 @@ var chart1 = new Chart(ctx1, {
             // autoSkipPadding: 0,
             // spanGaps: true
             // skipNullValues: true
-        }]
-        
+        }],
+
+
     },
     options: {
         bezierCurve: true,
@@ -76,12 +77,32 @@ var chart1 = new Chart(ctx1, {
                     labelString: 'Temperature (°C)'
                 }
             }]
-        }
-    },
-    externals: {
-        moment: 'moment'
-    }
-});
+        },
+        annotation: {
+            events: ["click"],
+            annotations: [
+                {
+                    drawTime: "afterDatasetsDraw",
+                    id: "hline",
+                    type: "line",
+                    mode: "horizontal",
+                    scaleID: "y-axis-0",
+                    value: 32,
+                    borderColor: "red",
+                    borderWidth: 1,
+                    label: {
+                        backgroundColor: "red",
+                        content: "Ini apa",
+                        enabled: true
+                    }
+                },
+            ]
+            }
+        },
+        externals: {
+            moment: 'moment'
+        },
+    });
 var chart2 = new Chart(ctx2, {
     type: 'line',
     data: {
@@ -1140,49 +1161,52 @@ $(document).ready(function () {
             $('#rahmad').hide();
             $('#rahmad2').hide();
             $('#fauzan').hide();
+            $('#time').hide();
         }
         else if (a == "015e") {
             $('#rahmad').show(200);
             $('#irman').hide(200);
             $('#rahmad2').hide();
             $('#fauzan').hide();
+            $('#time').hide();
         }
         else if (a == "3F0D") {
-            $('time').show(200);
+            $('#time').show(200);
+            $('#fauzan').show(200);
             $('#irman').hide(200);
             $('#rahmad').hide();
             $('#rahmad2').hide();
         }
     });
-     function satu(){
-         $('#satu').show(200);
-         $('#dua').hide(200);
-         $('#tiga').hide(200);
-         $('#empat').hide(200);
-         $('#lima').hide(200);
-     }
-     function dua(){
+    function satu() {
+        $('#satu').show(200);
+        $('#dua').hide(200);
+        $('#tiga').hide(200);
+        $('#empat').hide(200);
+        $('#lima').hide(200);
+    }
+    function dua() {
         $('#dua').show(200);
         $('#satu').hide(200);
         $('#tiga').hide(200);
         $('#empat').hide(200);
         $('#lima').hide(200);
     }
-    function tiga(){
+    function tiga() {
         $('#satu').hide(200);
         $('#dua').hide(200);
         $('#tiga').show(200);
         $('#empat').hide(200);
         $('#lima').hide(200);
-    } 
-    function empat(){
+    }
+    function empat() {
         $('#satu').hide(200);
         $('#dua').hide(200);
         $('#tiga').hide(200);
         $('#empat').show(200);
         $('#lima').hide(200);
     }
-    function lima(){
+    function lima() {
         $('#satu').hide(200);
         $('#dua').hide(200);
         $('#tiga').hide(200);
@@ -1204,7 +1228,7 @@ var map = new mapboxgl.Map({
 });
 
 currentMarker = [];
-$('#submit').submit(function(event){
+$('#submit').submit(function (event) {
     // Hapus jika terdapat isinya
     currentMarker.forEach(element => {
         element.remove()
@@ -1212,24 +1236,41 @@ $('#submit').submit(function(event){
     currentMarker = []
     event.preventDefault();
     var a1 = $('input[name=tanggal]').val();
-    $('#fauzan').show(200);
+
     // alert(a);
     $.getJSON(`getFau?sensor=pm10&id=3F0D&tanggal=${a1}`, function (data) {
         console.log(data);
         data.forEach(element => {
             if (element.latitude != null || element.longitude != null) {
-                marker = new mapboxgl.Marker()
-                    .setLngLat([element.longitude, element.latitude])
-                    .setPopup(new mapboxgl.Popup().setHTML(`
-                        <p style="margin-bottom:0px;font-size:15px">PM10 : ${element.pm10} ppm</p><br>
-                        <p style="margin-bottom:0px;font-size:15px">CO2 : ${element.co2} ppm</p><br>
-                        <p style="margin-bottom:0px;font-size:15px">CO : ${element.co} ppm</p><br>
-                        <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Temperature : ${element.temperature} &#8451;</p><br>
-                        <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Humidity : ${element.humidity} &#37;</p><br>
-                    `))
-                    .addTo(map);
-                currentMarker.push(marker);
-                
+                // alert(element.co);
+                if (element.co >= 2) {
+                    marker = new mapboxgl.Marker({ color: 'red' })
+                        .setLngLat([element.longitude, element.latitude])
+                        .setPopup(new mapboxgl.Popup().setHTML(`
+                            <p style="margin-bottom:0px;font-size:15px">PM10 : ${element.pm10} ppm</p><br>
+                            <p style="margin-bottom:0px;font-size:15px">CO2 : ${element.co2} ppm</p><br>
+                            <p style="margin-bottom:0px;font-size:15px">CO : ${element.co} ppm</p><br>
+                            <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Temperature : ${element.temperature} &#8451;</p><br>
+                            <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Humidity : ${element.humidity} &#37;</p><br>
+                        `))
+                        .addTo(map);
+                    currentMarker.push(marker);
+                } else {
+                    marker = new mapboxgl.Marker()
+                        .setLngLat([element.longitude, element.latitude])
+                        .setPopup(new mapboxgl.Popup().setHTML(`
+                            <p style="margin-bottom:0px;font-size:15px">PM10 : ${element.pm10} ppm</p><br>
+                            <p style="margin-bottom:0px;font-size:15px">CO2 : ${element.co2} ppm</p><br>
+                            <p style="margin-bottom:0px;font-size:15px">CO : ${element.co} ppm</p><br>
+                            <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Temperature : ${element.temperature} &#8451;</p><br>
+                            <p style="margin-bottom:0px; padding-top:0px; font-size:15px">Humidity : ${element.humidity} &#37;</p><br>
+                        `))
+                        .addTo(map);
+                    currentMarker.push(marker);
+                }
+
+
+
             }
             // console.log(element);
         });

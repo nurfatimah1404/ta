@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/img/favicon.ico') }}" type="image/x-icon">
+    
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 
 <body class="bg-dark" style="margin: 0; padding: 0;">
@@ -135,8 +138,14 @@
                                 <!-- <div class="col-12"></div> -->
                                 <div id="satu" >
                                     
-                                    
+                                    <hr>
+                                    <div>
+                                        
+                                        <h3 style="text-align:center"><i class='fas fa-map-marker-alt' style='font-size:36px;color:blue'></i> Perumahan </h3>
+                                    </div>
+                                    <hr>
                                     <div class="row">
+                                       
                                         <h1>PM10</h1>
                                         <canvas id="chartPM10_rahmad"></canvas>
                                     </div>
@@ -153,7 +162,10 @@
                                 <!-- 2 -->
 
                                 <div id="dua" style="display: none;">
-                                    
+                                    <hr>
+                                    <div>
+                                        <h3 style="text-align:center"><i class='fas fa-map-marker-alt' style='font-size:36px;color:blue'></i> Lokasi 2 </h3>
+                                    </div>
                                     
                                     <div class="row">
                                         <h1>PM10</h1>
@@ -172,7 +184,10 @@
                                 <!-- 3 -->
 
                                 <div id="tiga" style="display: none;">
-                                    
+                                    <hr>
+                                    <div>
+                                        <h3 style="text-align:center"><i class='fas fa-map-marker-alt' style='font-size:36px;color:blue'></i> Lokasi 3 </h3>
+                                    </div>
                                     <div class="row">
                                         <h1>PM10</h1>
                                         <canvas id="chartPM10_rahmad3"></canvas>
@@ -190,7 +205,10 @@
                                 <!-- 4 -->
 
                                 <div id="empat" style="display: none;">
-                                    
+                                    <hr>
+                                    <div>
+                                        <h3 style="text-align:center"><i class='fas fa-map-marker-alt' style='font-size:36px;color:blue'></i> Lokasi 4 </h3>
+                                    </div>
                                     <div class="row">
                                         <h1>PM10</h1>
                                         <canvas id="chartPM10_rahmad4"></canvas>
@@ -207,7 +225,10 @@
 
                                 <!-- 5 -->
                                 <div id="lima" style="display: none;">
-                                    
+                                    <hr>
+                                    <div>
+                                        <h3 style="text-align:center"><i class='fas fa-map-marker-alt' style='font-size:36px;color:red'></i> Lokasi 5 </h3>
+                                    </div>
                                     <div class="row">
                                         <h1>PM10</h1>
                                         <canvas id="chartPM10_rahmad5"></canvas>
@@ -226,7 +247,7 @@
                             </div>
                             <!-- End Class Rahmad -->
                             <!-- Class Fauzan -->
-                            <div id="time" class="row" style="display: none;"></div>
+                            <div id="time" class="row" style="display: none;">
                                 <div class="col-12">
                                     <form id="submit" method="GET">
                                         <div class="col-6">
@@ -277,6 +298,8 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js"></script>
+    <script src="https://cdn.rawgit.com/chartjs/Chart.js/master/samples/utils.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
     <script>

@@ -54,7 +54,7 @@ def getAverage():
     measurement = request.args.get('sensor')
     clientx = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
     nowString = datetime.now().strftime("%Y-%m-%d")
-    pastString = (datetime.now() + timedelta(days=-3)).strftime("%Y-%m-%d")
+    pastString = (datetime.now() + timedelta(days=-30)).strftime("%Y-%m-%d")
     query  = "SELECT MEAN(value), stddev(value), stddev(value)/sqrt(count(value)) FROM {} where id='{}' AND time >='{} 00:00:00' AND time <='{} 23:00:00'group by time(1h)".format(measurement, idSensor, pastString, nowString)
     data  = clientx.query(query)
     list_current_data = list(data.get_points())
