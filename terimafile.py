@@ -71,18 +71,18 @@ def getAverageRahmad():
     # print(list_current_data2)
     return jsonify(list_current_data2)
 
-@app.route('/getRahmad')
-def getRahmad():
-    idSensor2 = request.args.get('id')
-    measurement2 = request.args.get('sensor')
-    latitude2 = request.args.get('latitude')
-    longitude2 = request.args.get('longitude')
-    clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
-    query2  = "SELECT value FROM {} where id='{}' AND latitude = {} OR longitude={}  ".format(measurement2, idSensor2, latitude2, longitude2)
-    data2  = clientx2.query(query2)
-    list_current_data2 = list(data2.get_points())
-    # print(list_current_data2)
-    return jsonify(list_current_data2)
+# @app.route('/getRahmad')
+# def getRahmad():
+#     idSensor2 = request.args.get('id')
+#     measurement2 = request.args.get('sensor')
+#     latitude2 = request.args.get('latitude')
+#     longitude2 = request.args.get('longitude')
+#     clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
+#     query2  = "SELECT value FROM {} where id='{}' AND latitude = {} OR longitude={}  ".format(measurement2, idSensor2, latitude2, longitude2)
+#     data2  = clientx2.query(query2)
+#     list_current_data2 = list(data2.get_points())
+#     # print(list_current_data2)
+#     return jsonify(list_current_data2)
 
 @app.route('/getRahmadtes')
 def getRahmadtes():
@@ -92,9 +92,9 @@ def getRahmadtes():
     longitude2 = request.args.get('longitude')
     time1  = request.args.get('time1')
     time2 = request.args.get('time2')
-    groupby = request.args.get('groupby')
+    # groupby = request.args.get('groupby')
     clientx2 = InfluxDBClient('182.23.82.22', 8086, 'admin', '123456', influxDBName())
-    query2  = "SELECT mean(value) FROM {} where id='{}' AND latitude = {} OR longitude={} AND time >='{}' AND time <='{}' group by time('{}')  ".format(measurement2, idSensor2, latitude2, longitude2, time1, time2, groupby)
+    query2  = "SELECT mean(value) FROM {} where id='{}' AND latitude = {} OR longitude={} AND time >='{}' AND time <='{}' group by time(20m) ".format(measurement2, idSensor2, latitude2, longitude2, time1, time2)
     data2  = clientx2.query(query2)
     list_current_data2 = list(data2.get_points())
     # print(list_current_data2)
@@ -107,7 +107,7 @@ def getFau():
     tanggal1 = request.args.get('tanggal')
     now = datetime.strptime(tanggal1,"%Y-%m-%d")
     tanggal2 = (now + timedelta(days=+1)).strftime("%Y-%m-%d")
-    query  = "SELECT * FROM pm10 where id='3F0D' AND time >='{}' AND time <'{}'".format(tanggal1, tanggal2)
+    query  = "SELECT * FROM pm10 where id='3F0D' OR id='C7CD' AND time >='{}' AND time <'{}'".format(tanggal1, tanggal2)
     data  = clientx3.query(query)
     listData = list(data.get_points())
     dataResult = []
@@ -116,19 +116,19 @@ def getFau():
         if row['longitude'] is None:
             continue
         # Ambil CO
-        queryCO = "SELECT * FROM co where id='3F0D' AND time = '{}' AND latitude = {} AND longitude = {}".format(row['time'], row['latitude'], row['longitude'])
+        queryCO = "SELECT * FROM co where id='3F0D' OR id='C7CD' AND time = '{}' AND latitude = {} AND longitude = {}".format(row['time'], row['latitude'], row['longitude'])
         dataCO  = clientx3.query(queryCO)
         dataCO = list(dataCO.get_points())
         # Ambil Temperature
-        queryTemp = "SELECT * FROM temperature where id='3F0D' AND time = '{}' AND latitude = {} AND longitude = {}".format(row['time'], row['latitude'], row['longitude'])
+        queryTemp = "SELECT * FROM temperature where id='3F0D' OR id='C7CD' AND time = '{}' AND latitude = {} AND longitude = {}".format(row['time'], row['latitude'], row['longitude'])
         dataTemp  = clientx3.query(queryTemp)
         dataTemp = list(dataTemp.get_points())
         # Ambil Humidity
-        queryHum = "SELECT * FROM humidity where id='3F0D' AND time = '{}' AND latitude = {} AND longitude = {}".format(row['time'], row['latitude'], row['longitude'])
+        queryHum = "SELECT * FROM humidity where id='3F0D' OR id='C7CD' AND time = '{}' AND latitude = {} AND longitude = {}".format(row['time'], row['latitude'], row['longitude'])
         dataHum  = clientx3.query(queryHum)
         dataHum = list(dataHum.get_points())
         # Ambil CO2
-        queryCO2 = "SELECT * FROM co2 where id='3F0D' AND time = '{}' AND latitude = {} AND longitude = {}".format(row['time'], row['latitude'], row['longitude'])
+        queryCO2 = "SELECT * FROM co2 where id='3F0D' OR id='C7CD' AND time = '{}' AND latitude = {} AND longitude = {}".format(row['time'], row['latitude'], row['longitude'])
         dataCO2  = clientx3.query(queryCO2)
         dataCO2 = list(dataCO2.get_points())
         # Susun Data

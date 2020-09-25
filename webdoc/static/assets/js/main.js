@@ -292,8 +292,8 @@ var chart12 = new Chart(ctx12, {
             // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 4,
-                    suggestedMax: 6,
+                    suggestedMin: 3.7,
+                    suggestedMax: 5.5,
                 },
                 scaleLabel: {
                     display: true,
@@ -1140,31 +1140,31 @@ $.getJSON("getAverage?sensor=pm10&id=cd14", function (data) {
 
 // rahmad LOK 1/////////////////////////////////////////
 
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1381&longitude=119.482", function (data) {
+$.getJSON("getRahmadtes?sensor=pm10&id=015e&latitude=-5.1381&longitude=119.482&time1=2020-09-07 14:30:00&time2=2020-09-07 15:49:00", function (data) {
     console.log(data);
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart11.data.labels.push(element.time);
-            chart11.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart11.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart11.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1381&longitude=119.482", function (data) {
+$.getJSON("getRahmadtes?sensor=co&id=015e&latitude=-5.1381&longitude=119.482&time1=2020-09-07 14:30:00&time2=2020-09-07 15:49:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart12.data.labels.push(element.time);
-            chart12.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart12.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart12.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381&longitude=119.482", function (data) {
+$.getJSON("getRahmadtes?sensor=so2&id=015e&latitude=-5.1381&longitude=119.482&time1=2020-09-07 14:30:00&time2=2020-09-07 15:49:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart13.data.labels.push(element.time);
-            chart13.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart13.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart13.update();
@@ -1172,30 +1172,31 @@ $.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1381&longitude=119.482", fun
 
 // lok 2///////////////////////
 
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1374&longitude=119.5153", function (data) {
+$.getJSON("getRahmadtes?sensor=pm10&id=015e&latitude=-5.1374&longitude=119.5153&time1=2020-09-07 16:20:00&time2=2020-09-07 17:50:00", function (data) {
+    console.log(data);
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart14.data.labels.push(element.time);
-            chart14.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart14.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart14.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1374&longitude=119.5153", function (data) {
+$.getJSON("getRahmadtes?sensor=co&id=015e&latitude=-5.1374&longitude=119.5153&time1=2020-09-07 16:20:00&time2=2020-09-07 17:50:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart15.data.labels.push(element.time);
-            chart15.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart15.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart15.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1374&longitude=119.5153", function (data) {
+$.getJSON("getRahmadtes?sensor=so2&id=015e&latitude=-5.1374&longitude=119.5153&time1=2020-09-07 16:20:00&time2=2020-09-07 17:50:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart16.data.labels.push(element.time);
-            chart16.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart16.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart16.update();
@@ -1203,60 +1204,60 @@ $.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1374&longitude=119.5153", fu
 
 
 // lok 3////////////
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1368&longitude=119.5072", function (data) {
+$.getJSON("getRahmadtes?sensor=pm10&id=015e&latitude=-5.1368&longitude=119.5072&time1=2020-09-07 18:30:00&time2=2020-09-07 19:59:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart17.data.labels.push(element.time);
-            chart17.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart17.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart17.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1368&longitude=119.5072", function (data) {
+$.getJSON("getRahmadtes?sensor=co&id=015e&latitude=-5.1368&longitude=119.5072&time1=2020-09-07 18:30:00&time2=2020-09-07 19:59:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart18.data.labels.push(element.time);
-            chart18.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart18.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart18.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1368&longitude=119.5072", function (data) {
+$.getJSON("getRahmadtes?sensor=so2&id=015e&latitude=-5.1368&longitude=119.5072&time1=2020-09-07 18:30:00&time2=2020-09-07 19:59:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart19.data.labels.push(element.time);
-            chart19.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart19.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart19.update();
 });
 
 ////LOK 4///////////
-$.getJSON("getRahmad?sensor=pm10&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+$.getJSON("getRahmadtes?sensor=pm10&id=015e&latitude=-5.1316&longitude=119.4985&time1=2020-09-07 20:25:00&time2=2020-09-07 21:39:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart20.data.labels.push(element.time);
-            chart20.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart20.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart20.update();
 });
-$.getJSON("getRahmad?sensor=co&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+$.getJSON("getRahmadtes?sensor=co&id=015e&latitude=-5.1316&longitude=119.4985&time1=2020-09-07 20:25:00&time2=2020-09-07 21:39:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart21.data.labels.push(element.time);
-            chart21.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart21.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart21.update();
 
 });
-$.getJSON("getRahmad?sensor=so2&id=015e&latitude=-5.1316&longitude=119.4985", function (data) {
+$.getJSON("getRahmadtes?sensor=so2&id=015e&latitude=-5.1316&longitude=119.4985&time1=2020-09-07 20:25:00&time2=2020-09-07 21:39:00", function (data) {
     data.forEach(element => {
-        if (element.value != null) {
+        if (element.mean != null) {
             chart22.data.labels.push(element.time);
-            chart22.data.datasets[0].data.push(Number.parseFloat(element.value))
+            chart22.data.datasets[0].data.push(Number.parseFloat(element.mean))
         }
     });
     chart22.update();
