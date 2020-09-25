@@ -207,27 +207,7 @@ var chart10 = new Chart(ctx10, {
                     labelString: 'PM10 (ppm)'
                 }
             }]
-        },
-        annotation: {
-            events: ["click"],
-            annotations: [
-                {
-                    drawTime: "afterDatasetsDraw",
-                    id: "hline",
-                    type: "line",
-                    mode: "horizontal",
-                    scaleID: "y-axis-0",
-                    value: 32,
-                    borderColor: "red",
-                    borderWidth: 4,
-                    label: {
-                        backgroundColor: "red",
-                        content: "Udara Berpolusi",
-                        enabled: true
-                    }
-                },
-            ]
-            }
+        }
     },
     externals: {
         moment: 'moment'
@@ -313,7 +293,7 @@ var chart12 = new Chart(ctx12, {
             yAxes: [{
                 ticks: {
                     suggestedMin: 4,
-                    suggestedMax: 4.3,
+                    suggestedMax: 6,
                 },
                 scaleLabel: {
                     display: true,
@@ -335,7 +315,6 @@ var chart12 = new Chart(ctx12, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -376,7 +355,7 @@ var chart13 = new Chart(ctx13, {
             // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 0.34,
+                    suggestedMin: 0,
                     suggestedMax: 0.4,
                 },
                 scaleLabel: {
@@ -399,7 +378,6 @@ var chart13 = new Chart(ctx13, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -510,7 +488,6 @@ var chart15 = new Chart(ctx15, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -551,7 +528,7 @@ var chart16 = new Chart(ctx16, {
             // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 0.34,
+                    suggestedMin: 0,
                     suggestedMax: 0.4,
                 },
                 scaleLabel: {
@@ -574,7 +551,6 @@ var chart16 = new Chart(ctx16, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -684,7 +660,6 @@ var chart18 = new Chart(ctx18, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -725,7 +700,7 @@ var chart19 = new Chart(ctx19, {
             // }],
             yAxes: [{
                 ticks: {
-                    suggestedMin: 0.34,
+                    suggestedMin: 0,
                     suggestedMax: 2,
                 },
                 scaleLabel: {
@@ -748,7 +723,6 @@ var chart19 = new Chart(ctx19, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -859,7 +833,6 @@ var chart21 = new Chart(ctx21, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -923,7 +896,6 @@ var chart22 = new Chart(ctx22, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -1034,7 +1006,6 @@ var chart24 = new Chart(ctx24, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
@@ -1098,7 +1069,6 @@ var chart25 = new Chart(ctx25, {
                     borderWidth: 4,
                     label: {
                         backgroundColor: "red",
-                        content: "Udara Berpolusi",
                         enabled: true
                     }
                 },
