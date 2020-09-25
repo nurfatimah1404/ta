@@ -107,7 +107,7 @@ def getFau():
     tanggal1 = request.args.get('tanggal')
     now = datetime.strptime(tanggal1,"%Y-%m-%d")
     tanggal2 = (now + timedelta(days=+1)).strftime("%Y-%m-%d")
-    query  = "SELECT * FROM pm10 where id='3F0D' OR id='C7CD' AND time >='{}' AND time <'{}'".format(tanggal1, tanggal2)
+    query  = "SELECT * FROM pm10 where id='3F0D' OR id='C7CD' OR id='25DC' AND time >='{}' AND time <'{}'".format(tanggal1, tanggal2)
     data  = clientx3.query(query)
     listData = list(data.get_points())
     dataResult = []
